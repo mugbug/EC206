@@ -1,33 +1,33 @@
-class Client(Object):
+class Client():
     def __init__(self):
         self.nome = None
         self.endereco = None
         self.cpf = None
         self.idade = None
 
-class Gerente(Object):
+class Gerente():
     def __init__(self):
         self.nome = None
-        self.email = = None
+        self.email = None
 
-class Equipamento(Object):
+class Equipamento():
     def __init__(self):
         self.modelo = None
         self.marca = None
         self.consumo = None
 
-class Consumo(Object):
+class Consumo():
     def __init__(self):
         self.horas = None
         self.consumo = None
 
-class Agencia(Object):
+class Agencia():
     def __init__(self):
         self.cidade = None
         self.endereco = None
         self.gerente = None
 
-class Suporte(Object):
+class Suporte():
     def __init__(self):
         self.chamado = None
         self.protocolo = None
