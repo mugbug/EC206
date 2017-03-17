@@ -4,76 +4,93 @@ from models import Client
 
 c = []
 
-def cadastrar():
-	cliente = Client()
-	print 'Entre com os dados:'
-	cliente.nome = raw_input('Nome:')
-	cliente.idade = raw_input('Idade:')
-	cliente.cpf = raw_input('CPF:')
-	cliente.endereco = raw_input('Endereço: ')
-	print 'Cadastrado com Sucesso!'
-	c.append(cliente)
-	
-def editar():
-	nome = raw_input('Nome do cliente para editar:')
-	flag = 0
-	for cliente in c:
-		if nome == cliente.nome:
-			print 'Entre com os novos dados do cliente:'
-			cliente.nome = raw_input('Nome:')
-			cliente.idade = raw_input('Idade:')
-			cliente.cpf = raw_input('CPF:')
-			cliente.endereco = raw_input('Endereço: ')
-			print 'Editado com Sucesso!'
-			flag = 1
-	if flag == 0:
-		print 'Cliente não encontrado!'
 
-def remover():
-	nome = raw_input('Nome do cliente para remover:')
-	flag = 0
-	for cliente in c:
-		if nome == cliente.nome:
-			c.remove(cliente)
-			flag = 1
-	if flag == 0:
-		print 'Cliente não encontrado!'
+def add():
+    """Creates new object of Client"""
+    client = Client()
+    print 'Entre com os dados:'
+    client.name = raw_input('Nome:')
+    client.age = input('Idade:')
+    client.cpf = raw_input('CPF:')
+    client.address = raw_input('Endereço: ')
+    print 'Cadastrado com Sucesso!'
+    c.append(client)
 
-def consultar():
-	nome = raw_input('Nome do cliente para consultar:')
-	flag = 0
-	for cliente in c:
-		if nome == cliente.nome:
-			print cliente.__dict__
-			flag = 1
-	if flag == 0:
-		print 'Cliente não encontrado!'
 
-def listar():
-	if c is not None:
-		for cliente in c:
-			print cliente.__dict__
-			
-	else:
-		print 'Nao tem nenhum cliente cadastrado'
-		
+def update():
+    """Lets user change some Client objects attributes"""
+    name = raw_input('Nome do cliente para editar:')
+    flag = 0
+    for client in c:
+        if name == client.name:
+            print 'Entre com os novos dados do cliente:'
+            client.name = raw_input('Nome:')
+            client.age = input('Idade:')
+            client.cpf = raw_input('CPF:')
+            client.address = raw_input('Endereço: ')
+            print 'Editado com Sucesso!'
+            flag = 1
+    if flag == 0:
+        print 'Cliente não encontrado!'
+
+
+def delete():
+    """Removes the Client object from data base"""
+    name = raw_input('Nome do cliente para remover:')
+    flag = 0
+    for client in c:
+        if name == client.name:
+            c.remove(client)
+            flag = 1
+    if flag == 0:
+        print 'Cliente não encontrado!'
+
+
+def get():
+    """Shows Client object attributes values"""
+    name = raw_input('Nome do cliente para consultar:')
+    flag = 0
+    for client in c:
+        if name == client.name:
+            print client.__dict__
+            flag = 1
+    if flag == 0:
+        print 'Cliente não encontrado!'
+
+
+def get_all():
+    """Shows all registered Client object attributes values"""
+    if c is not None:
+        for client in c:
+            print client.__dict__
+    else:
+        print 'Nao tem nenhum cliente cadastrado'
+
 if __name__ == '__main__':
-	
-	while True:
-		menu = 'Escolha o cadastro\n1- Cadastrar\n2- Editar\n3- Consultar\n4- Excluir\n5 - Listar\n0 - Sair\n'
-		opt = raw_input(menu)
-		if opt == '1':
-			cadastrar()
-		elif opt == '2':
-			editar()
-		elif opt == '3':
-			consultar()
-		elif opt == '4':
-			remover()
-		elif opt == '5':
-			listar()
-		elif opt == '0':
-			print 'Saindo...'
-		else:
-			print 'Opção invalida!'
+
+    while True:
+        menu_text = """Escolha o cadastro:
+                    1- Cadastrar
+                    2- Editar
+                    3- Consultar
+                    4- Excluir
+                    5 - Listar
+                    0 - Sair
+                """
+        opt = raw_input(menu_text)
+        if opt == '1':
+            add()
+        elif opt == '2':
+            update()
+        elif opt == '3':
+            get()
+        elif opt == '4':
+            delete()
+        elif opt == '5':
+            get_all()
+        elif opt == '0':
+            print 'Saindo...'
+            break
+        else:
+            print 'Opção invalida!'
 
