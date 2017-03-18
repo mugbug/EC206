@@ -28,55 +28,77 @@ class UIMainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("CRUD Prototype"))
         MainWindow.resize(363, 275)
+
+        # ############################# #
+        #         Central Widget        #
+        # ############################# #
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
+
+        # form_fields
         self.formLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.formLayoutWidget.setGeometry(QtCore.QRect(20, 50, 321, 141))
         self.formLayoutWidget.setObjectName(_fromUtf8("formLayoutWidget"))
+
         self.add_client_form = QtGui.QFormLayout(self.formLayoutWidget)
         self.add_client_form.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
         self.add_client_form.setObjectName(_fromUtf8("add_client_form"))
+        # name client
         self.lbl_client_name = QtGui.QLabel(self.formLayoutWidget)
         self.lbl_client_name.setObjectName(_fromUtf8("lbl_client_name"))
         self.add_client_form.setWidget(1, QtGui.QFormLayout.LabelRole, self.lbl_client_name)
         self.input_client_name = QtGui.QLineEdit(self.formLayoutWidget)
         self.input_client_name.setObjectName(_fromUtf8("input_client_name"))
         self.add_client_form.setWidget(1, QtGui.QFormLayout.FieldRole, self.input_client_name)
+        # age client
         self.lbl_client_age = QtGui.QLabel(self.formLayoutWidget)
         self.lbl_client_age.setObjectName(_fromUtf8("lbl_client_age"))
         self.add_client_form.setWidget(2, QtGui.QFormLayout.LabelRole, self.lbl_client_age)
         self.input_client_age = QtGui.QSpinBox(self.formLayoutWidget)
         self.input_client_age.setObjectName(_fromUtf8("input_client_age"))
         self.add_client_form.setWidget(2, QtGui.QFormLayout.FieldRole, self.input_client_age)
+        # address client
         self.lbl_client_address = QtGui.QLabel(self.formLayoutWidget)
         self.lbl_client_address.setObjectName(_fromUtf8("lbl_client_address"))
         self.add_client_form.setWidget(3, QtGui.QFormLayout.LabelRole, self.lbl_client_address)
         self.input_client_address = QtGui.QLineEdit(self.formLayoutWidget)
         self.input_client_address.setObjectName(_fromUtf8("input_client_address"))
         self.add_client_form.setWidget(3, QtGui.QFormLayout.FieldRole, self.input_client_address)
+        # cpf client
         self.lbl_client_cpf = QtGui.QLabel(self.formLayoutWidget)
         self.lbl_client_cpf.setObjectName(_fromUtf8("lbl_client_cpf"))
         self.add_client_form.setWidget(4, QtGui.QFormLayout.LabelRole, self.lbl_client_cpf)
         self.input_client_cpf = QtGui.QLineEdit(self.formLayoutWidget)
         self.input_client_cpf.setObjectName(_fromUtf8("input_client_cpf"))
         self.add_client_form.setWidget(4, QtGui.QFormLayout.FieldRole, self.input_client_cpf)
+
+        # make form stay always on center
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.add_client_form.setItem(0, QtGui.QFormLayout.FieldRole, spacerItem)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.add_client_form.setItem(5, QtGui.QFormLayout.FieldRole, spacerItem1)
+
+        # ############################# #
+        #          Form Buttons         #
+        # ############################# #
         self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 200, 321, 41))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+
+        # cancel button
         self.btn_cancel = QtGui.QPushButton(self.horizontalLayoutWidget)
         self.btn_cancel.setObjectName(_fromUtf8("btn_cancel"))
         self.horizontalLayout.addWidget(self.btn_cancel)
+        # align buttons
         spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
+        # create button
         self.btn_client_add = QtGui.QPushButton(self.horizontalLayoutWidget)
         self.btn_client_add.setObjectName(_fromUtf8("btn_client_add"))
         self.horizontalLayout.addWidget(self.btn_client_add)
+
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 10, 321, 31))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
@@ -84,6 +106,12 @@ class UIMainWindow(object):
         self.horizontalLayout_2.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
         self.horizontalLayout_2.setSpacing(6)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+
+        # ############################# #
+        #          Screen Title         #
+        # ############################# #
+
+        # Class
         self.lbl_path_class = QtGui.QLabel(self.horizontalLayoutWidget_2)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("OpenSymbol"))
@@ -92,6 +120,7 @@ class UIMainWindow(object):
         self.lbl_path_class.setFont(font)
         self.lbl_path_class.setObjectName(_fromUtf8("lbl_path_class"))
         self.horizontalLayout_2.addWidget(self.lbl_path_class)
+        # separator
         self.lbl_path_arrow = QtGui.QLabel(self.horizontalLayoutWidget_2)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("OpenSymbol"))
@@ -99,6 +128,7 @@ class UIMainWindow(object):
         self.lbl_path_arrow.setFont(font)
         self.lbl_path_arrow.setObjectName(_fromUtf8("lbl_path_arrow"))
         self.horizontalLayout_2.addWidget(self.lbl_path_arrow)
+        # Method
         self.lbl_path_method = QtGui.QLabel(self.horizontalLayoutWidget_2)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("OpenSymbol"))
@@ -107,115 +137,195 @@ class UIMainWindow(object):
         self.lbl_path_method.setFont(font)
         self.lbl_path_method.setObjectName(_fromUtf8("lbl_path_method"))
         self.horizontalLayout_2.addWidget(self.lbl_path_method)
+        # keeps everything aligned to left
         spacerItem3 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem3)
+
+        # add central widget to main window
         MainWindow.setCentralWidget(self.centralwidget)
+
+
+        # ############################# #
+        #            menu bar           #
+        # ############################# #
+        # creates menu bar
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 363, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
+
+        # File menu
         self.menu_file = QtGui.QMenu(self.menubar)
         self.menu_file.setObjectName(_fromUtf8("menu_file"))
+
+        # File\New menu
         self.menu_file_new = QtGui.QMenu(self.menu_file)
         self.menu_file_new.setObjectName(_fromUtf8("menu_file_new"))
+
+        # Help menu
         self.menu_help = QtGui.QMenu(self.menubar)
         self.menu_help.setGeometry(QtCore.QRect(267, 128, 135, 72))
         self.menu_help.setObjectName(_fromUtf8("menu_help"))
+
+        # Edit menu
         self.menu_edit = QtGui.QMenu(self.menubar)
         self.menu_edit.setObjectName(_fromUtf8("menu_edit"))
+
+        # Edit\Search menu
         self.menu_edit_search = QtGui.QMenu(self.menu_edit)
         self.menu_edit_search.setObjectName(_fromUtf8("menu_edit_search"))
+
+        # Edit\Update menu
         self.menu_edit_update = QtGui.QMenu(self.menu_edit)
         self.menu_edit_update.setObjectName(_fromUtf8("menu_edit_update"))
+
+        # Edit\List menu
         self.menu_edit_list = QtGui.QMenu(self.menu_edit)
         self.menu_edit_list.setObjectName(_fromUtf8("menu_edit_list"))
+
+        # Edit\Remove menu
         self.menu_edit_remove = QtGui.QMenu(self.menu_edit)
         self.menu_edit_remove.setObjectName(_fromUtf8("menu_edit_remove"))
+
+        # sets up menu bar
         MainWindow.setMenuBar(self.menubar)
+
+        # idk
         self.actionHome = QtGui.QAction(MainWindow)
         self.actionHome.setObjectName(_fromUtf8("actionHome"))
+
+        # idk2
         self.actionAbout = QtGui.QAction(MainWindow)
         self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
+
+        # Help\About button
         self.menu_help_about = QtGui.QAction(MainWindow)
         self.menu_help_about.setMenuRole(QtGui.QAction.AboutRole)
         self.menu_help_about.setObjectName(_fromUtf8("menu_help_about"))
+
+        # File\New\Client button
         self.menu_file_new_client = QtGui.QAction(MainWindow)
         self.menu_file_new_client.setObjectName(_fromUtf8("menu_file_new_client"))
+        # File\New\Manager button
         self.menu_file_new_manager = QtGui.QAction(MainWindow)
         self.menu_file_new_manager.setObjectName(_fromUtf8("menu_file_new_manager"))
+        # File\New\Equipment button
         self.menu_file_new_equipment = QtGui.QAction(MainWindow)
         self.menu_file_new_equipment.setObjectName(_fromUtf8("menu_file_new_equipment"))
+        # File\New\Agency button
         self.menu_file_new_agency = QtGui.QAction(MainWindow)
         self.menu_file_new_agency.setObjectName(_fromUtf8("menu_file_new_agency"))
+        # File\New\Support button
         self.menu_file_new_support = QtGui.QAction(MainWindow)
         self.menu_file_new_support.setObjectName(_fromUtf8("menu_file_new_support"))
+        # File\New\Consumption button
         self.menu_file_new_consumption = QtGui.QAction(MainWindow)
         self.menu_file_new_consumption.setObjectName(_fromUtf8("menu_file_new_consumption"))
+
+        # File\Import button
         self.menu_file_import = QtGui.QAction(MainWindow)
         self.menu_file_import.setObjectName(_fromUtf8("menu_file_import"))
+        # File\Export button
         self.menu_file_export = QtGui.QAction(MainWindow)
         self.menu_file_export.setObjectName(_fromUtf8("menu_file_export"))
+        # File\Logout button
         self.menu_file_logout = QtGui.QAction(MainWindow)
         self.menu_file_logout.setObjectName(_fromUtf8("menu_file_logout"))
+        # File\Generate button
         self.menu_file_generate = QtGui.QAction(MainWindow)
         self.menu_file_generate.setObjectName(_fromUtf8("menu_file_generate"))
+        # File\Quit button
         self.menu_file_quit = QtGui.QAction(MainWindow)
         self.menu_file_quit.setObjectName(_fromUtf8("menu_file_quit"))
+
+        # Edit\Search\Client button
         self.menu_edit_search_client = QtGui.QAction(MainWindow)
         self.menu_edit_search_client.setObjectName(_fromUtf8("menu_edit_search_client"))
+        # Edit\Search\Manager button
         self.menu_edit_search_manager = QtGui.QAction(MainWindow)
         self.menu_edit_search_manager.setObjectName(_fromUtf8("menu_edit_search_manager"))
+        # Edit\Search\Equipment button
         self.menu_edit_search_equipment = QtGui.QAction(MainWindow)
         self.menu_edit_search_equipment.setObjectName(_fromUtf8("menu_edit_search_equipment"))
+        # Edit\Search\Agency button
         self.menu_edit_search_agency = QtGui.QAction(MainWindow)
         self.menu_edit_search_agency.setObjectName(_fromUtf8("menu_edit_search_agency"))
+        # Edit\Search\Consumption button
         self.menu_edit_search_consumption = QtGui.QAction(MainWindow)
         self.menu_edit_search_consumption.setObjectName(_fromUtf8("menu_edit_search_consumption"))
+        # Edit\Search\Support button
         self.menu_edit_search_support = QtGui.QAction(MainWindow)
         self.menu_edit_search_support.setObjectName(_fromUtf8("menu_edit_search_support"))
+        # Edit\Search\All button
         self.menu_edit_search_all = QtGui.QAction(MainWindow)
         self.menu_edit_search_all.setObjectName(_fromUtf8("menu_edit_search_all"))
+
+        # Edit\Update\Client button
         self.menu_edit_update_client = QtGui.QAction(MainWindow)
         self.menu_edit_update_client.setObjectName(_fromUtf8("menu_edit_update_client"))
+        # Edit\Update\Manager button
         self.menu_edit_update_manager = QtGui.QAction(MainWindow)
         self.menu_edit_update_manager.setObjectName(_fromUtf8("menu_edit_update_manager"))
+        # Edit\Update\Equipment button
         self.menu_edit_update_equipment = QtGui.QAction(MainWindow)
         self.menu_edit_update_equipment.setObjectName(_fromUtf8("menu_edit_update_equipment"))
+        # Edit\Update\Agency button
         self.menu_edit_update_agency = QtGui.QAction(MainWindow)
         self.menu_edit_update_agency.setObjectName(_fromUtf8("menu_edit_update_agency"))
+        # Edit\Update\Consumption button
         self.menu_edit_update_consumption = QtGui.QAction(MainWindow)
         self.menu_edit_update_consumption.setObjectName(_fromUtf8("menu_edit_update_consumption"))
+        # Edit\Update\Support button
         self.menu_edit_update_support = QtGui.QAction(MainWindow)
         self.menu_edit_update_support.setObjectName(_fromUtf8("menu_edit_update_support"))
+        # Edit\Update\All button
         self.menu_edit_update_all = QtGui.QAction(MainWindow)
         self.menu_edit_update_all.setObjectName(_fromUtf8("menu_edit_update_all"))
+
+        # Edit\List\Client button
         self.menu_edit_list_client = QtGui.QAction(MainWindow)
         self.menu_edit_list_client.setObjectName(_fromUtf8("menu_edit_list_client"))
+        # Edit\List\Manager button
         self.menu_edit_list_manager = QtGui.QAction(MainWindow)
         self.menu_edit_list_manager.setObjectName(_fromUtf8("menu_edit_list_manager"))
+        # Edit\List\Equipment button
         self.menu_edit_list_equipment = QtGui.QAction(MainWindow)
         self.menu_edit_list_equipment.setObjectName(_fromUtf8("menu_edit_list_equipment"))
+        # Edit\List\Agency button
         self.menu_edit_list_agency = QtGui.QAction(MainWindow)
         self.menu_edit_list_agency.setObjectName(_fromUtf8("menu_edit_list_agency"))
+        # Edit\List\Consumption button
         self.menu_edit_list_consumption = QtGui.QAction(MainWindow)
         self.menu_edit_list_consumption.setObjectName(_fromUtf8("menu_edit_list_consumption"))
+        # Edit\List\Support button
         self.menu_edit_list_support = QtGui.QAction(MainWindow)
         self.menu_edit_list_support.setObjectName(_fromUtf8("menu_edit_list_support"))
+        # Edit\List\All button
         self.menu_edit_list_all = QtGui.QAction(MainWindow)
         self.menu_edit_list_all.setObjectName(_fromUtf8("menu_edit_list_all"))
+
+        # Edit\Remove\Client button
         self.menu_edit_remove_client = QtGui.QAction(MainWindow)
         self.menu_edit_remove_client.setObjectName(_fromUtf8("menu_edit_remove_client"))
+        # Edit\Remove\Manager button
         self.menu_edit_remove_manager = QtGui.QAction(MainWindow)
         self.menu_edit_remove_manager.setObjectName(_fromUtf8("menu_edit_remove_manager"))
+        # Edit\Remove\Equipment button
         self.menu_edit_remove_equipment = QtGui.QAction(MainWindow)
         self.menu_edit_remove_equipment.setObjectName(_fromUtf8("menu_edit_remove_equipment"))
+        # Edit\Remove\Agency button
         self.menu_edit_remove_agency = QtGui.QAction(MainWindow)
         self.menu_edit_remove_agency.setObjectName(_fromUtf8("menu_edit_remove_agency"))
+        # Edit\Remove\Consumption button
         self.menu_edit_remove_consumption = QtGui.QAction(MainWindow)
         self.menu_edit_remove_consumption.setObjectName(_fromUtf8("menu_edit_remove_consumption"))
+        # Edit\Remove\Support button
         self.menu_edit_remove_support = QtGui.QAction(MainWindow)
         self.menu_edit_remove_support.setObjectName(_fromUtf8("menu_edit_remove_support"))
+        # Edit\Remove\All button
         self.menu_edit_remove_all = QtGui.QAction(MainWindow)
         self.menu_edit_remove_all.setObjectName(_fromUtf8("menu_edit_remove_all"))
+
+        # File menu packing
         self.menu_file_new.addAction(self.menu_file_new_client)
         self.menu_file_new.addAction(self.menu_file_new_manager)
         self.menu_file_new.addAction(self.menu_file_new_equipment)
@@ -232,7 +342,12 @@ class UIMainWindow(object):
         self.menu_file.addAction(self.menu_file_logout)
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.menu_file_quit)
+
+        # Help menu packing
         self.menu_help.addAction(self.menu_help_about)
+
+        # Edit menu packing
+        # Edit\Search menu packing
         self.menu_edit_search.addAction(self.menu_edit_search_client)
         self.menu_edit_search.addAction(self.menu_edit_search_manager)
         self.menu_edit_search.addAction(self.menu_edit_search_equipment)
@@ -241,6 +356,7 @@ class UIMainWindow(object):
         self.menu_edit_search.addAction(self.menu_edit_search_support)
         self.menu_edit_search.addSeparator()
         self.menu_edit_search.addAction(self.menu_edit_search_all)
+        # Edit\Update menu packing
         self.menu_edit_update.addAction(self.menu_edit_update_client)
         self.menu_edit_update.addAction(self.menu_edit_update_manager)
         self.menu_edit_update.addAction(self.menu_edit_update_equipment)
@@ -249,6 +365,7 @@ class UIMainWindow(object):
         self.menu_edit_update.addAction(self.menu_edit_update_support)
         self.menu_edit_update.addSeparator()
         self.menu_edit_update.addAction(self.menu_edit_update_all)
+        # Edit\List menu packing
         self.menu_edit_list.addAction(self.menu_edit_list_client)
         self.menu_edit_list.addAction(self.menu_edit_list_manager)
         self.menu_edit_list.addAction(self.menu_edit_list_equipment)
@@ -257,6 +374,7 @@ class UIMainWindow(object):
         self.menu_edit_list.addAction(self.menu_edit_list_support)
         self.menu_edit_list.addSeparator()
         self.menu_edit_list.addAction(self.menu_edit_list_all)
+        # Edit\Remove menu packing
         self.menu_edit_remove.addAction(self.menu_edit_remove_client)
         self.menu_edit_remove.addAction(self.menu_edit_remove_manager)
         self.menu_edit_remove.addAction(self.menu_edit_remove_equipment)
@@ -265,10 +383,13 @@ class UIMainWindow(object):
         self.menu_edit_remove.addAction(self.menu_edit_remove_support)
         self.menu_edit_remove.addSeparator()
         self.menu_edit_remove.addAction(self.menu_edit_remove_all)
+        # Edit menu packing
         self.menu_edit.addAction(self.menu_edit_search.menuAction())
         self.menu_edit.addAction(self.menu_edit_update.menuAction())
         self.menu_edit.addAction(self.menu_edit_list.menuAction())
         self.menu_edit.addAction(self.menu_edit_remove.menuAction())
+
+        # MenuBar packing
         self.menubar.addAction(self.menu_file.menuAction())
         self.menubar.addAction(self.menu_edit.menuAction())
         self.menubar.addAction(self.menu_help.menuAction())
