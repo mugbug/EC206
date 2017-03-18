@@ -35,11 +35,12 @@ class UIMainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
 
-        # form_fields
+        # creates widget to form
         self.formLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.formLayoutWidget.setGeometry(QtCore.QRect(20, 50, 321, 141))
         self.formLayoutWidget.setObjectName(_fromUtf8("formLayoutWidget"))
 
+        # creates form
         self.add_client_form = QtGui.QFormLayout(self.formLayoutWidget)
         self.add_client_form.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
         self.add_client_form.setObjectName(_fromUtf8("add_client_form"))
@@ -144,63 +145,39 @@ class UIMainWindow(object):
         # add central widget to main window
         MainWindow.setCentralWidget(self.centralwidget)
 
+        # ############################# #
+        #            Menu Bar           #
+        # ############################# #
 
-        # ############################# #
-        #            menu bar           #
-        # ############################# #
         # creates menu bar
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 363, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
 
-        # File menu
+        # ############################# #
+        #            File menu          #
+        # ############################# #
+
         self.menu_file = QtGui.QMenu(self.menubar)
         self.menu_file.setObjectName(_fromUtf8("menu_file"))
-
         # File\New menu
         self.menu_file_new = QtGui.QMenu(self.menu_file)
         self.menu_file_new.setObjectName(_fromUtf8("menu_file_new"))
-
-        # Help menu
-        self.menu_help = QtGui.QMenu(self.menubar)
-        self.menu_help.setGeometry(QtCore.QRect(267, 128, 135, 72))
-        self.menu_help.setObjectName(_fromUtf8("menu_help"))
-
-        # Edit menu
-        self.menu_edit = QtGui.QMenu(self.menubar)
-        self.menu_edit.setObjectName(_fromUtf8("menu_edit"))
-
-        # Edit\Search menu
-        self.menu_edit_search = QtGui.QMenu(self.menu_edit)
-        self.menu_edit_search.setObjectName(_fromUtf8("menu_edit_search"))
-
-        # Edit\Update menu
-        self.menu_edit_update = QtGui.QMenu(self.menu_edit)
-        self.menu_edit_update.setObjectName(_fromUtf8("menu_edit_update"))
-
-        # Edit\List menu
-        self.menu_edit_list = QtGui.QMenu(self.menu_edit)
-        self.menu_edit_list.setObjectName(_fromUtf8("menu_edit_list"))
-
-        # Edit\Remove menu
-        self.menu_edit_remove = QtGui.QMenu(self.menu_edit)
-        self.menu_edit_remove.setObjectName(_fromUtf8("menu_edit_remove"))
-
-        # sets up menu bar
-        MainWindow.setMenuBar(self.menubar)
-
-        # idk
-        self.actionHome = QtGui.QAction(MainWindow)
-        self.actionHome.setObjectName(_fromUtf8("actionHome"))
-
-        # idk2
-        self.actionAbout = QtGui.QAction(MainWindow)
-        self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
-
-        # Help\About button
-        self.menu_help_about = QtGui.QAction(MainWindow)
-        self.menu_help_about.setMenuRole(QtGui.QAction.AboutRole)
-        self.menu_help_about.setObjectName(_fromUtf8("menu_help_about"))
+        # File\Import button
+        self.menu_file_import = QtGui.QAction(MainWindow)
+        self.menu_file_import.setObjectName(_fromUtf8("menu_file_import"))
+        # File\Export button
+        self.menu_file_export = QtGui.QAction(MainWindow)
+        self.menu_file_export.setObjectName(_fromUtf8("menu_file_export"))
+        # File\Logout button
+        self.menu_file_logout = QtGui.QAction(MainWindow)
+        self.menu_file_logout.setObjectName(_fromUtf8("menu_file_logout"))
+        # File\Generate button
+        self.menu_file_generate = QtGui.QAction(MainWindow)
+        self.menu_file_generate.setObjectName(_fromUtf8("menu_file_generate"))
+        # File\Quit button
+        self.menu_file_quit = QtGui.QAction(MainWindow)
+        self.menu_file_quit.setObjectName(_fromUtf8("menu_file_quit"))
 
         # File\New\Client button
         self.menu_file_new_client = QtGui.QAction(MainWindow)
@@ -221,21 +198,24 @@ class UIMainWindow(object):
         self.menu_file_new_consumption = QtGui.QAction(MainWindow)
         self.menu_file_new_consumption.setObjectName(_fromUtf8("menu_file_new_consumption"))
 
-        # File\Import button
-        self.menu_file_import = QtGui.QAction(MainWindow)
-        self.menu_file_import.setObjectName(_fromUtf8("menu_file_import"))
-        # File\Export button
-        self.menu_file_export = QtGui.QAction(MainWindow)
-        self.menu_file_export.setObjectName(_fromUtf8("menu_file_export"))
-        # File\Logout button
-        self.menu_file_logout = QtGui.QAction(MainWindow)
-        self.menu_file_logout.setObjectName(_fromUtf8("menu_file_logout"))
-        # File\Generate button
-        self.menu_file_generate = QtGui.QAction(MainWindow)
-        self.menu_file_generate.setObjectName(_fromUtf8("menu_file_generate"))
-        # File\Quit button
-        self.menu_file_quit = QtGui.QAction(MainWindow)
-        self.menu_file_quit.setObjectName(_fromUtf8("menu_file_quit"))
+        # ############################# #
+        #            Edit menu          #
+        # ############################# #
+
+        self.menu_edit = QtGui.QMenu(self.menubar)
+        self.menu_edit.setObjectName(_fromUtf8("menu_edit"))
+        # Edit\Search menu
+        self.menu_edit_search = QtGui.QMenu(self.menu_edit)
+        self.menu_edit_search.setObjectName(_fromUtf8("menu_edit_search"))
+        # Edit\Update menu
+        self.menu_edit_update = QtGui.QMenu(self.menu_edit)
+        self.menu_edit_update.setObjectName(_fromUtf8("menu_edit_update"))
+        # Edit\List menu
+        self.menu_edit_list = QtGui.QMenu(self.menu_edit)
+        self.menu_edit_list.setObjectName(_fromUtf8("menu_edit_list"))
+        # Edit\Remove menu
+        self.menu_edit_remove = QtGui.QMenu(self.menu_edit)
+        self.menu_edit_remove.setObjectName(_fromUtf8("menu_edit_remove"))
 
         # Edit\Search\Client button
         self.menu_edit_search_client = QtGui.QAction(MainWindow)
@@ -325,6 +305,24 @@ class UIMainWindow(object):
         self.menu_edit_remove_all = QtGui.QAction(MainWindow)
         self.menu_edit_remove_all.setObjectName(_fromUtf8("menu_edit_remove_all"))
 
+        # ############################# #
+        #            Help menu          #
+        # ############################# #
+        self.menu_help = QtGui.QMenu(self.menubar)
+        self.menu_help.setGeometry(QtCore.QRect(267, 128, 135, 72))
+        self.menu_help.setObjectName(_fromUtf8("menu_help"))
+        # Help\About button
+        self.menu_help_about = QtGui.QAction(MainWindow)
+        self.menu_help_about.setMenuRole(QtGui.QAction.AboutRole)
+        self.menu_help_about.setObjectName(_fromUtf8("menu_help_about"))
+
+        # Packs menu bar into main window
+        MainWindow.setMenuBar(self.menubar)
+
+        # ############################# #
+        #       Menu Items Packing      #
+        # ############################# #
+
         # File menu packing
         self.menu_file_new.addAction(self.menu_file_new_client)
         self.menu_file_new.addAction(self.menu_file_new_manager)
@@ -342,9 +340,6 @@ class UIMainWindow(object):
         self.menu_file.addAction(self.menu_file_logout)
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.menu_file_quit)
-
-        # Help menu packing
-        self.menu_help.addAction(self.menu_help_about)
 
         # Edit menu packing
         # Edit\Search menu packing
@@ -389,6 +384,9 @@ class UIMainWindow(object):
         self.menu_edit.addAction(self.menu_edit_list.menuAction())
         self.menu_edit.addAction(self.menu_edit_remove.menuAction())
 
+        # Help menu packing
+        self.menu_help.addAction(self.menu_help_about)
+
         # MenuBar packing
         self.menubar.addAction(self.menu_file.menuAction())
         self.menubar.addAction(self.menu_edit.menuAction())
@@ -399,7 +397,7 @@ class UIMainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "CRUD Prototype", None))
         self.lbl_client_name.setText(_translate("MainWindow", "Nome:", None))
         self.lbl_client_age.setText(_translate("MainWindow", "Idade:", None))
         self.lbl_client_address.setText(_translate("MainWindow", "Endereço:", None))
@@ -417,8 +415,6 @@ class UIMainWindow(object):
         self.menu_edit_update.setTitle(_translate("MainWindow", "Update", None))
         self.menu_edit_list.setTitle(_translate("MainWindow", "List", None))
         self.menu_edit_remove.setTitle(_translate("MainWindow", "Remove", None))
-        self.actionHome.setText(_translate("MainWindow", "Home", None))
-        self.actionAbout.setText(_translate("MainWindow", "About", None))
         self.menu_help_about.setText(_translate("MainWindow", "About", None))
         self.menu_file_new_client.setText(_translate("MainWindow", "Client", None))
         self.menu_file_new_manager.setText(_translate("MainWindow", "Manager", None))
