@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Pedro Zaroni</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>363</width>
+    <height>275</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>321</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="add_client_form">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbl_client_name">
+       <property name="text">
+        <string>Nome:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="input_client_name"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lbl_client_age">
+       <property name="text">
+        <string>Idade:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="input_client_age"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lbl_client_address">
+       <property name="text">
+        <string>Endereço:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="input_client_address"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lbl_client_cpf">
+       <property name="text">
+        <string>CPF:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="input_client_cpf"/>
+     </item>
+     <item row="0" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_client_add">
+       <property name="text">
+        <string>Create</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>321</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="lbl_path_class">
+       <property name="font">
+        <font>
+         <family>OpenSymbol</family>
+         <pointsize>12</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string>Client</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_path_arrow">
+       <property name="font">
+        <font>
+         <family>OpenSymbol</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_path_method">
+       <property name="font">
+        <font>
+         <family>OpenSymbol</family>
+         <pointsize>12</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string>Add</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>363</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menu_file_new">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="menu_file_new_client"/>
+     <addaction name="menu_file_new_manager"/>
+     <addaction name="menu_file_new_equipment"/>
+     <addaction name="menu_file_new_agency"/>
+     <addaction name="menu_file_new_consumption"/>
+     <addaction name="menu_file_new_support"/>
+    </widget>
+    <addaction name="menu_file_new"/>
+    <addaction name="separator"/>
+    <addaction name="menu_file_import"/>
+    <addaction name="menu_file_export"/>
+    <addaction name="separator"/>
+    <addaction name="menu_file_generate"/>
+    <addaction name="separator"/>
+    <addaction name="menu_file_logout"/>
+    <addaction name="separator"/>
+    <addaction name="menu_file_quit"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="geometry">
+     <rect>
+      <x>267</x>
+      <y>128</y>
+      <width>135</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="menu_help_about"/>
+   </widget>
+   <widget class="QMenu" name="menu_edit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menu_edit_search">
+     <property name="title">
+      <string>Search</string>
+     </property>
+     <addaction name="menu_edit_search_client"/>
+     <addaction name="menu_edit_search_manager"/>
+     <addaction name="menu_edit_search_equipment"/>
+     <addaction name="menu_edit_search_agency"/>
+     <addaction name="menu_edit_search_consumption"/>
+     <addaction name="menu_edit_search_support"/>
+     <addaction name="separator"/>
+     <addaction name="menu_edit_search_all"/>
+    </widget>
+    <widget class="QMenu" name="menu_edit_update">
+     <property name="title">
+      <string>Update</string>
+     </property>
+     <addaction name="menu_edit_update_client"/>
+     <addaction name="menu_edit_update_manager"/>
+     <addaction name="menu_edit_update_equipment"/>
+     <addaction name="menu_edit_update_agency"/>
+     <addaction name="menu_edit_update_consumption"/>
+     <addaction name="menu_edit_update_support"/>
+     <addaction name="separator"/>
+     <addaction name="menu_edit_update_all"/>
+    </widget>
+    <widget class="QMenu" name="menu_edit_list">
+     <property name="title">
+      <string>List</string>
+     </property>
+     <addaction name="menu_edit_list_client"/>
+     <addaction name="menu_edit_list_manager"/>
+     <addaction name="menu_edit_list_equipment"/>
+     <addaction name="menu_edit_list_agency"/>
+     <addaction name="menu_edit_list_consumption"/>
+     <addaction name="menu_edit_list_support"/>
+     <addaction name="separator"/>
+     <addaction name="menu_edit_list_all"/>
+    </widget>
+    <widget class="QMenu" name="menu_edit_remove">
+     <property name="title">
+      <string>Remove</string>
+     </property>
+     <addaction name="menu_edit_remove_client"/>
+     <addaction name="menu_edit_remove_manager"/>
+     <addaction name="menu_edit_remove_equipment"/>
+     <addaction name="menu_edit_remove_agency"/>
+     <addaction name="menu_edit_remove_consumption"/>
+     <addaction name="menu_edit_remove_support"/>
+     <addaction name="separator"/>
+     <addaction name="menu_edit_remove_all"/>
+    </widget>
+    <addaction name="menu_edit_search"/>
+    <addaction name="menu_edit_update"/>
+    <addaction name="menu_edit_list"/>
+    <addaction name="menu_edit_remove"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_edit"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <action name="actionHome">
+   <property name="text">
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menu_help_about">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+  <action name="menu_file_new_client">
+   <property name="text">
+    <string>Client</string>
+   </property>
+  </action>
+  <action name="menu_file_new_manager">
+   <property name="text">
+    <string>Manager</string>
+   </property>
+  </action>
+  <action name="menu_file_new_equipment">
+   <property name="text">
+    <string>Equipment</string>
+   </property>
+  </action>
+  <action name="menu_file_new_agency">
+   <property name="text">
+    <string>Agency</string>
+   </property>
+  </action>
+  <action name="menu_file_new_support">
+   <property name="text">
+    <string>Support</string>
+   </property>
+  </action>
+  <action name="menu_file_new_consumption">
+   <property name="text">
+    <string>Consumption</string>
+   </property>
+  </action>
+  <action name="menu_file_import">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="menu_file_export">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="menu_file_logout">
+   <property name="text">
+    <string>Log out</string>
+   </property>
+  </action>
+  <action name="menu_file_generate">
+   <property name="text">
+    <string>Generate report (.pdf)</string>
+   </property>
+  </action>
+  <action name="menu_file_quit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_client">
+   <property name="text">
+    <string>Client</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_manager">
+   <property name="text">
+    <string>Manager</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_equipment">
+   <property name="text">
+    <string>Equipment</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_agency">
+   <property name="text">
+    <string>Agency</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_consumption">
+   <property name="text">
+    <string>Consumption</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_support">
+   <property name="text">
+    <string>Support</string>
+   </property>
+  </action>
+  <action name="menu_edit_search_all">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_client">
+   <property name="text">
+    <string>Client</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_manager">
+   <property name="text">
+    <string>Manager</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_equipment">
+   <property name="text">
+    <string>Equipment</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_agency">
+   <property name="text">
+    <string>Agency</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_consumption">
+   <property name="text">
+    <string>Consumption</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_support">
+   <property name="text">
+    <string>Support</string>
+   </property>
+  </action>
+  <action name="menu_edit_update_all">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_client">
+   <property name="text">
+    <string>Client</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_manager">
+   <property name="text">
+    <string>Manager</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_equipment">
+   <property name="text">
+    <string>Equipment</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_agency">
+   <property name="text">
+    <string>Agency</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_consumption">
+   <property name="text">
+    <string>Consumption</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_support">
+   <property name="text">
+    <string>Support</string>
+   </property>
+  </action>
+  <action name="menu_edit_list_all">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_client">
+   <property name="text">
+    <string>Client</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_manager">
+   <property name="text">
+    <string>Manager</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_equipment">
+   <property name="text">
+    <string>Equipment</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_agency">
+   <property name="text">
+    <string>Agency</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_consumption">
+   <property name="text">
+    <string>Consumption</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_support">
+   <property name="text">
+    <string>Support</string>
+   </property>
+  </action>
+  <action name="menu_edit_remove_all">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
