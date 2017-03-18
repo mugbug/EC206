@@ -1,10 +1,9 @@
 class Client(object):
-    def __init__(self):
-        self.name = None
-        self.address = None
-        self.cpf = None
-        self.age = None
-
+    def __init__(self, name, address, cpf, age):
+        self.name = name
+        self.address = address
+        self.cpf = cpf
+        self.age = age
 
 class Manager(object):
     def __init__(self):
