@@ -5,6 +5,7 @@ class Client(object):
         self.cpf = cpf
         self.age = age
 
+
 class Manager(object):
     def __init__(self):
         self.name = None

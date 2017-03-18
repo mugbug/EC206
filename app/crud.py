@@ -5,20 +5,15 @@ from models import *
 
 c = []
 
-class Client(object):
+
+class ClientIO(object):
 
     @staticmethod
-    def add():
+    def add(name, address, cpf, age):
         """Creates new object of Client"""
 
-        print 'Entre com os dados:'
-        name = raw_input('Nome:')
-        age = input('Idade:')
-        cpf = raw_input('CPF:')
-        address = raw_input('Endereço: ')
-        client = Client(name, age, cpf, address)
+        client = Client(name, address, cpf, age)
         c.append(client)
-        print 'Cadastrado com Sucesso!'
 
     @staticmethod
     def update():
@@ -29,7 +24,7 @@ class Client(object):
         for client in c:
             if name == client.name:
                 print 'Entre com os novos dados do cliente:'
-                client.name = raw_input('Nome:')
+                client.set = raw_input('Nome:')
                 client.age = input('Idade:')
                 client.cpf = raw_input('CPF:')
                 client.address = raw_input('Endereço: ')

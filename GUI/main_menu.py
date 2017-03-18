@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+from gui_listener import ButtonListener
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -22,9 +23,10 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_MainWindow(object):
+
+class UIMainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName(_fromUtf8("MainWindow"))
+        MainWindow.setObjectName(_fromUtf8("CRUD Prototype"))
         MainWindow.resize(363, 275)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -271,6 +273,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu_edit.menuAction())
         self.menubar.addAction(self.menu_help.menuAction())
 
+        self.listeners()
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -337,14 +340,7 @@ class Ui_MainWindow(object):
         self.menu_edit_remove_support.setText(_translate("MainWindow", "Support", None))
         self.menu_edit_remove_all.setText(_translate("MainWindow", "All", None))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    app.setStyle(QtGui.QStyleFactory.create('Plastique'))
-    MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
-
+    def listeners(self):
+        self.btn_client_add.clicked.connect(lambda: ButtonListener.add_client(
+            self.input_client_name, self.input_client_address,
+            self.input_client_cpf, self.input_client_age))
