@@ -5,7 +5,7 @@ from PyQt4 import QtGui
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    app.setStyle(QtGui.QStyleFactory.create('mac'))
+    app.setStyle(QtGui.QStyleFactory.create('plastique'))
     main_window = QtGui.QMainWindow()
     ui = UIMainWindow()
     ui.setupUi(main_window)
