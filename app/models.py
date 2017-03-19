@@ -19,17 +19,17 @@ class Equipment(object):
         self.consumption = consumption
 
 
-class Consumption(object):
-    def __init__(self, time, consumption):
-        self.time = time
-        self.consumption = consumption
-
-
 class Agency(object):
     def __init__(self, city, address, manager):
         self.city = city
         self.address = address
         self.manager = manager
+
+
+class Consumption(object):
+    def __init__(self, time, consumption):
+        self.time = time
+        self.consumption = consumption
 
 
 class Support(object):
