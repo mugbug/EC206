@@ -100,17 +100,17 @@ class UIMainWindow(object):
         self.btn_add.setObjectName(_fromUtf8("btn_add"))
         self.horizontalLayout.addWidget(self.btn_add)
 
+        # ############################# #
+        #          Screen Title         #
+        # ############################# #
+
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 10, 321, 31))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 10, 321, 40))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
         self.horizontalLayout_2.setSpacing(6)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-
-        # ############################# #
-        #          Screen Title         #
-        # ############################# #
 
         # Class
         self.lbl_path_class = QtGui.QLabel(self.horizontalLayoutWidget_2)
@@ -461,48 +461,75 @@ class UIMainWindow(object):
         # ############################# #
         #               New             #
         # ############################# #
-
+        lbl_forms = [self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4, ]
+        form_inputs = [self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4, ]
         # client
         self.menu_file_new_client.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_client.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
         ))
         # manager
         self.menu_file_new_manager.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_manager.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+            lbl_forms, form_inputs
         ))
         # equipment
         self.menu_file_new_equipment.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_equipment.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+            lbl_forms, form_inputs
         ))
         # agency
         self.menu_file_new_agency.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_agency.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+            lbl_forms, form_inputs
         ))
         # consumption
         self.menu_file_new_consumption.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_consumption.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+            lbl_forms, form_inputs
         ))
         # support
         self.menu_file_new_support.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_support.text()), self.lbl_path_class, self.lbl_path_method,
-            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
-            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+            lbl_forms, form_inputs
+        ))
+        # ############################# #
+        #             Update            #
+        # ############################# #
+
+        # client
+        self.menu_edit_search_client.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_client.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # manager
+        self.menu_edit_search_manager.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # equipment
+        self.menu_edit_search_equipment.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # agency
+        self.menu_edit_search_agency.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # consumption
+        self.menu_edit_search_consumption.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # support
+        self.menu_edit_search_support.triggered.connect(lambda: ButtonListener.search_screen_update(
+            str(self.menu_file_new_support.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
         ))
         # ############################# #
         #          Form buttons         #
         # ############################# #
         self.btn_add.clicked.connect(lambda: ButtonListener.add_client(
-            self.form_input_1, self.form_input_2,
-            self.form_input_3, self.form_input_4)
-                                            )
+            str(self.lbl_path_class.text()), form_inputs
+        ))
         self.btn_cancel.clicked.connect(lambda: ButtonListener.cancel())
