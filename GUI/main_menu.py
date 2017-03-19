@@ -41,43 +41,43 @@ class UIMainWindow(object):
         self.formLayoutWidget.setObjectName(_fromUtf8("formLayoutWidget"))
 
         # creates form
-        self.add_client_form = QtGui.QFormLayout(self.formLayoutWidget)
-        self.add_client_form.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
-        self.add_client_form.setObjectName(_fromUtf8("add_client_form"))
+        self.add_form = QtGui.QFormLayout(self.formLayoutWidget)
+        self.add_form.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
+        self.add_form.setObjectName(_fromUtf8("add_form"))
         # name client
-        self.lbl_client_name = QtGui.QLabel(self.formLayoutWidget)
-        self.lbl_client_name.setObjectName(_fromUtf8("lbl_client_name"))
-        self.add_client_form.setWidget(1, QtGui.QFormLayout.LabelRole, self.lbl_client_name)
-        self.input_client_name = QtGui.QLineEdit(self.formLayoutWidget)
-        self.input_client_name.setObjectName(_fromUtf8("input_client_name"))
-        self.add_client_form.setWidget(1, QtGui.QFormLayout.FieldRole, self.input_client_name)
+        self.lbl_form_1 = QtGui.QLabel(self.formLayoutWidget)
+        self.lbl_form_1.setObjectName(_fromUtf8("lbl_form_1"))
+        self.add_form.setWidget(1, QtGui.QFormLayout.LabelRole, self.lbl_form_1)
+        self.form_input_1 = QtGui.QLineEdit(self.formLayoutWidget)
+        self.form_input_1.setObjectName(_fromUtf8("form_input_1"))
+        self.add_form.setWidget(1, QtGui.QFormLayout.FieldRole, self.form_input_1)
         # age client
-        self.lbl_client_age = QtGui.QLabel(self.formLayoutWidget)
-        self.lbl_client_age.setObjectName(_fromUtf8("lbl_client_age"))
-        self.add_client_form.setWidget(2, QtGui.QFormLayout.LabelRole, self.lbl_client_age)
-        self.input_client_age = QtGui.QSpinBox(self.formLayoutWidget)
-        self.input_client_age.setObjectName(_fromUtf8("input_client_age"))
-        self.add_client_form.setWidget(2, QtGui.QFormLayout.FieldRole, self.input_client_age)
+        self.lbl_form_2 = QtGui.QLabel(self.formLayoutWidget)
+        self.lbl_form_2.setObjectName(_fromUtf8("lbl_form_2"))
+        self.add_form.setWidget(2, QtGui.QFormLayout.LabelRole, self.lbl_form_2)
+        self.form_input_2 = QtGui.QLineEdit(self.formLayoutWidget)
+        self.form_input_2.setObjectName(_fromUtf8("form_input_2"))
+        self.add_form.setWidget(2, QtGui.QFormLayout.FieldRole, self.form_input_2)
         # address client
-        self.lbl_client_address = QtGui.QLabel(self.formLayoutWidget)
-        self.lbl_client_address.setObjectName(_fromUtf8("lbl_client_address"))
-        self.add_client_form.setWidget(3, QtGui.QFormLayout.LabelRole, self.lbl_client_address)
-        self.input_client_address = QtGui.QLineEdit(self.formLayoutWidget)
-        self.input_client_address.setObjectName(_fromUtf8("input_client_address"))
-        self.add_client_form.setWidget(3, QtGui.QFormLayout.FieldRole, self.input_client_address)
+        self.lbl_form_3 = QtGui.QLabel(self.formLayoutWidget)
+        self.lbl_form_3.setObjectName(_fromUtf8("lbl_form_3"))
+        self.add_form.setWidget(3, QtGui.QFormLayout.LabelRole, self.lbl_form_3)
+        self.form_input_3 = QtGui.QLineEdit(self.formLayoutWidget)
+        self.form_input_3.setObjectName(_fromUtf8("form_input_3"))
+        self.add_form.setWidget(3, QtGui.QFormLayout.FieldRole, self.form_input_3)
         # cpf client
-        self.lbl_client_cpf = QtGui.QLabel(self.formLayoutWidget)
-        self.lbl_client_cpf.setObjectName(_fromUtf8("lbl_client_cpf"))
-        self.add_client_form.setWidget(4, QtGui.QFormLayout.LabelRole, self.lbl_client_cpf)
-        self.input_client_cpf = QtGui.QLineEdit(self.formLayoutWidget)
-        self.input_client_cpf.setObjectName(_fromUtf8("input_client_cpf"))
-        self.add_client_form.setWidget(4, QtGui.QFormLayout.FieldRole, self.input_client_cpf)
+        self.lbl_form_4 = QtGui.QLabel(self.formLayoutWidget)
+        self.lbl_form_4.setObjectName(_fromUtf8("lbl_form_4"))
+        self.add_form.setWidget(4, QtGui.QFormLayout.LabelRole, self.lbl_form_4)
+        self.form_input_4 = QtGui.QLineEdit(self.formLayoutWidget)
+        self.form_input_4.setObjectName(_fromUtf8("form_input_4"))
+        self.add_form.setWidget(4, QtGui.QFormLayout.FieldRole, self.form_input_4)
 
         # make form stay always on center
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.add_client_form.setItem(0, QtGui.QFormLayout.FieldRole, spacerItem)
+        self.add_form.setItem(0, QtGui.QFormLayout.FieldRole, spacerItem)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.add_client_form.setItem(5, QtGui.QFormLayout.FieldRole, spacerItem1)
+        self.add_form.setItem(5, QtGui.QFormLayout.FieldRole, spacerItem1)
 
         # ############################# #
         #          Form Buttons         #
@@ -96,9 +96,9 @@ class UIMainWindow(object):
         spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
         # create button
-        self.btn_client_add = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.btn_client_add.setObjectName(_fromUtf8("btn_client_add"))
-        self.horizontalLayout.addWidget(self.btn_client_add)
+        self.btn_add = QtGui.QPushButton(self.horizontalLayoutWidget)
+        self.btn_add.setObjectName(_fromUtf8("btn_add"))
+        self.horizontalLayout.addWidget(self.btn_add)
 
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 10, 321, 31))
@@ -392,21 +392,21 @@ class UIMainWindow(object):
         self.menubar.addAction(self.menu_edit.menuAction())
         self.menubar.addAction(self.menu_help.menuAction())
 
-        self.listeners()
+        self.action_listener()
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "CRUD Prototype", None))
-        self.lbl_client_name.setText(_translate("MainWindow", "Nome:", None))
-        self.lbl_client_age.setText(_translate("MainWindow", "Idade:", None))
-        self.lbl_client_address.setText(_translate("MainWindow", "Endereço:", None))
-        self.lbl_client_cpf.setText(_translate("MainWindow", "CPF:", None))
+        self.lbl_form_1.setText(_translate("MainWindow", "Name:", None))
+        self.lbl_form_2.setText(_translate("MainWindow", "Age:", None))
+        self.lbl_form_3.setText(_translate("MainWindow", "Address:", None))
+        self.lbl_form_4.setText(_translate("MainWindow", "CPF:", None))
         self.btn_cancel.setText(_translate("MainWindow", "Cancel", None))
-        self.btn_client_add.setText(_translate("MainWindow", "Create", None))
+        self.btn_add.setText(_translate("MainWindow", "Create", None))
         self.lbl_path_class.setText(_translate("MainWindow", "Client", None))
         self.lbl_path_arrow.setText(_translate("MainWindow", ">", None))
-        self.lbl_path_method.setText(_translate("MainWindow", "Add", None))
+        self.lbl_path_method.setText(_translate("MainWindow", "New", None))
         self.menu_file.setTitle(_translate("MainWindow", "File", None))
         self.menu_file_new.setTitle(_translate("MainWindow", "New", None))
         self.menu_help.setTitle(_translate("MainWindow", "Help", None))
@@ -457,7 +457,52 @@ class UIMainWindow(object):
         self.menu_edit_remove_support.setText(_translate("MainWindow", "Support", None))
         self.menu_edit_remove_all.setText(_translate("MainWindow", "All", None))
 
-    def listeners(self):
-        self.btn_client_add.clicked.connect(lambda: ButtonListener.add_client(
-            self.input_client_name, self.input_client_address,
-            self.input_client_cpf, self.input_client_age))
+    def action_listener(self):
+        # ############################# #
+        #               New             #
+        # ############################# #
+
+        # client
+        self.menu_file_new_client.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_client.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # manager
+        self.menu_file_new_manager.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # equipment
+        self.menu_file_new_equipment.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # agency
+        self.menu_file_new_agency.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # consumption
+        self.menu_file_new_consumption.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # support
+        self.menu_file_new_support.triggered.connect(lambda: ButtonListener.new_screen_update(
+            str(self.menu_file_new_support.text()), self.lbl_path_class, self.lbl_path_method,
+            self.lbl_form_1, self.lbl_form_2, self.lbl_form_3, self.lbl_form_4,
+            self.form_input_1, self.form_input_2, self.form_input_3, self.form_input_4,
+        ))
+        # ############################# #
+        #          Form buttons         #
+        # ############################# #
+        self.btn_add.clicked.connect(lambda: ButtonListener.add_client(
+            self.form_input_1, self.form_input_2,
+            self.form_input_3, self.form_input_4)
+                                            )
+        self.btn_cancel.clicked.connect(lambda: ButtonListener.cancel())

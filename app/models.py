@@ -7,32 +7,32 @@ class Client(object):
 
 
 class Manager(object):
-    def __init__(self):
-        self.name = None
-        self.email = None
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
 
 
 class Equipment(object):
-    def __init__(self):
-        self.model = None
-        self.brand = None
-        self.consumption = None
+    def __init__(self, model, brand, consumption):
+        self.model = model
+        self.brand = brand
+        self.consumption = consumption
 
 
 class Consumption(object):
-    def __init__(self):
-        self.horas = None
-        self.consumption = None
+    def __init__(self, time, consumption):
+        self.time = time
+        self.consumption = consumption
 
 
 class Agency(object):
-    def __init__(self):
-        self.city = None
-        self.address = None
-        self.manager = None
+    def __init__(self, city, address, manager):
+        self.city = city
+        self.address = address
+        self.manager = manager
 
 
 class Support(object):
-    def __init__(self):
-        self.call = None
-        self.protocol = None
+    def __init__(self, call, protocol):
+        self.call = call
+        self.protocol = protocol
