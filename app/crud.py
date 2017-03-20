@@ -221,9 +221,9 @@ class AgencyIO(object):
         for agency in a:
             if city == agency.city:
                 print 'Update agency:'
-                agency.model = raw_input('City:')
-                agency.brand = raw_input('Address:')
-                agency.consumption = raw_input('Manager:')
+                agency.city = raw_input('City:')
+                agency.address = raw_input('Address:')
+                agency.manager = raw_input('Manager:')
                 print 'Agency updated!'
                 flag = 1
         if flag == 0:
@@ -265,3 +265,129 @@ class AgencyIO(object):
                 print agency.__dict__
         else:
             print "There ain't no Agency registered yet"
+
+
+class ConsumptionIO(object):
+
+    @staticmethod
+    def add(time, consumption):
+        """Creates new object of Consumption"""
+
+        consumption = Consumption(time, consumption)
+        cm.append(consumption)
+
+    @staticmethod
+    def update():
+        """Lets user change some Consumption objects attributes"""
+
+        time = raw_input('Consumption time:')
+        flag = 0
+        for consumption in cm:
+            if time == consumption.time:
+                print 'Update consumption:'
+                consumption.time = raw_input('Time:')
+                consumption.consumption = raw_input('Consumption:')
+                print 'Consumption updated!'
+                flag = 1
+        if flag == 0:
+            print 'Consumption not found!'
+
+    @staticmethod
+    def delete():
+        """Removes the Consumption object from data base"""
+
+        consumption = raw_input('Consumption time:')
+        flag = 0
+        for consumption in cm:
+            if time == consumption.time:
+                cm.remove(consumption)
+                flag = 1
+                print 'Consumption removed from database!'
+        if flag == 0:
+            print 'Consumption not found!'
+
+    @staticmethod
+    def get():
+        """Shows Consumption object attributes values"""
+
+        time = raw_input('Consumption time:')
+        flag = 0
+        for consumption in cm:
+            if time == consumption.time:
+                print consumption.__dict__
+                flag = 1
+        if flag == 0:
+            print 'Consumption not found!'
+
+    @staticmethod
+    def get_all():
+        """Shows all registered Consumption object attributes values"""
+
+        if cm is not None:
+            for consumption in cm:
+                print consumption.__dict__
+        else:
+            print "There ain't no Consumption registered yet"
+
+
+class SupportIO(object):
+
+    @staticmethod
+    def add(call, protocol):
+        """Creates new object of Support"""
+
+        support = Support(call, protocol)
+        s.append(support)
+
+    @staticmethod
+    def update():
+        """Lets user change some Support objects attributes"""
+
+        protocol = raw_input('Support protocol:')
+        flag = 0
+        for support in s:
+            if protocol == support.protocol:
+                print 'Update support:'
+                support.call = raw_input('Call:')
+                support.protocol = raw_input('Protocol:')
+                print 'Support updated!'
+                flag = 1
+        if flag == 0:
+            print 'Support not found!'
+
+    @staticmethod
+    def delete():
+        """Removes the Support object from data base"""
+
+        protocol = raw_input('Support protocol:')
+        flag = 0
+        for support in s:
+            if call == support.time:
+                cm.remove(consumption)
+                flag = 1
+                print 'Consumption removed from database!'
+        if flag == 0:
+            print 'Consumption not found!'
+
+    @staticmethod
+    def get():
+        """Shows Consumption object attributes values"""
+
+        protocol = raw_input('Consumption protocol:')
+        flag = 0
+        for support in s:
+            if protocol == support.protocol:
+                print support.__dict__
+                flag = 1
+        if flag == 0:
+            print 'Support protocol not found!'
+
+    @staticmethod
+    def get_all():
+        """Shows all registered Support object attributes values"""
+
+        if s is not None:
+            for support in s:
+                print support.__dict__
+        else:
+            print "There ain't no Support registered yet"
