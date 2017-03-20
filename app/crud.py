@@ -296,7 +296,7 @@ class ConsumptionIO(object):
     def delete():
         """Removes the Consumption object from data base"""
 
-        consumption = raw_input('Consumption time:')
+        time = raw_input('Consumption time:')
         flag = 0
         for consumption in cm:
             if time == consumption.time:
@@ -362,8 +362,8 @@ class SupportIO(object):
         protocol = raw_input('Support protocol:')
         flag = 0
         for support in s:
-            if call == support.time:
-                cm.remove(consumption)
+            if protocol == support.time:
+                s.remove(protocol)
                 flag = 1
                 print 'Consumption removed from database!'
         if flag == 0:

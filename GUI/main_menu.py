@@ -528,6 +528,109 @@ class UIMainWindow(object):
             lbl_forms, form_inputs
         ))
         # ############################# #
+        #             Update            #
+        # ############################# #
+
+        # client
+        self.menu_edit_update_client.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_client.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # manager
+        self.menu_edit_update_manager.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # equipment
+        self.menu_edit_update_equipment.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # agency
+        self.menu_edit_update_agency.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # consumption
+        self.menu_edit_update_consumption.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # support
+        self.menu_edit_update_support.triggered.connect(lambda: ButtonListener.update_screen_update(
+            str(self.menu_edit_update_support.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # ############################# #
+        #              List             #
+        # ############################# #
+
+        # client
+        self.menu_edit_list_client.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_client.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # manager
+        self.menu_edit_list_manager.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # equipment
+        self.menu_edit_list_equipment.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # agency
+        self.menu_edit_list_agency.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # consumption
+        self.menu_edit_list_consumption.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # support
+        self.menu_edit_list_support.triggered.connect(lambda: ButtonListener.list_screen_update(
+            str(self.menu_edit_list_support.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # ############################# #
+        #             Remove            #
+        # ############################# #
+
+        # client
+        self.menu_edit_remove_client.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_client.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # manager
+        self.menu_edit_remove_manager.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # equipment
+        self.menu_edit_remove_equipment.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # agency
+        self.menu_edit_remove_agency.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # consumption
+        self.menu_edit_remove_consumption.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+        # support
+        self.menu_edit_remove_support.triggered.connect(lambda: ButtonListener.remove_screen_update(
+            str(self.menu_edit_remove_support.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
+        ))
+
+        # ############################# #
         #          Form buttons         #
         # ############################# #
         self.btn_add.clicked.connect(lambda: ButtonListener.add_client(

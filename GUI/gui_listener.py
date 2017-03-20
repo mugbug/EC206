@@ -36,7 +36,7 @@ class ButtonListener(object):
             model = str(form_inputs[0].text())
             brand = str(form_inputs[1].text())
             consumption = str(form_inputs[2].text())
-            if (name and email) != '':
+            if (model and brand and consumption) != '':
                 EquipmentIO.add(model, brand, consumption)
                 # field cleaner
                 for field in form_inputs:
@@ -161,7 +161,6 @@ class ButtonListener(object):
             form_inputs[1].setVisible(True)
             form_inputs[2].setVisible(False)
             form_inputs[3].setVisible(False)
-
 
     @staticmethod
     def search_screen_update(class_name, lbl_path_class, lbl_path_method,
