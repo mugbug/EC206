@@ -466,6 +466,7 @@ class UIMainWindow(object):
         # client
         self.menu_file_new_client.triggered.connect(lambda: ButtonListener.new_screen_update(
             str(self.menu_file_new_client.text()), self.lbl_path_class, self.lbl_path_method,
+            lbl_forms, form_inputs
         ))
         # manager
         self.menu_file_new_manager.triggered.connect(lambda: ButtonListener.new_screen_update(
@@ -493,37 +494,37 @@ class UIMainWindow(object):
             lbl_forms, form_inputs
         ))
         # ############################# #
-        #             Update            #
+        #             Search            #
         # ############################# #
 
         # client
         self.menu_edit_search_client.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_client.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_client.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # manager
         self.menu_edit_search_manager.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_manager.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_manager.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # equipment
         self.menu_edit_search_equipment.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_equipment.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_equipment.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # agency
         self.menu_edit_search_agency.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_agency.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_agency.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # consumption
         self.menu_edit_search_consumption.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_consumption.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_consumption.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # support
         self.menu_edit_search_support.triggered.connect(lambda: ButtonListener.search_screen_update(
-            str(self.menu_file_new_support.text()), self.lbl_path_class, self.lbl_path_method,
+            str(self.menu_edit_search_support.text()), self.lbl_path_class, self.lbl_path_method,
             lbl_forms, form_inputs
         ))
         # ############################# #

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 from app.crud import *
 
 
@@ -15,7 +17,7 @@ class ButtonListener(object):
                 ClientIO.add(name, address, cpf, age)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -26,7 +28,7 @@ class ButtonListener(object):
                 ManagerIO.add(name, email)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -38,7 +40,7 @@ class ButtonListener(object):
                 EquipmentIO.add(model, brand, consumption)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -50,7 +52,7 @@ class ButtonListener(object):
                 AgencyIO.add(city, address, manager)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -61,7 +63,7 @@ class ButtonListener(object):
                 ConsumptionIO.add(time, consumption)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -72,7 +74,7 @@ class ButtonListener(object):
                 SupportIO.add(call, protocol)
                 # field cleaner
                 for field in form_inputs:
-                    field.setText['']
+                    field.setText('')
             else:
                 print 'ERROR: All fields must be filled!'
 
@@ -171,13 +173,13 @@ class ButtonListener(object):
         elif class_name == 'Manager':
             ManagerIO.get()
         elif class_name == 'Equipment':
-            print 'Search Equipment'
+            EquipmentIO.get()
         elif class_name == 'Agency':
-            print 'Search Agency'
+            AgencyIO.get()
         elif class_name == 'Consumption':
-            print 'Search Consumption'
+            ConsumptionIO.get()
         elif class_name == 'Support':
-            print 'Search Support'
+            SupportIO.get()
 
     @staticmethod
     def update_screen_update(class_name, lbl_path_class, lbl_path_method,
@@ -189,13 +191,13 @@ class ButtonListener(object):
         elif class_name == 'Manager':
             ManagerIO.update()
         elif class_name == 'Equipment':
-            print 'Update Equipment'
+            EquipmentIO.update()
         elif class_name == 'Agency':
-            print 'Update Agency'
+            AgencyIO.update()
         elif class_name == 'Consumption':
-            print 'Update Consumption'
+            ConsumptionIO.update()
         elif class_name == 'Support':
-            print 'Update Support'
+            SupportIO.update()
 
     @staticmethod
     def remove_screen_update(class_name, lbl_path_class, lbl_path_method,
@@ -207,13 +209,13 @@ class ButtonListener(object):
         elif class_name == 'Manager':
             ManagerIO.remove()
         elif class_name == 'Equipment':
-            print 'Update Equipment'
+            EquipmentIO.remove()
         elif class_name == 'Agency':
-            print 'Update Agency'
+            AgencyIO.remove()
         elif class_name == 'Consumption':
-            print 'Update Consumption'
+            ConsumptionIO.remove()
         elif class_name == 'Support':
-            print 'Update Support'
+            SupportIO.remove()
 
     @staticmethod
     def list_screen_update(class_name, lbl_path_class, lbl_path_method,
@@ -225,10 +227,10 @@ class ButtonListener(object):
         elif class_name == 'Manager':
             ManagerIO.get_all()
         elif class_name == 'Equipment':
-            print 'Update Equipment'
+            EquipmentIO.get_all()
         elif class_name == 'Agency':
-            print 'Update Agency'
+            AgencyIO.get_all()
         elif class_name == 'Consumption':
-            print 'Update Consumption'
+            ConsumptionIO.get_all()
         elif class_name == 'Support':
-            print 'Update Support'
+            SupportIO.get_all()
