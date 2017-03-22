@@ -1,6 +1,6 @@
 # coding: UTF-8
 import sys
-from GUI.main_menu import UIMainWindow
+from view.main_menu import UIMainWindow
 from PyQt4 import QtGui
 
 if __name__ == '__main__':
