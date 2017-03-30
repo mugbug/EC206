@@ -1,6 +1,6 @@
 # coding: UTF-8
 
-from app.crud import *
+from models.crud import *
 
 
 class ButtonListener(object):
