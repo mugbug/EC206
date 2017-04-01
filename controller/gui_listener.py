@@ -184,9 +184,8 @@ class ButtonFeatures(object):
             app.form_input_4.setVisible(False)
 
     @staticmethod
-    def search_screen_update(app):
+    def search_screen_update(class_name, app):
         app.lbl_path_method.setText('Search')
-        class_name = str(app.menu_edit_search.text())
         if class_name == 'Client':
             ClientIO.get()
         elif class_name == 'Manager':
@@ -201,9 +200,8 @@ class ButtonFeatures(object):
             SupportIO.get()
 
     @staticmethod
-    def update_screen_update(app):
+    def update_screen_update(class_name, app):
         app.lbl_path_method.setText('Update')
-        class_name = str(app.menu_edit_update.text())
         if class_name == 'Client':
             ClientIO.update()
         elif class_name == 'Manager':
@@ -218,9 +216,8 @@ class ButtonFeatures(object):
             SupportIO.update()
 
     @staticmethod
-    def remove_screen_update(app):
+    def remove_screen_update(class_name, app):
         app.lbl_path_method.setText('Remove')
-        class_name = str(app.menu_edit_remove.text())
         if class_name == 'Client':
             ClientIO.remove()
         elif class_name == 'Manager':
@@ -235,9 +232,8 @@ class ButtonFeatures(object):
             SupportIO.remove()
 
     @staticmethod
-    def list_screen_update(app):
+    def list_screen_update(class_name, app):
         app.lbl_path_method.setText('List')
-        class_name = str(app.menu_edit_list.text())
         if class_name == 'Client':
             ClientIO.get_all()
         elif class_name == 'Manager':
@@ -258,88 +254,52 @@ class ButtonListener(object):
         # ############################# #
         #               New             #
         # ############################# #
-        # client
-        app.menu_file_new_client.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_client.text), app))
-        # manager
-        app.menu_file_new_manager.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_manager.text()), app))
-        # equipment
-        app.menu_file_new_equipment.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_equipment.text()), app))
-        # agency
-        app.menu_file_new_agency.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_agency.text()), app))
-        # consumption
-        app.menu_file_new_consumption.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_consumption.text()), app))
-        # support
-        app.menu_file_new_support.triggered.connect(lambda: ButtonFeatures.new_screen_update(
-            str(app.menu_file_new_support.text()), app))
+        app.menu_file_new_client.triggered.connect(lambda: ButtonFeatures.new_screen_update('Client', app))
+        app.menu_file_new_manager.triggered.connect(lambda: ButtonFeatures.new_screen_update('Manager', app))
+        app.menu_file_new_equipment.triggered.connect(lambda: ButtonFeatures.new_screen_update('Equipment', app))
+        app.menu_file_new_agency.triggered.connect(lambda: ButtonFeatures.new_screen_update('Agency', app))
+        app.menu_file_new_consumption.triggered.connect(lambda: ButtonFeatures.new_screen_update('Consumption', app))
+        app.menu_file_new_support.triggered.connect(lambda: ButtonFeatures.new_screen_update('Support', app))
         # ############################# #
         #             Search            #
         # ############################# #
 
-        # client
-        app.menu_edit_search_client.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
-        # manager
-        app.menu_edit_search_manager.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
-        # equipment
-        app.menu_edit_search_equipment.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
-        # agency
-        app.menu_edit_search_agency.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
-        # consumption
-        app.menu_edit_search_consumption.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
-        # support
-        app.menu_edit_search_support.triggered.connect(lambda: ButtonFeatures.search_screen_update(app))
+        app.menu_edit_search_client.triggered.connect(lambda: ButtonFeatures.search_screen_update('Client', app))
+        app.menu_edit_search_manager.triggered.connect(lambda: ButtonFeatures.search_screen_update('Manager', app))
+        app.menu_edit_search_equipment.triggered.connect(lambda: ButtonFeatures.search_screen_update('Equipment', app))
+        app.menu_edit_search_agency.triggered.connect(lambda: ButtonFeatures.search_screen_update('Agency', app))
+        app.menu_edit_search_consumption.triggered.connect(lambda: ButtonFeatures.search_screen_update('Consumption', app))
+        app.menu_edit_search_support.triggered.connect(lambda: ButtonFeatures.search_screen_update('Support', app))
         # ############################# #
         #             Update            #
         # ############################# #
 
-        # client
-        app.menu_edit_update_client.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
-        # manager
-        app.menu_edit_update_manager.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
-        # equipment
-        app.menu_edit_update_equipment.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
-        # agency
-        app.menu_edit_update_agency.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
-        # consumption
-        app.menu_edit_update_consumption.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
-        # support
-        app.menu_edit_update_support.triggered.connect(lambda: ButtonFeatures.update_screen_update(app))
+        app.menu_edit_update_client.triggered.connect(lambda: ButtonFeatures.update_screen_update('Client', app))
+        app.menu_edit_update_manager.triggered.connect(lambda: ButtonFeatures.update_screen_update('Manager', app))
+        app.menu_edit_update_equipment.triggered.connect(lambda: ButtonFeatures.update_screen_update('Equipment', app))
+        app.menu_edit_update_agency.triggered.connect(lambda: ButtonFeatures.update_screen_update('Agency', app))
+        app.menu_edit_update_consumption.triggered.connect(lambda: ButtonFeatures.update_screen_update('Consumption', app))
+        app.menu_edit_update_support.triggered.connect(lambda: ButtonFeatures.update_screen_update('Support', app))
         # ############################# #
         #              List             #
         # ############################# #
 
-        # client
-        app.menu_edit_list_client.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
-        # manager
-        app.menu_edit_list_manager.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
-        # equipment
-        app.menu_edit_list_equipment.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
-        # agency
-        app.menu_edit_list_agency.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
-        # consumption
-        app.menu_edit_list_consumption.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
-        # support
-        app.menu_edit_list_support.triggered.connect(lambda: ButtonFeatures.list_screen_update(app))
+        app.menu_edit_list_client.triggered.connect(lambda: ButtonFeatures.list_screen_update('Client', app))
+        app.menu_edit_list_manager.triggered.connect(lambda: ButtonFeatures.list_screen_update('Manager', app))
+        app.menu_edit_list_equipment.triggered.connect(lambda: ButtonFeatures.list_screen_update('Equipment', app))
+        app.menu_edit_list_agency.triggered.connect(lambda: ButtonFeatures.list_screen_update('Agency', app))
+        app.menu_edit_list_consumption.triggered.connect(lambda: ButtonFeatures.list_screen_update('Consumption', app))
+        app.menu_edit_list_support.triggered.connect(lambda: ButtonFeatures.list_screen_update('Support', app))
         # ############################# #
         #             Remove            #
         # ############################# #
 
-        # client
-        app.menu_edit_remove_client.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
-        # manager
-        app.menu_edit_remove_manager.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
-        # equipment
-        app.menu_edit_remove_equipment.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
-        # agency
-        app.menu_edit_remove_agency.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
-        # consumption
-        app.menu_edit_remove_consumption.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
-        # support
-        app.menu_edit_remove_support.triggered.connect(lambda: ButtonFeatures.remove_screen_update(app))
+        app.menu_edit_remove_client.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Client', app))
+        app.menu_edit_remove_manager.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Manager', app))
+        app.menu_edit_remove_equipment.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Equipment', app))
+        app.menu_edit_remove_agency.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Agency', app))
+        app.menu_edit_remove_consumption.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Consumption', app))
+        app.menu_edit_remove_support.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Support', app))
 
         # ############################# #
         #          Form buttons         #

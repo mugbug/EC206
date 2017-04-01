@@ -1,9 +1,21 @@
 class Client(object):
+    # Singleton implementation
+    class __Client:
+        def __init__(self, name, address, cpf, age):
+            self.name = name
+            self.address = address
+            self.cpf = cpf
+            self.age = age
+    instance = None
+
     def __init__(self, name, address, cpf, age):
-        self.name = name
-        self.address = address
-        self.cpf = cpf
-        self.age = age
+        if not Client.instance:
+            Client.instance = Client.__Client(name, address, cpf, age)
+        else:
+            Client.instance.name = name
+            Client.instance.address = address
+            Client.instance.cpf = cpf
+            Client.instance.age = age
 
 
 class Manager(object):

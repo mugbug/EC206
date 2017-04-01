@@ -314,6 +314,8 @@
      </layout>
     </widget>
    </widget>
+   <zorder>widget_login</zorder>
+   <zorder>widget_add</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

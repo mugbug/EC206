@@ -18,7 +18,8 @@ class ClientIO(object):
         """Creates new object of Client"""
 
         client = Client(name, address, cpf, age)
-        c.append(client)
+        # change for add to db
+        c.append(client.instance)
 
     @staticmethod
     def update():
@@ -26,6 +27,7 @@ class ClientIO(object):
 
         name = raw_input('Client name:')
         flag = 0
+        # pull c from db
         for client in c:
             if name == client.name:
                 print 'Update its attributes:'
@@ -44,6 +46,7 @@ class ClientIO(object):
 
         name = raw_input('Client name:')
         flag = 0
+        # pull c from db
         for client in c:
             if name == client.name:
                 c.remove(client)
@@ -58,6 +61,7 @@ class ClientIO(object):
 
         name = raw_input('Client name:')
         flag = 0
+        # pull c from db
         for client in c:
             if name == client.name:
                 print client.__dict__
@@ -69,6 +73,7 @@ class ClientIO(object):
     def get_all():
         """Shows all registered Client object attributes values"""
 
+        # pull c from db
         if c is not None:
             for client in c:
                 print client.__dict__
