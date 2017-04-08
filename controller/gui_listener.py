@@ -1,9 +1,17 @@
-# coding: UTF-8
-
 from models.crud import *
 
 
 class ButtonFeatures(object):
+    @staticmethod
+    def log_in(app):
+        SwitchWidget.to_home(app)
+        # log in
+
+    # _________________MENU BAR___________________
+    @staticmethod
+    def log_out(app):
+        SwitchWidget.to_login(app)
+        # log out
 
     @staticmethod
     def add_client(app):
@@ -95,221 +103,46 @@ class ButtonFeatures(object):
         app.widget_add.setVisible(False)
         app.widget_login.setVisible(True)
 
-    @staticmethod
-    def new_screen_update(class_name, app):
-        SwitchWidget.login2new(app)
-        app.lbl_path_method.setText('New')
-        if class_name == 'Client':
-            # title
-            app.lbl_path_class.setText('Client')
-            # form labels
-            app.lbl_form_1.setText('Name:')
-            app.lbl_form_2.setText('Age:')
-            app.lbl_form_3.setText('Address:')
-            app.lbl_form_4.setText('CPF:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(True)
-            app.lbl_form_4.setVisible(True)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(True)
-            app.form_input_4.setVisible(True)
-
-        elif class_name == 'Manager':
-            app.lbl_path_class.setText('Manager')
-            app.lbl_form_1.setText('Name:')
-            app.lbl_form_2.setText('Email:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(False)
-            app.lbl_form_4.setVisible(False)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(False)
-            app.form_input_4.setVisible(False)
-
-        elif class_name == 'Equipment':
-            app.lbl_path_class.setText('Equipment')
-            app.lbl_form_1.setText('Model:')
-            app.lbl_form_2.setText('Brand:')
-            app.lbl_form_3.setText('Consumption:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(True)
-            app.lbl_form_4.setVisible(False)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(True)
-            app.form_input_4.setVisible(False)
-
-        elif class_name == 'Agency':
-            app.lbl_path_class.setText('Agency')
-            app.lbl_form_1.setText('City:')
-            app.lbl_form_2.setText('Address:')
-            app.lbl_form_3.setText('Manager:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(True)
-            app.lbl_form_4.setVisible(False)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(True)
-            app.form_input_4.setVisible(False)
-
-        elif class_name == 'Consumption':
-            app.lbl_path_class.setText('Consumption')
-            app.lbl_form_1.setText('Time:')
-            app.lbl_form_2.setText('Consumption:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(False)
-            app.lbl_form_4.setVisible(False)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(False)
-            app.form_input_4.setVisible(False)
-
-        elif class_name == 'Support':
-            app.lbl_path_class.setText('Support')
-            app.lbl_form_1.setText('Call:')
-            app.lbl_form_2.setText('Protocol:')
-            app.lbl_form_1.setVisible(True)
-            app.lbl_form_2.setVisible(True)
-            app.lbl_form_3.setVisible(False)
-            app.lbl_form_4.setVisible(False)
-            app.form_input_1.setVisible(True)
-            app.form_input_2.setVisible(True)
-            app.form_input_3.setVisible(False)
-            app.form_input_4.setVisible(False)
-
-    @staticmethod
-    def search_screen_update(class_name, app):
-        app.lbl_path_method.setText('Search')
-        if class_name == 'Client':
-            ClientIO.get()
-        elif class_name == 'Manager':
-            ManagerIO.get()
-        elif class_name == 'Equipment':
-            EquipmentIO.get()
-        elif class_name == 'Agency':
-            AgencyIO.get()
-        elif class_name == 'Consumption':
-            ConsumptionIO.get()
-        elif class_name == 'Support':
-            SupportIO.get()
-
-    @staticmethod
-    def update_screen_update(class_name, app):
-        app.lbl_path_method.setText('Update')
-        if class_name == 'Client':
-            ClientIO.update()
-        elif class_name == 'Manager':
-            ManagerIO.update()
-        elif class_name == 'Equipment':
-            EquipmentIO.update()
-        elif class_name == 'Agency':
-            AgencyIO.update()
-        elif class_name == 'Consumption':
-            ConsumptionIO.update()
-        elif class_name == 'Support':
-            SupportIO.update()
-
-    @staticmethod
-    def remove_screen_update(class_name, app):
-        app.lbl_path_method.setText('Remove')
-        if class_name == 'Client':
-            ClientIO.remove()
-        elif class_name == 'Manager':
-            ManagerIO.remove()
-        elif class_name == 'Equipment':
-            EquipmentIO.remove()
-        elif class_name == 'Agency':
-            AgencyIO.remove()
-        elif class_name == 'Consumption':
-            ConsumptionIO.remove()
-        elif class_name == 'Support':
-            SupportIO.remove()
-
-    @staticmethod
-    def list_screen_update(class_name, app):
-        app.lbl_path_method.setText('List')
-        if class_name == 'Client':
-            ClientIO.get_all()
-        elif class_name == 'Manager':
-            ManagerIO.get_all()
-        elif class_name == 'Equipment':
-            EquipmentIO.get_all()
-        elif class_name == 'Agency':
-            AgencyIO.get_all()
-        elif class_name == 'Consumption':
-            ConsumptionIO.get_all()
-        elif class_name == 'Support':
-            SupportIO.get_all()
-
 
 class ButtonListener(object):
     @staticmethod
     def action_listener(app):
-        # ############################# #
-        #               New             #
-        # ############################# #
-        app.menu_file_new_client.triggered.connect(lambda: ButtonFeatures.new_screen_update('Client', app))
-        app.menu_file_new_manager.triggered.connect(lambda: ButtonFeatures.new_screen_update('Manager', app))
-        app.menu_file_new_equipment.triggered.connect(lambda: ButtonFeatures.new_screen_update('Equipment', app))
-        app.menu_file_new_agency.triggered.connect(lambda: ButtonFeatures.new_screen_update('Agency', app))
-        app.menu_file_new_consumption.triggered.connect(lambda: ButtonFeatures.new_screen_update('Consumption', app))
-        app.menu_file_new_support.triggered.connect(lambda: ButtonFeatures.new_screen_update('Support', app))
-        # ############################# #
-        #             Search            #
-        # ############################# #
+        # _________________MENU BAR___________________
+        app.menu_file_logout.triggered.connect(lambda: ButtonFeatures.log_out(app))
+        app.menu_settings_manage.triggered.connect(lambda: SwitchWidget.to_crud(app))
 
-        app.menu_edit_search_client.triggered.connect(lambda: ButtonFeatures.search_screen_update('Client', app))
-        app.menu_edit_search_manager.triggered.connect(lambda: ButtonFeatures.search_screen_update('Manager', app))
-        app.menu_edit_search_equipment.triggered.connect(lambda: ButtonFeatures.search_screen_update('Equipment', app))
-        app.menu_edit_search_agency.triggered.connect(lambda: ButtonFeatures.search_screen_update('Agency', app))
-        app.menu_edit_search_consumption.triggered.connect(lambda: ButtonFeatures.search_screen_update('Consumption', app))
-        app.menu_edit_search_support.triggered.connect(lambda: ButtonFeatures.search_screen_update('Support', app))
-        # ############################# #
-        #             Update            #
-        # ############################# #
-
-        app.menu_edit_update_client.triggered.connect(lambda: ButtonFeatures.update_screen_update('Client', app))
-        app.menu_edit_update_manager.triggered.connect(lambda: ButtonFeatures.update_screen_update('Manager', app))
-        app.menu_edit_update_equipment.triggered.connect(lambda: ButtonFeatures.update_screen_update('Equipment', app))
-        app.menu_edit_update_agency.triggered.connect(lambda: ButtonFeatures.update_screen_update('Agency', app))
-        app.menu_edit_update_consumption.triggered.connect(lambda: ButtonFeatures.update_screen_update('Consumption', app))
-        app.menu_edit_update_support.triggered.connect(lambda: ButtonFeatures.update_screen_update('Support', app))
-        # ############################# #
-        #              List             #
-        # ############################# #
-
-        app.menu_edit_list_client.triggered.connect(lambda: ButtonFeatures.list_screen_update('Client', app))
-        app.menu_edit_list_manager.triggered.connect(lambda: ButtonFeatures.list_screen_update('Manager', app))
-        app.menu_edit_list_equipment.triggered.connect(lambda: ButtonFeatures.list_screen_update('Equipment', app))
-        app.menu_edit_list_agency.triggered.connect(lambda: ButtonFeatures.list_screen_update('Agency', app))
-        app.menu_edit_list_consumption.triggered.connect(lambda: ButtonFeatures.list_screen_update('Consumption', app))
-        app.menu_edit_list_support.triggered.connect(lambda: ButtonFeatures.list_screen_update('Support', app))
-        # ############################# #
-        #             Remove            #
-        # ############################# #
-
-        app.menu_edit_remove_client.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Client', app))
-        app.menu_edit_remove_manager.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Manager', app))
-        app.menu_edit_remove_equipment.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Equipment', app))
-        app.menu_edit_remove_agency.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Agency', app))
-        app.menu_edit_remove_consumption.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Consumption', app))
-        app.menu_edit_remove_support.triggered.connect(lambda: ButtonFeatures.remove_screen_update('Support', app))
-
-        # ############################# #
-        #          Form buttons         #
-        # ############################# #
-        app.btn_add.clicked.connect(lambda: ButtonFeatures.add_client(app))
-        app.btn_cancel.clicked.connect(lambda: ButtonFeatures.cancel(app))
+        # _________________LOGIN BUTTONS_________________
+        app.login_btn_login.clicked.connect(lambda: ButtonFeatures.log_in(app))
+        app.btn_home.clicked.connect(lambda: SwitchWidget.to_home(app))
 
 
 class SwitchWidget(object):
     @staticmethod
-    def login2new(app):
-        app.widget_login.setVisible(False)
-        app.widget_add.setVisible(True)
+    def to_login(app):
+        # Hide
+        app.home_widget.setVisible(False)
+        app.btn_home.setVisible(False)
+        app.tab_crud.setVisible(False)
+        app.menubar.setEnabled(False)
+
+        # Show
+        app.login_widget.setVisible(True)
+
+    @staticmethod
+    def to_crud(app):
+        # Hide
+        app.home_widget.setVisible(False)
+
+        # Show
+        app.tab_crud.setVisible(True)
+
+    @staticmethod
+    def to_home(app):
+        # Hide
+        app.login_widget.setVisible(False)
+        app.tab_crud.setVisible(False)
+
+        # Show
+        app.menubar.setEnabled(True)
+        app.btn_home.setVisible(True)
+        app.home_widget.setVisible(True)
