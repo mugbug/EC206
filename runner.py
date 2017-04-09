@@ -4,6 +4,7 @@ from PyQt4 import QtGui
 
 import view.design as ui
 from controller.gui_listener import ButtonListener, SwitchWidget
+from controller.connector import DataBaseConnector
 
 
 class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
@@ -11,6 +12,10 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         super(Application, self).__init__(parent)
         self.setupUi(self)
         self.config_ui()
+        self.db = DataBaseConnector.get_db(self)
+
+    def get_db(self):
+        return self.db
 
     def config_ui(self):
         self.configure_tables()
