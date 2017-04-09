@@ -1,3 +1,8 @@
+# coding: utf-8
+
+from crud import *
+
+
 class Client(object):
     # Singleton implementation
     # add password
@@ -9,6 +14,12 @@ class Client(object):
             self.cpf = cpf
             self.age = age
             self.password = password
+
+        def __init__(self, name, address, cpf, age):
+            self.name = name
+            self.address = address
+            self.cpf = cpf
+            self.age = age
     instance = None
 
     def __init__(self, name, address, cpf, age, password):
@@ -20,6 +31,15 @@ class Client(object):
             Client.instance.cpf = cpf
             Client.instance.age = age
             Client.instance.password = password
+
+    def __init__(self, name, address, cpf, age):
+        if not Client.instance:
+            Client.instance = Client.__Client(name, address, cpf, age)
+        else:
+            Client.instance.name = name
+            Client.instance.address = address
+            Client.instance.cpf = cpf
+            Client.instance.age = age
 
 
 class Manager(Client):
@@ -43,10 +63,12 @@ class Manager(Client):
 
 
 class Equipment(object):
-    def __init__(self, name, power, consumption):
+    def __init__(self, name, power, consumption, quantity, daily_usage):
         self.name = name
         self.power = power
         self.consumption = consumption
+        self.quantity = quantity
+        self.daily_usage = daily_usage
 
 
 class Agency(object):
@@ -57,10 +79,47 @@ class Agency(object):
 
 
 class Consumption(object):
-    def __init__(self, equipment, time, cost):
+    def __init__(self, equipment, day, kwh_cost):
         self.equipment = equipment
-        self.time = time
-        self.cost = cost
+        self.day = day
+        self.kwh_cost = kwh_cost
+        self.total_consumption = float
+        self.daily_consumption = 0
+        self.monthly_consumption = 0
+
+    def calculate_consumption(self):
+        # total consumption
+        self.total_consumption = (self.equipment.quantity * self.equipment.power * self.equipment.daily_usage)/1000
+        # per equipment consumption
+        self.equipment.consumption = self.total_consumption/self.equipment.quantity
+
+    def update_data(self):
+        # By equipment
+        self.equipment_data = {
+            self.equipment.name: [self.equipment.consumption,
+                                  self.equipment.daily_usage,
+                                  self.kwh_cost*self.equipment.consumption,
+                                  ],
+        }
+        # By day
+        day, month, year = self.day.split('/')
+        for e in EquipmentIO.get_all():
+            self.daily_consumption += e.consumption
+        self.day_data = {
+            day: [self.daily_consumption,
+                  self.equipment.daily_usage,
+                  self.kwh_cost*self.daily_consumption,
+                  ],
+        }
+        # By month
+        for c in ConsumptionIO.get_all():
+            self.monthly_consumption += c.daily_consumption
+        self.month_data = {
+            month: [self.monthly_consumption,
+                    self.equipment.daily_usage,
+                    self.kwh_cost*self.monthly_consumption,
+                    ],
+        }
 
 
 class Support(object):
