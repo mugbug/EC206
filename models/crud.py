@@ -1,7 +1,7 @@
 # coding: UTF-8
-
+import MySQLdb
+from PyQt4.QtGui import QMessageBox
 from models import *
-
 
 c = []
 m = []
@@ -14,12 +14,24 @@ s = []
 class ClientIO(object):
 
     @staticmethod
-    def add(name, address, cpf, age):
+    def add(name, address, cpf, age, app):
         """Creates new object of Client"""
-
+        db = app.db
+        cur = db.cursor()
         client = Client(name, address, cpf, age)
-        # change for add to db
-        c.append(client.instance)
+        try:
+            cur.execute("INSERT INTO client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', '{3}')"
+                        .format(client.instance.name, client.instance.address, client.instance.cpf, client.instance.age))
+            db.commit()
+        except MySQLdb.Error as err:
+            db.rollback
+            e = "MySQL Error [{0}]: {1}".format(err.args[0], err.args[1])
+            QMessageBox.critical(app, 'Error!', "Couldn't create client\n\n{0}".format(e))
+            return 1
+        else:
+            QMessageBox.information(app, 'Success!', 'Client successfully created!')
+            return 0
+        cur.close()
 
     @staticmethod
     def update():
@@ -41,14 +53,13 @@ class ClientIO(object):
             print 'Client not found!'
 
     @staticmethod
-    def delete():
+    def delete(cpf):
         """Removes the Client object from data base"""
 
-        name = raw_input('Client name:')
         flag = 0
         # pull c from db
         for client in c:
-            if name == client.name:
+            if cpf == client.cpf:
                 c.remove(client)
                 flag = 1
                 print 'Client removed from database!'
