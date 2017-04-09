@@ -1,0 +1,49 @@
+- Connect crud.py to MySQL
+  - ClientIO:
+    [x] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+  - ManagerIO:
+    [] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+  - EquipmentIO:
+    [] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+  - AgencyIO:
+    [] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+  - ConsumptionIO:
+    [] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+  - SupportIO:
+    [] add
+    [] update
+    [] delete
+    [] get
+    [] get_all
+
+- Fill Manage data tabs
+  [] Client
+  [] Manager
+  [] Equipment
+  [] Agency
+  [] Consumption
+  [] Support
+
+- Create screens
+  [] About
+  [] Contact Support
