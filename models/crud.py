@@ -16,6 +16,7 @@ class ClientIO(object):
     @staticmethod
     def add(name, address, cpf, age, app):
         """Creates new object of Client"""
+
         db = app.db
         cur = db.cursor()
         client = Client(name, address, cpf, age)
@@ -32,64 +33,42 @@ class ClientIO(object):
             QMessageBox.information(app, 'Success!', 'Client successfully created!')
             return 0
         cur.close()
+        db.close()
 
     @staticmethod
-    def update():
+    def update(name, address, cpf, age, app):
         """Lets user change some Client objects attributes"""
 
-        name = raw_input('Client name:')
-        flag = 0
-        # pull c from db
-        for client in c:
-            if name == client.name:
-                print 'Update its attributes:'
-                client.set = raw_input('Name:')
-                client.age = input('Age:')
-                client.cpf = raw_input('CPF:')
-                client.address = raw_input('Address: ')
-                print 'Client updated!'
-                flag = 1
-        if flag == 0:
-            print 'Client not found!'
+        db = app.db
+        cur = db.cursor()
+
+        client_id = cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
+        cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
+        cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
+        cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
+        cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
+
+        cur.close()
+        db.close()
 
     @staticmethod
-    def delete(cpf):
-        """Removes the Client object from data base"""
+    def delete(cpf, app):
+        """Removes the Client object from database"""
 
-        flag = 0
-        # pull c from db
-        for client in c:
-            if cpf == client.cpf:
-                c.remove(client)
-                flag = 1
-                print 'Client removed from database!'
-        if flag == 0:
-            print 'Client not found!'
+        db = app.db
+        cur = db.cursor()
 
-    @staticmethod
-    def get():
-        """Shows Client object attributes values"""
+        client_id = cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
+        cur.execute("DELETE FROM client WHERE idClient = (0}".format(client_id))
 
-        name = raw_input('Client name:')
-        flag = 0
-        # pull c from db
-        for client in c:
-            if name == client.name:
-                print client.__dict__
-                flag = 1
-        if flag == 0:
-            print 'Client not found!'
+        cur.close()
+        db.close()
 
     @staticmethod
-    def get_all():
-        """Shows all registered Client object attributes values"""
+    def fetch():
+        """Fetches database with the application"""
 
-        # pull c from db
-        if c is not None:
-            for client in c:
-                print client.__dict__
-        else:
-            print "There ain't no Clients registered yet"
+        pass
 
 
 class ManagerIO(object):
