@@ -63,12 +63,16 @@ class Manager(Client):
 
 
 class Equipment(object):
-    def __init__(self, name, power, consumption, quantity, daily_usage):
+    def __init__(self, name, power, consumption):
         self.name = name
         self.power = power
         self.consumption = consumption
-        self.quantity = quantity
-        self.daily_usage = daily_usage
+
+    def average_consumption(self):
+        pass
+
+    def average_cost(self):
+        pass
 
 
 class Agency(object):
@@ -79,10 +83,12 @@ class Agency(object):
 
 
 class Consumption(object):
-    def __init__(self, equipment, day, kwh_cost):
+    def __init__(self, equipment, day, kwh_price, daily_usage, quantity):
         self.equipment = equipment
         self.day = day
-        self.kwh_cost = kwh_cost
+        self.kwh_price = kwh_price
+        self.quantity = quantity
+        self.daily_usage = daily_usage
         self.total_consumption = float
         self.daily_consumption = 0
         self.monthly_consumption = 0
@@ -98,7 +104,7 @@ class Consumption(object):
         self.equipment_data = {
             self.equipment.name: [self.equipment.consumption,
                                   self.equipment.daily_usage,
-                                  self.kwh_cost*self.equipment.consumption,
+                                  self.kwh_price*self.equipment.consumption,
                                   ],
         }
         # By day
@@ -108,7 +114,7 @@ class Consumption(object):
         self.day_data = {
             day: [self.daily_consumption,
                   self.equipment.daily_usage,
-                  self.kwh_cost*self.daily_consumption,
+                  self.kwh_price*self.daily_consumption,
                   ],
         }
         # By month
@@ -117,7 +123,7 @@ class Consumption(object):
         self.month_data = {
             month: [self.monthly_consumption,
                     self.equipment.daily_usage,
-                    self.kwh_cost*self.monthly_consumption,
+                    self.kwh_price*self.monthly_consumption,
                     ],
         }
 
