@@ -1,6 +1,7 @@
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 
 from models.crud import *
+# import graph
 
 
 class ButtonFeatures(object):
@@ -35,9 +36,10 @@ class ButtonFeatures(object):
     # _________________CLIENT MANAGER_____________
     @staticmethod
     def client_create(app):
-        name = str(app.client_input_name.text())
+        name = unicode(app.client_input_name.text()).encode('latin-1')
+        # name = str(app.client_input_name.text().toUtf8()).encode('')
         age = app.client_input_age.value()
-        address = str(app.client_input_address.text())
+        address = unicode(app.client_input_address.text()).encode('latin-1')
         cpf = str(app.client_input_cpf.text())
         if (name and address and cpf and age) != '':
             result = ClientIO.add(name, address, cpf, age, app)
@@ -54,8 +56,9 @@ class ButtonFeatures(object):
                 app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
                 app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
                 app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
+
         else:
-            print 'ERROR: All fields must be filled!'
+            QtGui.QMessageBox.critical(app, 'Error!', 'All fields should be filled!')
 
     @staticmethod
     def client_edit(app):
@@ -82,7 +85,10 @@ class ButtonListener(object):
     def action_listener(app):
         # _________________MENU BAR______________________
         app.menu_file_logout.triggered.connect(lambda: ButtonFeatures.log_out(app))
-        app.menu_settings_manage.triggered.connect(lambda: SwitchWidget.to_crud(app))
+
+        # _________________SIDEBAR_______________________
+        app.connect(app.sidebar, QtCore.SIGNAL("itemClicked(QTreeWidgetItem*, int)"),
+                    ButtonListener.sidebar_item_clicked)
 
         # _________________LOGIN BUTTONS_________________
         app.login_btn_login.clicked.connect(lambda: ButtonFeatures.log_in(app))
@@ -96,8 +102,38 @@ class ButtonListener(object):
         app.client_btn_edit.clicked.connect(lambda: ButtonFeatures.client_edit(app))
         app.client_btn_delete.clicked.connect(lambda: ButtonFeatures.client_delete(app))
 
+    @staticmethod
+    def sidebar_item_clicked(item, column):
+        item_clicked = item.text(column)
+        if item_clicked != 'Energy Waste' and \
+           item_clicked != 'Manage Data':
+            app = item.parent().treeWidget().parent().parent()
+            if item.parent().text(column) == 'Manage Data':
+                SwitchWidget.to_crud(app)
+        if item_clicked == 'Client':
+            app.tab_crud.setCurrentIndex(0)
+        elif item_clicked == 'Manager':
+            app.tab_crud.setCurrentIndex(1)
+        elif item_clicked == 'Equipment':
+            app.tab_crud.setCurrentIndex(2)
+        elif item_clicked == 'Consumption':
+            app.tab_crud.setCurrentIndex(3)
+        elif item_clicked == 'Agency':
+            app.tab_crud.setCurrentIndex(4)
+        elif item_clicked == 'Support':
+            app.tab_crud.setCurrentIndex(5)
+        elif item_clicked == 'Calculate':
+            SwitchWidget.to_home(app)
+        elif item_clicked == 'Histogram':
+            print 'Histogram item clicked'
+            # graph.main()
 
+
+# finish the treewidget listener
 class SwitchWidget(object):
+    def __init__(self, app):
+        self.app = app
+
     @staticmethod
     def to_login(app):
         # Hide
@@ -105,6 +141,9 @@ class SwitchWidget(object):
         app.btn_home.setVisible(False)
         app.tab_crud.setVisible(False)
         app.menubar.setEnabled(False)
+        app.sidebar.setVisible(False)
+        app.sidebar_lbl_settings.setVisible(False)
+        app.sidebar_lbl_profile.setVisible(False)
 
         # Show
         app.login_widget.setVisible(True)
@@ -116,6 +155,9 @@ class SwitchWidget(object):
 
         # Show
         app.tab_crud.setVisible(True)
+        app.sidebar.setVisible(True)
+        app.sidebar_lbl_settings.setVisible(True)
+        app.sidebar_lbl_profile.setVisible(True)
 
     @staticmethod
     def to_home(app):
@@ -127,3 +169,6 @@ class SwitchWidget(object):
         app.menubar.setEnabled(True)
         app.btn_home.setVisible(True)
         app.home_widget.setVisible(True)
+        app.sidebar.setVisible(True)
+        app.sidebar_lbl_settings.setVisible(True)
+        app.sidebar_lbl_profile.setVisible(True)
