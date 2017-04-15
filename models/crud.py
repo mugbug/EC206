@@ -23,7 +23,7 @@ class ClientIO(object):
 
         # client = Client(name, address, cpf, age)
         try:
-            cur.execute("INSERT INTO client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', '{3}')"
+            cur.execute("INSERT INTO client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', {3})"
                         .format(name, address, cpf, age))
             db.commit()
         except MySQLdb.Error as err:
@@ -35,8 +35,25 @@ class ClientIO(object):
         else:
             QMessageBox.information(app, 'Success!', 'Client successfully created!')
             return 0
+        finally:
+            cur.close()
 
-        cur.close()
+    @staticmethod
+    def manage_password(cpf, password, app):
+
+        db = app.db
+        cur = db.cursor()
+
+        try:
+            cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
+            client = cur.fetchone()
+            client_id = client[0]
+            cur.execute("UPDATE client SET password = ('{0}') WHERE idClient = ({1})".format(password, client_id))
+            db.commit()
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Could not update Client password!')
+        finally:
+            cur.close()
 
     @staticmethod
     def update(name, address, cpf, age, app):
@@ -48,16 +65,20 @@ class ClientIO(object):
             cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
             client = cur.fetchone()
             client_id = client[0]
-            cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
-            cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
-            cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
-            cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
+            if name != '':
+                cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
+            if address != '':
+                cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
+            # cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
+            if age != 0:
+                cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
             db.commit()
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not update Client!')
         else:
             QMessageBox.information(app, 'Success!', 'Client successfully updated!')
-        cur.close()
+        finally:
+            cur.close()
 
     @staticmethod
     def delete(cpf, app):
@@ -72,7 +93,8 @@ class ClientIO(object):
             QMessageBox.critical(app, 'Error!', 'Could not delete Client!')
         else:
             QMessageBox.information(app, 'Success!', 'Client successfully removed!')
-        cur.close()
+        finally:
+            cur.close()
 
     @staticmethod
     def fetch_all(app):
@@ -94,8 +116,8 @@ class ClientIO(object):
                 app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(client[4]))
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Unable to fetch Client data from database')
-
-        cur.close()
+        finally:
+            cur.close()
 
 
 class ManagerIO(object):

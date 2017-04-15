@@ -1507,11 +1507,6 @@ border-color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </widget>
-     <zorder>client_table</zorder>
-     <zorder>gridLayoutWidget</zorder>
-     <zorder>verticalLayoutWidget</zorder>
-     <zorder>horizontalLayoutWidget</zorder>
-     <zorder>register_widget</zorder>
     </widget>
     <widget class="QWidget" name="tab_manager">
      <attribute name="icon">
@@ -6735,10 +6730,6 @@ alternate-background-color: rgb(111, 161, 143);</string>
       </item>
      </layout>
     </widget>
-    <zorder>home_table</zorder>
-    <zorder>horizontalLayoutWidget_3</zorder>
-    <zorder>register_widget</zorder>
-    <zorder>register_widget</zorder>
    </widget>
    <widget class="QWidget" name="login_widget" native="true">
     <property name="geometry">
@@ -6778,19 +6769,6 @@ alternate-background-color: rgb(111, 161, 143);</string>
      </property>
      <property name="pixmap">
       <pixmap>view/img/logo-cemig_300px.png</pixmap>
-     </property>
-    </widget>
-    <widget class="QLabel" name="login_lbl_subtitle">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>361</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:22pt; color:#015f3d;&quot;&gt;Welcome to Home Analyser!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="login_btn_login">
@@ -6892,7 +6870,7 @@ color: rgb(222, 222, 222);</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -8531,20 +8509,11 @@ color: rgb(222, 222, 222);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <zorder>gridLayoutWidget_7</zorder>
-    <zorder>register_lbl_subtitle</zorder>
-    <zorder>register_lbl_required</zorder>
-    <zorder>horizontalLayoutWidget_8</zorder>
-    <zorder>line</zorder>
-    <zorder>register_lbl_title</zorder>
-    <zorder>login_widget</zorder>
-    <zorder>login_widget</zorder>
-    <zorder>line_3</zorder>
    </widget>
+   <zorder>register_widget</zorder>
    <zorder>login_widget</zorder>
    <zorder>home_widget</zorder>
    <zorder>tab_crud</zorder>
-   <zorder>register_widget</zorder>
    <zorder>sidebar</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar_lbl_profile</zorder>

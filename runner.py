@@ -9,6 +9,7 @@ from controller.connector import DataBaseConnector
 class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Application, self).__init__(parent)
+        self.current_user = str
         self.setupUi(self)
         self.config_ui()
         self.db = DataBaseConnector.get_db(self)

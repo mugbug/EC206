@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, QtCore
-
+import MySQLdb
 from models.crud import *
 # import graph
 
@@ -7,10 +7,54 @@ from models.crud import *
 class ButtonFeatures(object):
     @staticmethod
     def log_in(app):
-        SwitchWidget.to_home(app)
-        ClientIO.fetch_all(app)
+        db = app.db
+        cur = db.cursor()
+        try:
+            cur.execute("SELECT cpf, password FROM client")
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Could not fetch data from database.')
+        else:
+            cpf = str(app.login_input_cpf.text())
+            password = str(app.login_input_password.text())
+            isRegistered = False
+            for (db_cpf, db_password) in cur:
+                if (cpf == db_cpf) and (password == db_password):
+                    # set current user
+                    app.current_user = cpf
+                    isRegistered = True
+                    # perform login operation
+                    SwitchWidget.to_home(app)
+                    ClientIO.fetch_all(app)
+                    break
+            if not isRegistered:
+                QMessageBox.critical(app, 'Error!', 'Incorrect CPF or password!')
 
-        # log in
+    # _________________REGISTER___________________
+    @staticmethod
+    def register(app):
+        name = unicode(app.register_input_name.text()).encode('latin-1')
+        age = app.register_input_age.value()
+        address = unicode(app.register_input_address.text()).encode('latin-1')
+        cpf = str(app.register_input_cpf.text())
+        password = str(app.register_input_password.text())
+        password_confirmation = str(app.register_input_password_1.text())
+        if (cpf and password) != '':
+            if len(cpf) == 14:
+                if password_confirmation != '':
+                    if password == password_confirmation:
+                        ClientIO.add(name, address, cpf, age, app)
+                        ClientIO.manage_password(cpf, password, app)
+                        SwitchWidget.to_login(app)
+                        app.login_input_cpf.setText(cpf)
+                        app.login_input_password.setText(password)
+                    else:
+                        QMessageBox.critical(app, 'Error!', 'The passwords do not match!')
+                else:
+                    QMessageBox.critical(app, 'Error!', 'Confirm your password, please!')
+            else:
+                QMessageBox.critical(app, 'Error!', 'Enter a valid CPF!')
+        else:
+            QMessageBox.critical(app, 'Error!', 'All required fields must be filled!')
 
     # _________________MENU BAR___________________
     @staticmethod
@@ -28,6 +72,7 @@ class ButtonFeatures(object):
         app.consumption_table.setRowCount(0)
         app.agency_table.setRowCount(0)
         app.support_table.setRowCount(0)
+
     # _________________HOME_______________________
     @staticmethod
     def export_pdf(app):
@@ -53,30 +98,30 @@ class ButtonFeatures(object):
         age = app.client_input_age.value()
         address = unicode(app.client_input_address.text()).encode('latin-1')
         cpf = str(app.client_input_cpf.text())
-        if (name and address and cpf and age) != '':
-            result = ClientIO.add(name, address, cpf, age, app)
-            if result == 0:
-                # field cleaner
-                app.client_input_name.clear()
-                app.client_input_age.clear()
-                app.client_input_address.clear()
-                app.client_input_cpf.clear()
-                # add item to table
-                row_position = app.client_table.rowCount()
-                app.client_table.insertRow(row_position)
-                app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
-                app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
-                app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
-                app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
-            elif result == 1:
-                row_position = app.client_table.currentRow()
-                app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
-                app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
-                app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
-                app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
+        # if (name and address and cpf and age) != '':
+        result = ClientIO.add(name, address, cpf, age, app)
+        if result == 0:
+            # field cleaner
+            app.client_input_name.clear()
+            app.client_input_age.clear()
+            app.client_input_address.clear()
+            app.client_input_cpf.clear()
+            # add item to table
+            row_position = app.client_table.rowCount()
+            app.client_table.insertRow(row_position)
+            app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
+            app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
+            app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
+            app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
+        elif result == 1:
+            row_position = app.client_table.currentRow()
+            app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
+            app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
+            app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
+            app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
 
-        else:
-            QtGui.QMessageBox.critical(app, 'Error!', 'All fields should be filled!')
+        # else:
+        #     QtGui.QMessageBox.critical(app, 'Error!', 'All fields should be filled!')
 
     @staticmethod
     def client_edit(app):
@@ -115,6 +160,7 @@ class ButtonListener(object):
 
         # _________________REGISTER______________________
         app.register_btn_login.clicked.connect(lambda: SwitchWidget.to_login(app))
+        app.register_btn_confirm.clicked.connect(lambda: ButtonFeatures.register(app))
 
         # _________________HOME__________________________
         app.home_btn_generate_report.clicked.connect(lambda: ButtonFeatures.export_pdf(app))
@@ -123,7 +169,6 @@ class ButtonListener(object):
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))
         app.client_btn_edit.clicked.connect(lambda: ButtonFeatures.client_edit(app))
         app.client_btn_delete.clicked.connect(lambda: ButtonFeatures.client_delete(app))
-
 
     @staticmethod
     def sidebar_item_clicked(item, column):
