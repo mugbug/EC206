@@ -1,6 +1,7 @@
 # coding: UTF-8
 import MySQLdb
 from PyQt4.QtGui import QMessageBox
+from PyQt4 import QtGui
 from models import *
 
 c = []
@@ -19,21 +20,23 @@ class ClientIO(object):
 
         db = app.db
         cur = db.cursor()
-        client = Client(name, address, cpf, age)
+
+        # client = Client(name, address, cpf, age)
         try:
             cur.execute("INSERT INTO client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', '{3}')"
-                        .format(client.instance.name, client.instance.address, client.instance.cpf, client.instance.age))
+                        .format(name, address, cpf, age))
             db.commit()
         except MySQLdb.Error as err:
-            db.rollback
-            e = "MySQL Error [{0}]: {1}".format(err.args[0], err.args[1])
-            QMessageBox.critical(app, 'Error!', "Couldn't create client\n\n{0}".format(e))
+            db.rollback()
+            answer = QMessageBox.question(app, 'Confirmation', 'Update client data?', QMessageBox.Ok | QMessageBox.Cancel)
+            if answer == QMessageBox.Ok:
+                ClientIO.update(name, address, cpf, age, app)
             return 1
         else:
             QMessageBox.information(app, 'Success!', 'Client successfully created!')
             return 0
+
         cur.close()
-        db.close()
 
     @staticmethod
     def update(name, address, cpf, age, app):
@@ -41,15 +44,20 @@ class ClientIO(object):
 
         db = app.db
         cur = db.cursor()
-
-        client_id = cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
-        cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
-        cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
-        cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
-        cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
-
+        try:
+            cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
+            client = cur.fetchone()
+            client_id = client[0]
+            cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
+            cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
+            cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
+            cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
+            db.commit()
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Could not update Client!')
+        else:
+            QMessageBox.information(app, 'Success!', 'Client successfully updated!')
         cur.close()
-        db.close()
 
     @staticmethod
     def delete(cpf, app):
@@ -57,18 +65,37 @@ class ClientIO(object):
 
         db = app.db
         cur = db.cursor()
-
-        client_id = cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
-        cur.execute("DELETE FROM client WHERE idClient = (0}".format(client_id))
-
+        try:
+            cur.execute("DELETE FROM client WHERE cpf = '{0}'".format(cpf))
+            db.commit()
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Could not delete Client!')
+        else:
+            QMessageBox.information(app, 'Success!', 'Client successfully removed!')
         cur.close()
-        db.close()
 
     @staticmethod
-    def fetch():
-        """Fetches database with the application"""
+    def fetch_all(app):
+        """Fetches all data from Client table"""
 
-        pass
+        db = app.db
+        cur = db.cursor()
+
+        try:
+            cur.execute("SELECT * FROM client")
+            clients = cur.fetchall()
+
+            for client in clients:
+                row_position = app.client_table.rowCount()
+                app.client_table.insertRow(row_position)
+                app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(client[1]))
+                app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(client[3])))
+                app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(client[2]))
+                app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(client[4]))
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Unable to fetch Client data from database')
+
+        cur.close()
 
 
 class ManagerIO(object):

@@ -8,14 +8,26 @@ class ButtonFeatures(object):
     @staticmethod
     def log_in(app):
         SwitchWidget.to_home(app)
+        ClientIO.fetch_all(app)
+
         # log in
 
     # _________________MENU BAR___________________
     @staticmethod
     def log_out(app):
         SwitchWidget.to_login(app)
+        ButtonFeatures.clear_tables(app)
+        app.sidebar.clearSelection()
         # log out
 
+    @staticmethod
+    def clear_tables(app):
+        app.client_table.setRowCount(0)
+        app.manager_table.setRowCount(0)
+        app.equipment_table.setRowCount(0)
+        app.consumption_table.setRowCount(0)
+        app.agency_table.setRowCount(0)
+        app.support_table.setRowCount(0)
     # _________________HOME_______________________
     @staticmethod
     def export_pdf(app):
@@ -56,6 +68,12 @@ class ButtonFeatures(object):
                 app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
                 app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
                 app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
+            elif result == 1:
+                row_position = app.client_table.currentRow()
+                app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
+                app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
+                app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
+                app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
 
         else:
             QtGui.QMessageBox.critical(app, 'Error!', 'All fields should be filled!')
@@ -76,13 +94,14 @@ class ButtonFeatures(object):
     def client_delete(app):
         selected_item = app.client_table.currentRow()
         cpf = app.client_table.item(selected_item, 3).text()
-        ClientIO.delete(cpf)
+        ClientIO.delete(cpf, app)
         app.client_table.removeRow(selected_item)
 
 
 class ButtonListener(object):
     @staticmethod
     def action_listener(app):
+
         # _________________MENU BAR______________________
         app.menu_file_logout.triggered.connect(lambda: ButtonFeatures.log_out(app))
 
@@ -92,7 +111,10 @@ class ButtonListener(object):
 
         # _________________LOGIN BUTTONS_________________
         app.login_btn_login.clicked.connect(lambda: ButtonFeatures.log_in(app))
-        app.btn_home.clicked.connect(lambda: SwitchWidget.to_home(app))
+        app.login_btn_register.clicked.connect(lambda: SwitchWidget.to_register(app))
+
+        # _________________REGISTER______________________
+        app.register_btn_login.clicked.connect(lambda: SwitchWidget.to_login(app))
 
         # _________________HOME__________________________
         app.home_btn_generate_report.clicked.connect(lambda: ButtonFeatures.export_pdf(app))
@@ -101,6 +123,7 @@ class ButtonListener(object):
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))
         app.client_btn_edit.clicked.connect(lambda: ButtonFeatures.client_edit(app))
         app.client_btn_delete.clicked.connect(lambda: ButtonFeatures.client_delete(app))
+
 
     @staticmethod
     def sidebar_item_clicked(item, column):
@@ -129,10 +152,12 @@ class ButtonListener(object):
             # graph.main()
 
 
-# finish the treewidget listener
 class SwitchWidget(object):
-    def __init__(self, app):
-        self.app = app
+
+    @staticmethod
+    def to_register(app):
+        app.login_widget.setVisible(False)
+        app.register_widget.setVisible(True)
 
     @staticmethod
     def to_login(app):
@@ -144,6 +169,7 @@ class SwitchWidget(object):
         app.sidebar.setVisible(False)
         app.sidebar_lbl_settings.setVisible(False)
         app.sidebar_lbl_profile.setVisible(False)
+        app.register_widget.setVisible(False)
 
         # Show
         app.login_widget.setVisible(True)

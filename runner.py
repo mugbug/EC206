@@ -13,6 +13,9 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         self.config_ui()
         self.db = DataBaseConnector.get_db(self)
 
+    def closeEvent(self, event):
+        self.db.close()
+
     def get_db(self):
         return self.db
 
@@ -26,12 +29,12 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         self.sidebar.topLevelItem(0).setExpanded(True)
         self.sidebar.topLevelItem(1).setExpanded(True)
         # Validators
-        regex_cpf = QtCore.QRegExp('\d{1,3}\.\d{1,3}\.\d{1,3}\-\d{1,2}$')
-        validator_cpf = QtGui.QRegExpValidator(regex_cpf)
-        self.login_input_cpf.setValidator(validator_cpf)
+        # regex_cpf = QtCore.QRegExp('\d{1,3}\.\d{1,3}\.\d{1,3}\-\d{1,2}$')
+        # validator_cpf = QtGui.QRegExpValidator(regex_cpf)
+        # self.login_input_cpf.setValidator(validator_cpf)
         # or
         # InputMask
-        # self.login_input_cpf.setInputMask('999.999.999-99;')
+        self.login_input_cpf.setInputMask('999.999.999-99;')
 
     def configure_tables(self):
         # home table
@@ -42,7 +45,14 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(4, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(5, QtGui.QHeaderView.ResizeToContents)
+        header.setResizeMode(6, QtGui.QHeaderView.ResizeToContents)
         # client table
+        header = self.client_table.horizontalHeader()
+        header.setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
+        header.setResizeMode(1, QtGui.QHeaderView.ResizeToContents)
+        header.setResizeMode(2, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
+        # manager table
         header = self.client_table.horizontalHeader()
         header.setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(1, QtGui.QHeaderView.ResizeToContents)
@@ -54,7 +64,6 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         header.setResizeMode(1, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(2, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
-
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
