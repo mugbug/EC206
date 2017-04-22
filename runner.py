@@ -36,6 +36,7 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         # or
         # InputMask
         self.login_input_cpf.setInputMask('999.999.999-99;')
+        self.consumption_input_day.setDate(QtCore.QDate.currentDate())
 
     def configure_tables(self):
         # home table
@@ -46,7 +47,6 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(4, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(5, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(6, QtGui.QHeaderView.ResizeToContents)
         # client table
         header = self.client_table.horizontalHeader()
         header.setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
@@ -54,17 +54,29 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         header.setResizeMode(2, QtGui.QHeaderView.Stretch)
         header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
         # manager table
-        header = self.client_table.horizontalHeader()
-        header.setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(1, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(2, QtGui.QHeaderView.Stretch)
-        header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
+        header = self.manager_table.horizontalHeader()
+        header.setResizeMode(0, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(1, QtGui.QHeaderView.Stretch)
         # equipment table
         header = self.equipment_table.horizontalHeader()
         header.setResizeMode(0, QtGui.QHeaderView.Stretch)
         header.setResizeMode(1, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(2, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
+        # consumption table
+        header = self.consumption_table.horizontalHeader()
+        header.setResizeMode(0, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(1, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(2, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(3, QtGui.QHeaderView.Stretch)
+        # agency
+        header = self.agency_table.horizontalHeader()
+        header.setResizeMode(0, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(1, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(2, QtGui.QHeaderView.Stretch)
+        # support
+        header = self.support_table.horizontalHeader()
+        header.setResizeMode(0, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(1, QtGui.QHeaderView.Stretch)
+        header.setResizeMode(2, QtGui.QHeaderView.Stretch)
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

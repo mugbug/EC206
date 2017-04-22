@@ -63,10 +63,9 @@ class Manager(Client):
 
 
 class Equipment(object):
-    def __init__(self, name, power, consumption):
+    def __init__(self, name, power):
         self.name = name
         self.power = power
-        self.consumption = consumption
 
     def average_consumption(self):
         pass
@@ -76,10 +75,9 @@ class Equipment(object):
 
 
 class Agency(object):
-    def __init__(self, address, city, manager):
+    def __init__(self, address, city):
         self.address = address
         self.city = city
-        self.manager = manager
 
 
 class Consumption(object):

@@ -8,7 +8,7 @@ class DataBaseConnector(object):
     def get_db(app):
         db_connection = False
         try:
-            db = MySQLdb.connect(host='localhost', user='root', passwd='', db='mydb')
+            db = MySQLdb.connect(host='localhost', user='root', passwd='root', db='mydb')
         except MySQLdb.Error as err:
             e = "Database connection error [%d]: %s" % (err.args[0], err.args[1])
         else:

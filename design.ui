@@ -13,7 +13,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>827</width>
+    <width>807</width>
     <height>524</height>
    </rect>
   </property>
@@ -25,13 +25,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
+    <width>807</width>
     <height>524</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1000</width>
+    <width>807</width>
     <height>524</height>
    </size>
   </property>
@@ -41,11 +41,16 @@
   <property name="windowTitle">
    <string>Cemig - Home Analyser</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>view/img/favicon.png</normaloff>view/img/favicon.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt</string>
+   <string notr="true">font: 10pt;
+font: &quot;Segoe UI Semilight&quot;;</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
@@ -158,7 +163,7 @@
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(111, 161, 143);
+     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(111, 161, 143);
 border-color: rgb(111, 161, 143);
 gridline-color: rgb(111, 161, 143);
 alternate-background-color: rgb(111, 161, 143);</string>
@@ -170,7 +175,7 @@ alternate-background-color: rgb(111, 161, 143);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <property name="movable">
      <bool>false</bool>
@@ -1536,7 +1541,7 @@ border-color: rgb(255, 255, 255);</string>
        <item row="0" column="0">
         <widget class="QLabel" name="manager_lbl_name">
          <property name="text">
-          <string>Name:</string>
+          <string>CPF:</string>
          </property>
         </widget>
        </item>
@@ -1557,7 +1562,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="manager_input_name">
+        <widget class="QComboBox" name="manager_input_cpf">
          <property name="minimumSize">
           <size>
            <width>193</width>
@@ -1969,21 +1974,6 @@ border-color: rgb(255, 255, 255);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Age</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Address</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>CPF</string>
        </property>
       </column>
@@ -2140,11 +2130,6 @@ border-color: rgb(255, 255, 255);</string>
           <string notr="true">background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
          </property>
-         <item>
-          <property name="text">
-           <string>Name</string>
-          </property>
-         </item>
          <item>
           <property name="text">
            <string>CPF</string>
@@ -2708,7 +2693,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="equipment_btn_update">
+        <widget class="QPushButton" name="equipment_btn_edit">
          <property name="minimumSize">
           <size>
            <width>41</width>
@@ -2756,7 +2741,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="equipment_btn_pdf">
+        <widget class="QPushButton" name="equipment_btn_save">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -2783,13 +2768,16 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
+           <normaloff>view/img/save.png</normaloff>view/img/save.png</iconset>
          </property>
          <property name="iconSize">
           <size>
            <width>32</width>
            <height>32</height>
           </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+S</string>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -4862,7 +4850,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="agency_btn_pdf">
+        <widget class="QPushButton" name="agency_btn_save">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -4889,13 +4877,16 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
+           <normaloff>view/img/save.png</normaloff>view/img/save.png</iconset>
          </property>
          <property name="iconSize">
           <size>
            <width>32</width>
            <height>32</height>
           </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+S</string>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -4965,36 +4956,6 @@ border-color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
-       <item row="1" column="0">
-        <widget class="QLabel" name="agency_lbl_city">
-         <property name="text">
-          <string>City:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="agency_lbl_manager">
-         <property name="text">
-          <string>Manager:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_21">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>60</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="agency_lbl_address">
          <property name="text">
@@ -5002,7 +4963,34 @@ border-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1" colspan="4">
+       <item row="1" column="0">
+        <widget class="QLabel" name="agency_lbl_city">
+         <property name="text">
+          <string>City:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="agency_input_city">
+         <property name="minimumSize">
+          <size>
+           <width>193</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>193</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="3">
         <widget class="QLineEdit" name="agency_input_address">
          <property name="palette">
           <palette>
@@ -5128,45 +5116,21 @@ border-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="agency_input_city">
-         <property name="minimumSize">
+       <item row="1" column="2">
+        <spacer name="horizontalSpacer_21">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>193</width>
-           <height>22</height>
+           <width>60</width>
+           <height>20</height>
           </size>
          </property>
-         <property name="maximumSize">
-          <size>
-           <width>193</width>
-           <height>22</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4">
-        <widget class="QComboBox" name="agency_input_manager">
-         <property name="minimumSize">
-          <size>
-           <width>193</width>
-           <height>22</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>193</width>
-           <height>22</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -6448,7 +6412,7 @@ border-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(111, 161, 143);
+     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(111, 161, 143);
 border-color: rgb(111, 161, 143);
 gridline-color: rgb(111, 161, 143);
 alternate-background-color: rgb(111, 161, 143);</string>
@@ -6497,11 +6461,6 @@ alternate-background-color: rgb(111, 161, 143);</string>
      <column>
       <property name="text">
        <string>Quant.</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Pot [W]</string>
       </property>
      </column>
      <column>
@@ -6603,21 +6562,6 @@ alternate-background-color: rgb(111, 161, 143);</string>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
-          <item>
-           <property name="text">
-            <string>TV</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Air Conditioner</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Electric Shower</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="0" column="0">
@@ -6788,7 +6732,8 @@ alternate-background-color: rgb(111, 161, 143);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(1, 95, 61);
-color: rgb(222, 222, 222);</string>
+color: rgb(222, 222, 222);
+font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      </property>
      <property name="text">
       <string>Login</string>
@@ -6822,6 +6767,9 @@ color: rgb(222, 222, 222);</string>
      <layout class="QHBoxLayout" name="horizontalLayout_9">
       <item>
        <widget class="QLabel" name="login_lbl_register">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>Does not have an account?</string>
         </property>
@@ -6885,6 +6833,9 @@ color: rgb(222, 222, 222);</string>
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="login_lbl_cpf">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>CPF:</string>
         </property>
@@ -6991,7 +6942,8 @@ color: rgb(222, 222, 222);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);</string>
+border-color: rgb(255, 255, 255);
+font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
         </property>
         <property name="text">
          <string/>
@@ -7017,7 +6969,8 @@ border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);</string>
+border-color: rgb(255, 255, 255);
+font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
         </property>
         <property name="inputMask">
          <string/>
@@ -7038,6 +6991,9 @@ border-color: rgb(255, 255, 255);</string>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="login_lbl_password">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>Password:</string>
         </property>
@@ -7162,7 +7118,7 @@ border-color: rgb(255, 255, 255);</string>
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(131, 190, 169);</string>
+     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(131, 190, 169);</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -7429,6 +7385,9 @@ border-color: rgb(255, 255, 255);</string>
         </color>
        </brush>
       </property>
+      <property name="flags">
+       <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
+      </property>
      </item>
     </item>
    </widget>
@@ -7488,6 +7447,18 @@ border-color: rgb(255, 255, 255);</string>
       <height>501</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>821</width>
+      <height>501</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>821</width>
+      <height>501</height>
+     </size>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(111, 161, 143);</string>
     </property>
@@ -7503,6 +7474,9 @@ border-color: rgb(255, 255, 255);</string>
      <layout class="QGridLayout" name="gridLayout_9">
       <item row="3" column="0">
        <widget class="QLabel" name="register_lbl_password">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Password&lt;span style=&quot; color:#fe9007;&quot;&gt;*&lt;/span&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -7510,6 +7484,9 @@ border-color: rgb(255, 255, 255);</string>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="register_lbl_cpf">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CPF&lt;span style=&quot; color:#fe9007;&quot;&gt;*&lt;/span&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -7533,6 +7510,9 @@ border-color: rgb(255, 255, 255);</string>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="register_lbl_name">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>Name:</string>
         </property>
@@ -7547,6 +7527,9 @@ border-color: rgb(255, 255, 255);</string>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="register_lbl_address">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>Address:</string>
         </property>
@@ -7673,7 +7656,7 @@ border-color: rgb(255, 255, 255);</string>
          </palette>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="echoMode">
@@ -7811,7 +7794,7 @@ border-color: rgb(255, 255, 255);</string>
          </palette>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="maximum">
@@ -7941,7 +7924,7 @@ border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);</string>
+font: 25 10pt &quot;Segoe UI Semilight&quot;;border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="placeholderText">
          <string>Pedro Zaroni</string>
@@ -8069,7 +8052,7 @@ border-color: rgb(255, 255, 255);</string>
          </palette>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="inputMask">
@@ -8204,7 +8187,7 @@ border-color: rgb(255, 255, 255);</string>
          </palette>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="placeholderText">
@@ -8333,7 +8316,7 @@ border-color: rgb(255, 255, 255);</string>
          </palette>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
         </property>
         <property name="echoMode">
@@ -8347,7 +8330,7 @@ border-color: rgb(255, 255, 255);</string>
       <item row="4" column="4">
        <widget class="QPushButton" name="register_btn_confirm">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(1, 95, 61);
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(1, 95, 61);
 color: rgb(222, 222, 222);</string>
         </property>
         <property name="text">
@@ -8367,10 +8350,13 @@ color: rgb(222, 222, 222);</string>
      <property name="geometry">
       <rect>
        <x>190</x>
-       <y>140</y>
-       <width>231</width>
-       <height>31</height>
+       <y>130</y>
+       <width>291</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:22pt; color:#015f3d;&quot;&gt;Create an account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -8384,6 +8370,9 @@ color: rgb(222, 222, 222);</string>
        <width>71</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#fe9007;&quot;&gt;* &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;required&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -8401,6 +8390,9 @@ color: rgb(222, 222, 222);</string>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <item>
        <widget class="QLabel" name="register_lbl_login">
+        <property name="styleSheet">
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
+        </property>
         <property name="text">
          <string>Already registered?</string>
         </property>
@@ -8430,7 +8422,7 @@ color: rgb(222, 222, 222);</string>
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(254, 144, 7);</string>
+         <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;color: rgb(254, 144, 7);</string>
         </property>
         <property name="text">
          <string>Log in</string>
@@ -8510,21 +8502,229 @@ color: rgb(222, 222, 222);</string>
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="about_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>0</y>
+      <width>661</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;
+background-color: rgb(111, 161, 143);</string>
+    </property>
+    <widget class="QLabel" name="about_cemig">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>460</y>
+       <width>100</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>view/img/logo-cemig_100px.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="about_title">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>60</y>
+       <width>521</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>view/img/about.png</pixmap>
+     </property>
+    </widget>
+    <widget class="Line" name="line_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>440</y>
+       <width>661</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="about_powered">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>460</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Powered by:</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>220</y>
+       <width>481</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="about_lbl_calculate">
+        <property name="text">
+         <string>Calculate your home consumption of energy for each equipment</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="about_lbl_analyse">
+        <property name="text">
+         <string>Analyse your consumption through the time</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="about_lbl_register">
+        <property name="text">
+         <string>Register and manage your equipments informations</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="about_lbl_help">
+        <property name="text">
+         <string>Need help? Talk to our support staff</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="about_btn_calculate">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="about_btn_analyse">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="about_btn_register">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="about_btn_help">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+     <zorder>about_lbl_help</zorder>
+     <zorder>about_lbl_register</zorder>
+     <zorder>about_lbl_analyse</zorder>
+     <zorder>about_lbl_calculate</zorder>
+     <zorder>about_btn_calculate</zorder>
+     <zorder>about_btn_analyse</zorder>
+     <zorder>about_btn_register</zorder>
+     <zorder>about_btn_help</zorder>
+    </widget>
+    <widget class="QLabel" name="about_version">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>455</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Version: alpha</string>
+     </property>
+    </widget>
+    <zorder>formLayoutWidget</zorder>
+    <zorder>about_title</zorder>
+    <zorder>about_cemig</zorder>
+    <zorder>about_powered</zorder>
+    <zorder>about_version</zorder>
+    <zorder>line_4</zorder>
+   </widget>
+   <zorder>btn_home</zorder>
+   <zorder>tab_crud</zorder>
+   <zorder>home_widget</zorder>
    <zorder>register_widget</zorder>
    <zorder>login_widget</zorder>
-   <zorder>home_widget</zorder>
-   <zorder>tab_crud</zorder>
    <zorder>sidebar</zorder>
-   <zorder>btn_home</zorder>
    <zorder>sidebar_lbl_profile</zorder>
    <zorder>sidebar_lbl_settings</zorder>
+   <zorder>about_widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>827</width>
+     <width>807</width>
      <height>23</height>
     </rect>
    </property>
@@ -8539,8 +8739,8 @@ color: rgb(222, 222, 222);</string>
    <widget class="QMenu" name="menu_help">
     <property name="geometry">
      <rect>
-      <x>213</x>
-      <y>133</y>
+      <x>222</x>
+      <y>145</y>
       <width>155</width>
       <height>94</height>
      </rect>
@@ -8771,6 +8971,9 @@ color: rgb(222, 222, 222);</string>
    </property>
   </action>
   <action name="menu_help_contact">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Contact Support</string>
    </property>
@@ -8801,7 +9004,7 @@ color: rgb(222, 222, 222);</string>
   <tabstop>client_cb_search</tabstop>
   <tabstop>client_input_search</tabstop>
   <tabstop>client_btn_search</tabstop>
-  <tabstop>manager_input_name</tabstop>
+  <tabstop>manager_input_cpf</tabstop>
   <tabstop>manager_input_agency</tabstop>
   <tabstop>manager_btn_create</tabstop>
   <tabstop>manager_btn_edit</tabstop>
@@ -8813,8 +9016,8 @@ color: rgb(222, 222, 222);</string>
   <tabstop>equipment_input_name</tabstop>
   <tabstop>equipment_input_power</tabstop>
   <tabstop>equipment_btn_create</tabstop>
-  <tabstop>equipment_btn_update</tabstop>
-  <tabstop>equipment_btn_pdf</tabstop>
+  <tabstop>equipment_btn_edit</tabstop>
+  <tabstop>equipment_btn_save</tabstop>
   <tabstop>equipment_btn_delete</tabstop>
   <tabstop>equipment_cb_search</tabstop>
   <tabstop>equipment_input_search</tabstop>
@@ -8830,10 +9033,9 @@ color: rgb(222, 222, 222);</string>
   <tabstop>consumption_btn_search</tabstop>
   <tabstop>agency_input_address</tabstop>
   <tabstop>agency_input_city</tabstop>
-  <tabstop>agency_input_manager</tabstop>
   <tabstop>agency_btn_create</tabstop>
   <tabstop>agency_btn_edit</tabstop>
-  <tabstop>agency_btn_pdf</tabstop>
+  <tabstop>agency_btn_save</tabstop>
   <tabstop>agency_btn_delete</tabstop>
   <tabstop>agency_cb_search</tabstop>
   <tabstop>agency_input_search</tabstop>
