@@ -81,6 +81,7 @@ class Agency(object):
 
 
 class Consumption(object):
+
     def __init__(self, equipment, day, kwh_price, daily_usage, quantity):
         self.equipment = equipment
         self.day = day
@@ -127,6 +128,17 @@ class Consumption(object):
 
 
 class Support(object):
-    def __init__(self, available, protocol):
-        self.available = available
-        self.protocol = protocol
+    def __init__(self, id_number, phone):
+        self.id_number = id_number
+        self.phone = phone
+        self.protocol = []
+        self.is_available = True
+
+    def change_status(self):
+        if self.is_available:
+            self.is_available = False
+        else:
+            self.is_available = True
+
+    def add_protocol(self, protocol):
+        self.protocol.append(protocol)

@@ -31,6 +31,8 @@ class ButtonFeatures(object):
                     ManagerIO.fetch_all(app)
                     EquipmentIO.fetch_all(app)
                     AgencyIO.fetch_all(app)
+                    ConsumptionIO.fetch_all(app)
+                    SupportIO.fetch_all(app)
                     # clearing login fields
                     app.login_input_cpf.clear()
                     app.login_input_password.clear()
@@ -98,6 +100,11 @@ class ButtonFeatures(object):
         app.manager_input_agency.clear()
         app.equipment_input_name.clear()
         app.equipment_input_power.setValue(0)
+        app.agency_input_address.clear()
+        app.agency_input_city.clear()
+        app.support_input_id.setValue(0)
+        app.support_input_phone.clear()
+        app.consumption_input_kwh_price.clear()
 
     # _________________HOME_______________________
     @staticmethod
@@ -127,11 +134,6 @@ class ButtonFeatures(object):
         # if (name and address and cpf and age) != '':
         result = ClientIO.add(name, address, cpf, age, app)
         if result == 0:
-            # field cleaner
-            app.client_input_name.clear()
-            app.client_input_age.clear()
-            app.client_input_address.clear()
-            app.client_input_cpf.clear()
             # add item to table
             row_position = app.client_table.rowCount()
             app.client_table.insertRow(row_position)
@@ -140,14 +142,18 @@ class ButtonFeatures(object):
             app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
             app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
         elif result == 1:
+            # update
             row_position = app.client_table.currentRow()
             app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
             app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
             app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
             app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(cpf))
-
-        # else:
-        #     QtGui.QMessageBox.critical(app, 'Error!', 'All fields should be filled!')
+        # field cleaner
+        app.client_input_name.clear()
+        app.client_input_age.clear()
+        app.client_input_address.clear()
+        app.client_input_cpf.clear()
+        app.client_input_name.setFocus()
 
     @staticmethod
     def client_edit(app):
@@ -181,9 +187,6 @@ class ButtonFeatures(object):
         agency = app.manager_input_agency.currentText()
         result = ManagerIO.add(cpf, agency, app)
         if result == 0:
-            # field cleaner
-            app.manager_input_cpf.setCurrentIndex(0)
-            app.manager_input_agency.setCurrentIndex(0)
             # add item to table
             row_position = app.manager_table.rowCount()
             app.manager_table.insertRow(row_position)
@@ -193,11 +196,27 @@ class ButtonFeatures(object):
             row_position = app.manager_table.currentRow()
             app.manager_table.setItem(row_position, 0, QtGui.QTableWidgetItem(cpf))
             app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency))
+        # field cleaner
+        app.manager_input_cpf.setCurrentIndex(0)
+        app.manager_input_agency.setCurrentIndex(0)
+        app.manager_input_cpf.setFocus()
+
+    @staticmethod
+    def manager_edit(app):
+        selected_item = app.manager_table.currentRow()
+        if selected_item != -1:
+            cpf = app.manager_table.item(selected_item, 0).text()
+            agency = app.manager_table.item(selected_item, 1).text()
+            cpf_index = app.manager_input_cpf.findText(cpf)
+            app.manager_input_cpf.setCurrentIndex(cpf_index)
+            agency_index = app.manager_input_agency.findText(agency)
+            app.manager_input_agency.setCurrentIndex(agency_index)
+        else:
+            QMessageBox.critical(app, 'Error!', 'Please select the manager to be edited!')
 
     @staticmethod
     def manager_delete(app):
         selected_item = app.manager_table.currentRow()
-        print selected_item
         if selected_item != -1:
             cpf = app.manager_table.item(selected_item, 0).text()
             ManagerIO.delete(cpf, app)
@@ -212,18 +231,24 @@ class ButtonFeatures(object):
         row_position = app.equipment_table.rowCount()
         already_registered = False
         for row in range(0, row_position):
-            registered_name = app.equipment_table.item(row, 0)
+            registered_name = app.equipment_table.item(row, 0).text()
             if registered_name == name:
                 already_registered = True
                 answer = QMessageBox.question(app, 'Confirmation', 'Update {0}?'.format(registered_name),
                                               QMessageBox.Ok | QMessageBox.Cancel)
                 if answer == QMessageBox.Ok:
                     app.equipment_table.setItem(row, 1, QtGui.QTableWidgetItem(str(power)))
+                    app.equipment_input_name.clear()
+                    app.equipment_input_power.setValue(0)
+                    app.equipment_input_name.setFocus()
         if not already_registered:
             app.equipment_table.insertRow(row_position)
             app.equipment_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
             app.equipment_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(power)))
             QMessageBox.information(app, 'Success!', 'Equipment successfully registered!')
+            app.equipment_input_name.clear()
+            app.equipment_input_power.setValue(0)
+            app.equipment_input_name.setFocus()
 
     @staticmethod
     def equipment_edit(app):
@@ -266,26 +291,34 @@ class ButtonFeatures(object):
         row_position = app.agency_table.rowCount()
         already_registered = False
         for row in range(0, row_position):
-            registered_city = app.agency_table.item(row, 0)
+            registered_city = app.agency_table.item(row, 0).text()
+            registered_address = app.agency_table.item(row, 1).text()
             if registered_city == city:
                 already_registered = True
                 answer = QMessageBox.question(app, 'Confirmation', 'Update "{0}" agency address?'.format(registered_city),
                                               QMessageBox.Ok | QMessageBox.Cancel)
                 if answer == QMessageBox.Ok:
                     app.agency_table.setItem(row, 1, QtGui.QTableWidgetItem(address))
-            registered_address = app.agency_table.item(row, 1)
-            if registered_address == address:
+                    app.agency_input_address.clear()
+                    app.agency_input_city.clear()
+                    app.agency_input_address.setFocus()
+            elif registered_address == address:
                 already_registered = True
                 answer = QMessageBox.question(app, 'Confirmation', 'Update "{0}" agency city?'.format(registered_address),
                                               QMessageBox.Ok | QMessageBox.Cancel)
                 if answer == QMessageBox.Ok:
                     app.agency_table.setItem(row, 0, QtGui.QTableWidgetItem(city))
+                    app.agency_input_address.clear()
+                    app.agency_input_city.clear()
         if not already_registered:
             app.agency_table.insertRow(row_position)
             app.agency_table.setItem(row_position, 0, QtGui.QTableWidgetItem(city))
             app.agency_table.setItem(row_position, 1, QtGui.QTableWidgetItem(address))
             app.agency_table.setItem(row_position, 2, QtGui.QTableWidgetItem('-'))
             QMessageBox.information(app, 'Success!', 'Agency successfully registered!')
+            app.agency_input_address.clear()
+            app.agency_input_city.clear()
+            app.agency_input_address.setFocus()
 
     @staticmethod
     def agency_edit(app):
@@ -315,11 +348,145 @@ class ButtonFeatures(object):
         a = []
         table_len = app.agency_table.rowCount()
         for row in range(0, table_len):
-            address = unicode(app.agency_input_address.text()).encode('latin-1')
-            city = unicode(app.agency_input_city.text()).encode('latin-1')
+            city = unicode(app.agency_table.item(row, 0).text()).encode('latin-1')
+            address = unicode(app.agency_table.item(row, 1).text()).encode('latin-1')
             a.append(Agency(address, city))
 
         AgencyIO.save(a, app)
+
+    @staticmethod
+    def consumption_create(app):
+        date = app.consumption_input_day.text().split('/')
+        day = date[0]
+        month = date[1]
+        year = date[2]
+        kwh_price = 'R$ '+str(app.consumption_input_kwh_price.value())
+        row_position = app.consumption_table.rowCount()
+        already_registered = False
+        for row in range(0, row_position):
+            r_day = app.consumption_table.item(row, 0).text()
+            r_month = app.consumption_table.item(row, 1).text()
+            r_year = app.consumption_table.item(row, 2).text()
+            if (r_day == day) and (r_month == month) and (r_year == year):
+                already_registered = True
+                answer = QMessageBox.question(app, 'Confirmation',
+                                              'Update "{0}" kWh price?'.format(day+'/'+month+'/'+year),
+                                              QMessageBox.Ok | QMessageBox.Cancel)
+                if answer == QMessageBox.Ok:
+                    app.consumption_table.setItem(row, 3, QtGui.QTableWidgetItem(kwh_price))
+                    app.consumption_input_kwh_price.setValue(0)
+                    app.consumption_input_date.setFocus()
+        if not already_registered:
+            app.consumption_table.insertRow(row_position)
+            app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
+            app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(month))
+            app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem(year))
+            app.consumption_table.setItem(row_position, 3, QtGui.QTableWidgetItem(kwh_price))
+            QMessageBox.information(app, 'Success!', 'Energy price successfully registered!')
+            app.consumption_input_kwh_price.setValue(0)
+            app.consumption_input_date.setFocus()
+
+    @staticmethod
+    def consumption_edit(app):
+        selected_item = app.consumption_table.currentRow()
+        if selected_item != -1:
+            day = int(app.consumption_table.item(selected_item, 0).text())
+            month = int(app.consumption_table.item(selected_item, 1).text())
+            year = int(app.consumption_table.item(selected_item, 2).text())
+            kwh_price = float(app.consumption_table.item(selected_item, 3).text().split(' ')[1])
+            app.consumption_input_day.setDate(QtCore.QDate(year, month, day))
+            app.consumption_input_kwh_price.setValue(kwh_price)
+        else:
+            QMessageBox.critical(app, 'Error!', 'Please select the agency to be edited!')
+
+    @staticmethod
+    def consumption_delete(app):
+        selected_item = app.consumption_table.currentRow()
+        if selected_item != -1:
+            day = str(app.consumption_table.item(selected_item, 0).text())
+            month = str(app.consumption_table.item(selected_item, 1).text())
+            year = str(app.consumption_table.item(selected_item, 2).text())
+            date = day+'/'+month+'/'+year
+            answer = QMessageBox.question(app, 'Confirmation', 'Delete {0} kWh price?'.format(date),
+                                          QMessageBox.Ok | QMessageBox.Cancel)
+            if answer == QMessageBox.Ok:
+                app.consumption_table.removeRow(selected_item)
+        else:
+            QMessageBox.critical(app, 'Error!', 'Please select the date to be deleted!')
+
+    @staticmethod
+    def consumption_save(app):
+        cm = []
+        table_len = app.consumption_table.rowCount()
+        for row in range(0, table_len):
+            day = str(app.consumption_table.item(row, 0).text())
+            month = str(app.consumption_table.item(row, 1).text())
+            year = str(app.consumption_table.item(row, 2).text())
+            kwh_price = float(app.consumption_table.item(row, 3).text().split(' ')[1])
+            cm.append(Consumption(None, year+'-'+month+'-'+day, kwh_price, None, None))
+        ConsumptionIO.save(cm, app)
+
+    @staticmethod
+    def support_create(app):
+        id = str(app.support_input_id.value())
+        phone = app.support_input_phone.text()
+        row_position = app.support_table.rowCount()
+        already_registered = False
+        for row in range(0, row_position):
+            r_id = app.support_table.item(row, 0).text()
+            if r_id == id:
+                already_registered = True
+                answer = QMessageBox.question(app, 'Confirmation',
+                                              'Update Support #{0} phone?'.format(id),
+                                              QMessageBox.Ok | QMessageBox.Cancel)
+                if answer == QMessageBox.Ok:
+                    app.support_table.setItem(row, 1, QtGui.QTableWidgetItem(phone))
+                    app.support_input_id.setValue(0)
+                    app.support_input_phone.clear()
+                    app.support_input_id.setFocus()
+        if not already_registered:
+            app.support_table.insertRow(row_position)
+            app.support_table.setItem(row_position, 0, QtGui.QTableWidgetItem(id))
+            app.support_table.setItem(row_position, 1, QtGui.QTableWidgetItem(phone))
+            app.support_table.setItem(row_position, 2, QtGui.QTableWidgetItem('Available'))
+            QMessageBox.information(app, 'Success!', 'Support successfully registered!')
+            app.support_input_id.setValue(0)
+            app.support_input_phone.clear()
+            app.support_input_id.setFocus()
+
+    @staticmethod
+    def support_edit(app):
+        selected_item = app.support_table.currentRow()
+        if selected_item != -1:
+            id = app.support_table.item(selected_item, 0).text()
+            phone = app.support_table.item(selected_item, 1).text()
+            app.support_input_id.setValue(int(id))
+            app.support_input_phone.setText(phone)
+        else:
+            QMessageBox.critical(app, 'Error!', 'Please select the support to be edited!')
+
+    @staticmethod
+    def support_delete(app):
+        selected_item = app.support_table.currentRow()
+        if selected_item != -1:
+            id = app.support_table.item(selected_item, 0).text()
+            answer = QMessageBox.question(app, 'Confirmation', 'Delete Support #{0}?'.format(id),
+                                          QMessageBox.Ok | QMessageBox.Cancel)
+            if answer == QMessageBox.Ok:
+                app.support_table.removeRow(selected_item)
+        else:
+            QMessageBox.critical(app, 'Error!', 'Please select the support to be deleted!')
+
+    @staticmethod
+    def support_save(app):
+        s = []
+        table_len = app.support_table.rowCount()
+        for row in range(0, table_len):
+            id = int(app.support_table.item(row, 0).text())
+            phone = app.support_table.item(row, 1).text()
+            s.append(Support(id, phone))
+
+        SupportIO.save(s, app)
 
 
 class ButtonListener(object):
@@ -369,6 +536,18 @@ class ButtonListener(object):
         app.agency_btn_save.clicked.connect(lambda: ButtonFeatures.agency_save(app))
         app.agency_btn_delete.clicked.connect(lambda: ButtonFeatures.agency_delete(app))
 
+        # _________________CONSUMPTION __________________
+        app.consumption_btn_create.clicked.connect(lambda: ButtonFeatures.consumption_create(app))
+        app.consumption_btn_edit.clicked.connect(lambda: ButtonFeatures.consumption_edit(app))
+        app.consumption_btn_save.clicked.connect(lambda: ButtonFeatures.consumption_save(app))
+        app.consumption_btn_delete.clicked.connect(lambda: ButtonFeatures.consumption_delete(app))
+
+        # _________________ SUPPORT ______________________-
+        app.support_btn_create.clicked.connect(lambda: ButtonFeatures.support_create(app))
+        app.support_btn_edit.clicked.connect(lambda: ButtonFeatures.support_edit(app))
+        app.support_btn_save.clicked.connect(lambda: ButtonFeatures.support_save(app))
+        app.support_btn_delete.clicked.connect(lambda: ButtonFeatures.support_delete(app))
+
         # ________________ ABOUT ________________________
         app.about_btn_calculate.clicked.connect(lambda: SwitchWidget.to_home(app))
         app.about_btn_register.clicked.connect(lambda: SwitchWidget.to_crud_3(app))
@@ -413,14 +592,14 @@ class SwitchWidget(object):
         app.home_widget.setVisible(False)
         app.btn_home.setVisible(False)
         app.tab_crud.setVisible(False)
-        app.menubar.setEnabled(False)
+        app.menu_file.setEnabled(False)
+        app.menu_help.setEnabled(False)
         app.sidebar.setVisible(False)
-        app.sidebar_lbl_settings.setVisible(False)
-        app.sidebar_lbl_profile.setVisible(False)
         app.register_widget.setVisible(False)
         app.about_widget.setVisible(False)
 
         # Show
+        app.window_buttons.setEnabled(True)
         app.login_widget.setVisible(True)
 
     @staticmethod
@@ -430,12 +609,11 @@ class SwitchWidget(object):
         app.about_widget.setVisible(False)
 
         # Show
-        app.menubar.setEnabled(True)
+        app.menu_file.setEnabled(True)
+        app.menu_help.setEnabled(True)
         app.btn_home.setVisible(True)
         app.tab_crud.setVisible(True)
         app.sidebar.setVisible(True)
-        app.sidebar_lbl_settings.setVisible(True)
-        app.sidebar_lbl_profile.setVisible(True)
 
     @staticmethod
     def to_home(app):
@@ -445,12 +623,11 @@ class SwitchWidget(object):
         app.about_widget.setVisible(False)
 
         # Show
-        app.menubar.setEnabled(True)
+        app.menu_file.setEnabled(True)
+        app.menu_help.setEnabled(True)
         app.btn_home.setVisible(True)
         app.home_widget.setVisible(True)
         app.sidebar.setVisible(True)
-        app.sidebar_lbl_settings.setVisible(True)
-        app.sidebar_lbl_profile.setVisible(True)
 
     @staticmethod
     def to_about(app):
@@ -461,10 +638,9 @@ class SwitchWidget(object):
         app.home_widget.setVisible(False)
 
         # Show
-        app.menubar.setEnabled(True)
+        app.menu_file.setEnabled(True)
+        app.menu_help.setEnabled(True)
         app.sidebar.setVisible(True)
-        app.sidebar_lbl_settings.setVisible(True)
-        app.sidebar_lbl_profile.setVisible(True)
         app.about_widget.setVisible(True)
 
     @staticmethod

@@ -16,10 +16,10 @@ class DataBaseConnector(object):
         finally:
             if db_connection:
                 print 'Database connection successful!'
-                QMessageBox.information(app, 'Notification', 'Database connection successful!')
+                # QMessageBox.information(app, 'Notification', 'Database connection successful!')
                 return db
             else:
                 print e
-                QMessageBox.critical(app, 'Error!', 'Error trying to connect to database!\n{0}'.format(e))
+                # QMessageBox.critical(app, 'Error!', 'Error trying to connect to database!\n{0}'.format(e))
                 return 1
 

@@ -152,9 +152,10 @@ class ManagerIO(object):
         try:
             cur.execute("SELECT idAgency FROM agency WHERE city = ('{0}')".format(agency))
             agency_id = cur.fetchone()
-            cur.execute("INSERT INTO manager (Agency_idAgency, cpf) VALUES ({0}, '{1}')"
-                        .format(agency_id[0], cpf))
-            db.commit()
+            if agency_id is not None:
+                cur.execute("INSERT INTO manager (Agency_idAgency, cpf) VALUES ({0}, '{1}')"
+                            .format(agency_id[0], cpf))
+                db.commit()
         except MySQLdb.Error as err:
             print err
             db.rollback()
@@ -279,7 +280,7 @@ class EquipmentIO(object):
             equipments = cur.fetchall()
 
             for equipment in equipments:
-                e.append(Equipment(equipment[1], equipment[2]))
+                # e.append(Equipment(equipment[1], equipment[2]))
                 row_position = app.equipment_table.rowCount()
                 app.equipment_table.insertRow(row_position)
                 app.equipment_table.setItem(row_position, 0, QtGui.QTableWidgetItem(equipment[1]))
@@ -297,6 +298,17 @@ class EquipmentIO(object):
         cur = db.cursor()
 
         success = False
+
+        if len(equipments) == 0:
+            try:
+                cur.execute("DELETE FROM equipment WHERE User_cpf = ('{0}')".format(app.current_user))
+                db.commit()
+            except MySQLdb.Error:
+                db.rollback()
+                QMessageBox.critical(app, 'Error!', 'Could not erase all Equipments.')
+            else:
+                success = True
+
         for equipment in equipments:
             try:
                 cur.execute("SELECT * FROM equipment WHERE (name, User_cpf) = ('{0}', '{1}')"
@@ -335,14 +347,14 @@ class AgencyIO(object):
             agencies = cur.fetchall()
 
             for agency in agencies:
-                e.append(Agency(agency[1], agency[2]))
+                a.append(Agency(agency[1], agency[2]))
                 row_position = app.agency_table.rowCount()
                 app.agency_table.insertRow(row_position)
-                app.agency_table.setItem(row_position, 0, QtGui.QTableWidgetItem(agency[1]))
-                app.agency_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency[2]))
+                app.agency_table.setItem(row_position, 0, QtGui.QTableWidgetItem(agency[2]))
+                app.agency_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency[1]))
                 app.agency_table.setItem(row_position, 2, QtGui.QTableWidgetItem('-'))
         except MySQLdb.Error:
-            QMessageBox.critical(app, 'Error!', 'Unable to fetch Equipment data from database')
+            QMessageBox.critical(app, 'Error!', 'Unable to fetch Agency data from database')
         finally:
             cur.close()
 
@@ -355,6 +367,17 @@ class AgencyIO(object):
 
         app.manager_input_agency.clear()
         success = False
+
+        if len(agencies) == 0:
+            try:
+                cur.execute("DELETE FROM agency")
+                db.commit()
+            except MySQLdb.Error:
+                db.rollback()
+                QMessageBox.critical(app, 'Error!', 'Could not erase all Agencies.')
+            else:
+                success = True
+
         for agency in agencies:
             try:
                 cur.execute("SELECT * FROM agency WHERE (address, city) = ('{0}', '{1}')"
@@ -382,118 +405,148 @@ class AgencyIO(object):
 
 
 class ConsumptionIO(object):
+
     @staticmethod
     def fetch_all(app):
-        """Fetches all data from Agency table"""
+        """Fetches all data from Consumption table"""
 
         db = app.db
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM agency")
-            agencies = cur.fetchall()
+            cur.execute("SELECT * FROM consumption WHERE User_cpf = ('{0}')".format(app.current_user))
+            consumptions = cur.fetchall()
 
-            for agency in agencies:
-                e.append(Agency(agency[1], agency[2]))
-                row_position = app.agency_table.rowCount()
-                app.agency_table.insertRow(row_position)
-                app.agency_table.setItem(row_position, 0, QtGui.QTableWidgetItem(agency[1]))
-                app.agency_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency[2]))
-                app.agency_table.setItem(row_position, 2, QtGui.QTableWidgetItem('-'))
+            for consumption in consumptions:
+                date = str(consumption[1]).split('-')
+                year = date[0]
+                month = date[1]
+                day = date[2]
+                cm.append(Consumption(None, str(consumption[1]), consumption[2], None, None))
+                row_position = app.consumption_table.rowCount()
+                app.consumption_table.insertRow(row_position)
+                app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
+                app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(month))
+                app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem(year))
+                app.consumption_table.setItem(row_position, 3, QtGui.QTableWidgetItem('R$ '+str(consumption[2])))
         except MySQLdb.Error:
-            QMessageBox.critical(app, 'Error!', 'Unable to fetch Equipment data from database')
+            QMessageBox.critical(app, 'Error!', 'Unable to fetch Consumption data from database')
         finally:
             cur.close()
 
     @staticmethod
-    def save(agencies, app):
+    def save(consumptions, app):
         """Saves all changes to database"""
 
         db = app.db
         cur = db.cursor()
 
         success = False
-        for agency in agencies:
+
+        if len(consumptions) == 0:
             try:
-                cur.execute("SELECT * FROM agency WHERE (address, city) = ('{0}', '{1}')"
-                            .format(agency.address, app.city))
-                result = cur.fetchone()
-                if result is not None:
-                    cur.execute("UPDATE agency SET address = ('{0}') WHERE idAgency = ({1})"
-                                .format(agency.address, result[0]))
-                    cur.execute("UPDATE agency SET city = ('{0}') WHERE idAgency = ({1})"
-                                .format(agency.city, result[0]))
+                cur.execute("DELETE FROM consumption WHERE User_cpf = ('{0}')".format(app.current_user))
+                db.commit()
+            except MySQLdb.Error:
+                db.rollback()
+                QMessageBox.critical(app, 'Error!', 'Could not erase all Consumptions.')
+            else:
+                success = True
+
+        for consumption in consumptions:
+            try:
+                print type(consumption.day)
+                print type(consumption.kwh_price)
+                cur.execute("SELECT * FROM consumption WHERE (day, CAST(kwh_price AS DECIMAL), User_cpf) = "
+                            "('{0}', CAST({1} AS DECIMAL), '{2}')"
+                            .format(consumption.day, consumption.kwh_price, app.current_user))
+                consumption_id = cur.fetchone()
+                print consumption_id
+                if consumption_id is not None:
+                    cur.execute("UPDATE consumption SET day = ('{0}') WHERE idConsumption = ({1})"
+                                .format(consumption.day, consumption_id[0]))
+                    cur.execute("UPDATE consumption SET kwh_price = ({0}) WHERE idConsumption = ({1})"
+                                .format(consumption.kwh_price, consumption_id[0]))
                 else:
-                    cur.execute("INSERT INTO agency (address, city) VALUES ('{0}', '{1}')"
-                                .format(agency.address, agency.address))
+                    cur.execute("INSERT INTO consumption (day, kwh_price, User_cpf) VALUES ('{0}', {1}, '{2}')"
+                                .format(consumption.day, consumption.kwh_price, app.current_user))
                 db.commit()
             except MySQLdb.Error as err:
-                QMessageBox.critical(app, 'Error!', 'Could not save changes on Agencies.\n\n{0}'.format(err))
+                db.rollback()
+                print err
+                QMessageBox.critical(app, 'Error!', 'Could not save changes on Consumption.')
             else:
                 success = True
 
         if success:
-            QMessageBox.information(app, 'Success!', 'Changes on Agencies successfully saved!')
+            QMessageBox.information(app, 'Success!', 'Changes on Consumption successfully saved!')
 
 
 class SupportIO(object):
 
     @staticmethod
-    def add(call, protocol):
-        """Creates new object of Support"""
+    def fetch_all(app):
+        """Fetches all data from Support table"""
 
-        support = Support(call, protocol)
-        s.append(support)
+        db = app.db
+        cur = db.cursor()
 
-    @staticmethod
-    def update():
-        """Lets user change some Support objects attributes"""
+        try:
+            cur.execute("SELECT * FROM support")
+            supports = cur.fetchall()
 
-        protocol = raw_input('Support protocol:')
-        flag = 0
-        for support in s:
-            if protocol == support.protocol:
-                print 'Update support:'
-                support.call = raw_input('Call:')
-                support.protocol = raw_input('Protocol:')
-                print 'Support updated!'
-                flag = 1
-        if flag == 0:
-            print 'Support not found!'
-
-    @staticmethod
-    def delete():
-        """Removes the Support object from data base"""
-
-        protocol = raw_input('Support protocol:')
-        flag = 0
-        for support in s:
-            if protocol == support.time:
-                s.remove(protocol)
-                flag = 1
-                print 'Consumption removed from database!'
-        if flag == 0:
-            print 'Consumption not found!'
+            for support in supports:
+                # s.append(Support(support[1], support[2]))
+                row_position = app.support_table.rowCount()
+                app.support_table.insertRow(row_position)
+                app.support_table.setItem(row_position, 0, QtGui.QTableWidgetItem(str(support[0])))
+                app.support_table.setItem(row_position, 1, QtGui.QTableWidgetItem(support[2]))
+                if support[1]:
+                    app.support_table.setItem(row_position, 2, QtGui.QTableWidgetItem('Available'))
+                else:
+                    app.support_table.setItem(row_position, 2, QtGui.QTableWidgetItem('Not Available'))
+        except MySQLdb.Error:
+            QMessageBox.critical(app, 'Error!', 'Unable to fetch Support data from database')
+        finally:
+            cur.close()
 
     @staticmethod
-    def get():
-        """Shows Consumption object attributes values"""
+    def save(supports, app):
+        """Saves all changes to database"""
 
-        protocol = raw_input('Consumption protocol:')
-        flag = 0
-        for support in s:
-            if protocol == support.protocol:
-                print support.__dict__
-                flag = 1
-        if flag == 0:
-            print 'Support protocol not found!'
+        db = app.db
+        cur = db.cursor()
 
-    @staticmethod
-    def get_all():
-        """Shows all registered Support object attributes values"""
+        success = False
+        if len(supports) == 0:
+            try:
+                cur.execute("DELETE FROM support")
+                db.commit()
+            except MySQLdb.Error:
+                db.rollback()
+                QMessageBox.critical(app, 'Error!', 'Could not erase all Supports.')
+            else:
+                success = True
 
-        if s is not None:
-            for support in s:
-                print support.__dict__
-        else:
-            print "There ain't no Support registered yet"
+        for support in supports:
+            try:
+                # check if it's registered
+                cur.execute("SELECT * FROM support WHERE phone = ('{0}')"
+                            .format(support.phone))
+                support_id = cur.fetchone()
+                if support_id is not None:
+                    cur.execute("UPDATE support SET phone = ('{0}') WHERE idSupport = ({1})"
+                                .format(support.phone, support.id_number))
+                else:
+                    cur.execute("INSERT INTO support (idSupport, phone) VALUES ({0}, '{1}')"
+                                .format(support.id_number, support.phone))
+                db.commit()
+            except MySQLdb.Error as err:
+                db.rollback()
+                print err
+                QMessageBox.critical(app, 'Error!', 'Could not save changes on Supports.')
+            else:
+                success = True
+
+        if success:
+            QMessageBox.information(app, 'Success!', 'Changes on Agencies successfully saved!')
