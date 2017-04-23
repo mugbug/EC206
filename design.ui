@@ -50,7 +50,14 @@
   </property>
   <property name="styleSheet">
    <string notr="true">font: 10pt;
-font: &quot;Segoe UI Semilight&quot;;</string>
+font: &quot;Segoe UI Semilight&quot;;
+selection-background-color: rgb(254, 144, 7);
+
+QPushButton {
+}
+QPushButton:hover {
+	background-color: rgb(254, 144, 7);
+}</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
@@ -86,6 +93,15 @@ font: &quot;Segoe UI Semilight&quot;;</string>
         </color>
        </brush>
       </colorrole>
+      <colorrole role="Highlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>254</red>
+         <green>144</green>
+         <blue>7</blue>
+        </color>
+       </brush>
+      </colorrole>
      </active>
      <inactive>
       <colorrole role="Button">
@@ -112,6 +128,15 @@ font: &quot;Segoe UI Semilight&quot;;</string>
          <red>111</red>
          <green>161</green>
          <blue>143</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Highlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>254</red>
+         <green>144</green>
+         <blue>7</blue>
         </color>
        </brush>
       </colorrole>
@@ -144,6 +169,15 @@ font: &quot;Segoe UI Semilight&quot;;</string>
         </color>
        </brush>
       </colorrole>
+      <colorrole role="Highlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>254</red>
+         <green>144</green>
+         <blue>7</blue>
+        </color>
+       </brush>
+      </colorrole>
      </disabled>
     </palette>
    </property>
@@ -158,6 +192,151 @@ font: &quot;Segoe UI Semilight&quot;;</string>
       <width>681</width>
       <height>431</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>254</red>
+          <green>144</green>
+          <blue>7</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>254</red>
+          <green>144</green>
+          <blue>7</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>254</red>
+          <green>144</green>
+          <blue>7</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>111</red>
+          <green>161</green>
+          <blue>143</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -177,6 +356,9 @@ alternate-background-color: rgb(111, 161, 143);</string>
     <property name="currentIndex">
      <number>5</number>
     </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
     <property name="movable">
      <bool>false</bool>
     </property>
@@ -186,10 +368,13 @@ alternate-background-color: rgb(111, 161, 143);</string>
      </property>
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/user.png</normaloff>view/img/user.png</iconset>
+       <normaloff>view/img/user_ios10.png</normaloff>view/img/user_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Client</string>
      </attribute>
      <widget class="QTableWidget" name="client_table">
       <property name="geometry">
@@ -236,6 +421,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -271,6 +465,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -312,6 +515,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -323,6 +535,9 @@ alternate-background-color: rgb(111, 161, 143);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -464,6 +679,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -502,6 +726,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -537,6 +770,15 @@ alternate-background-color: rgb(111, 161, 143);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -590,6 +832,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -628,6 +879,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -663,6 +923,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -719,6 +988,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -757,6 +1035,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -792,6 +1079,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -845,6 +1141,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -883,6 +1188,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -918,6 +1232,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -969,25 +1292,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="client_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1020,30 +1354,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="client_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -1065,7 +1410,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="client_btn_pdf">
+        <widget class="QPushButton" name="client_btn_admin">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1074,25 +1419,36 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Give admin permissions</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/crown.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/crown.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/crown.png);
+}</string>
          </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1122,25 +1478,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="client_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1213,6 +1580,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -1248,6 +1624,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -1289,6 +1674,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -1300,6 +1694,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -1349,6 +1746,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -1384,6 +1790,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -1425,6 +1840,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -1436,6 +1860,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -1473,12 +1900,15 @@ border-color: rgb(255, 255, 255);</string>
            <height>26</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1516,10 +1946,13 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_manager">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/user (1).png</normaloff>view/img/user (1).png</iconset>
+       <normaloff>view/img/manager_ios10.png</normaloff>view/img/manager_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Manager</string>
      </attribute>
      <widget class="QWidget" name="gridLayoutWidget_3">
       <property name="geometry">
@@ -1617,25 +2050,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="manager_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1668,30 +2112,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="manager_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -1713,7 +2168,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="manager_btn_pdf">
+        <widget class="QPushButton" name="manager_btn_admin">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1722,25 +2177,36 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Give admin permissions</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/crown.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/crown.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/crown.png);
+}</string>
          </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1770,25 +2236,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="manager_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1851,6 +2328,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -1886,6 +2372,15 @@ border-color: rgb(255, 255, 255);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -1927,6 +2422,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -1938,6 +2442,9 @@ border-color: rgb(255, 255, 255);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -2038,6 +2545,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2073,6 +2589,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -2114,6 +2639,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2125,6 +2659,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -2169,6 +2706,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2204,6 +2750,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -2245,6 +2800,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2256,6 +2820,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -2293,12 +2860,15 @@ border-color: rgb(255, 255, 255);</string>
            <height>26</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2339,10 +2909,13 @@ border-color: rgb(255, 255, 255);</string>
      </property>
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/screen.png</normaloff>view/img/screen.png</iconset>
+       <normaloff>view/img/tv_ios10.png</normaloff>view/img/tv_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Equipment</string>
      </attribute>
      <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
@@ -2400,6 +2973,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2438,6 +3020,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2473,6 +3064,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -2532,6 +3132,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2567,6 +3176,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -2608,6 +3226,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -2645,25 +3272,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="equipment_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2696,30 +3334,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="equipment_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit Selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -2750,30 +3399,41 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Save changes</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Save.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Save.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Save.png);
+}</string>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/save.png</normaloff>view/img/save.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="shortcut">
@@ -2801,25 +3461,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="equipment_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2882,6 +3553,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -2917,6 +3597,15 @@ border-color: rgb(255, 255, 255);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -2958,6 +3647,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -2969,6 +3667,9 @@ border-color: rgb(255, 255, 255);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -3069,6 +3770,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3104,6 +3814,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -3145,6 +3864,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3156,6 +3884,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -3200,6 +3931,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3235,6 +3975,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -3276,6 +4025,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3287,6 +4045,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -3324,12 +4085,15 @@ border-color: rgb(255, 255, 255);</string>
            <height>26</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -3367,10 +4131,13 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_consumption">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/thunderbolt.png</normaloff>view/img/thunderbolt.png</iconset>
+       <normaloff>view/img/energy_ios10.png</normaloff>view/img/energy_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Consumption&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </attribute>
      <widget class="QWidget" name="horizontalLayoutWidget_5">
       <property name="geometry">
@@ -3434,6 +4201,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3469,6 +4245,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -3510,6 +4295,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3521,6 +4315,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -3597,6 +4394,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3632,6 +4438,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -3673,6 +4488,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -3684,6 +4508,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -3724,12 +4551,15 @@ border-color: rgb(255, 255, 255);</string>
            <height>26</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -3777,25 +4607,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="consumption_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -3828,30 +4669,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="consumption_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -3873,7 +4725,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="consumption_btn_pdf">
+        <widget class="QPushButton" name="consumption_btn_save">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -3882,31 +4734,45 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Save changes</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Save.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Save.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Save.png);
+}</string>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+S</string>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -3930,25 +4796,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="consumption_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -3977,7 +4854,7 @@ border-color: rgb(255, 255, 255);</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_6">
        <item row="0" column="3">
-        <widget class="QLabel" name="consumption_lbl_energy_price">
+        <widget class="QLabel" name="consumption_lbl_kwh_price">
          <property name="text">
           <string>Energy Price [R$/kWh]:</string>
          </property>
@@ -4048,7 +4925,7 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </item>
        <item row="0" column="4">
-        <widget class="QSpinBox" name="consumption_input_energy_price">
+        <widget class="QDoubleSpinBox" name="consumption_input_kwh_price">
          <property name="minimumSize">
           <size>
            <width>150</width>
@@ -4091,6 +4968,15 @@ color: rgb(0, 0, 0);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4126,6 +5012,15 @@ color: rgb(0, 0, 0);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -4167,6 +5062,15 @@ color: rgb(0, 0, 0);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4183,8 +5087,17 @@ color: rgb(0, 0, 0);</string>
           <string notr="true">background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
          </property>
-         <property name="maximum">
-          <number>130</number>
+         <property name="inputMethodHints">
+          <set>Qt::ImhFormattedNumbersOnly</set>
+         </property>
+         <property name="prefix">
+          <string>R$ </string>
+         </property>
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="singleStep">
+          <double>0.010000000000000</double>
          </property>
         </widget>
        </item>
@@ -4235,6 +5148,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -4270,6 +5192,15 @@ border-color: rgb(255, 255, 255);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -4311,6 +5242,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -4322,6 +5262,9 @@ border-color: rgb(255, 255, 255);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -4381,10 +5324,13 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_agency">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/home.png</normaloff>view/img/home.png</iconset>
+       <normaloff>view/img/agency_ios10.png</normaloff>view/img/agency_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Agency</string>
      </attribute>
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
@@ -4441,6 +5387,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4476,6 +5431,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -4517,6 +5481,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4528,6 +5501,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -4577,6 +5553,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4612,6 +5597,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -4653,6 +5647,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -4664,6 +5667,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -4701,12 +5707,15 @@ border-color: rgb(255, 255, 255);</string>
            <height>26</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -4754,25 +5763,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="agency_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -4805,30 +5825,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="agency_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -4859,30 +5890,41 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Save changes</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Save.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Save.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Save.png);
+}</string>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/save.png</normaloff>view/img/save.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="shortcut">
@@ -4910,25 +5952,33 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="agency_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -5022,6 +6072,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5060,6 +6119,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5095,6 +6163,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -5179,6 +6256,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -5214,6 +6300,15 @@ border-color: rgb(255, 255, 255);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -5255,6 +6350,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -5266,6 +6370,9 @@ border-color: rgb(255, 255, 255);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -5320,10 +6427,13 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_support">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/telephone-receiver.png</normaloff>view/img/telephone-receiver.png</iconset>
+       <normaloff>view/img/support_ios10.png</normaloff>view/img/support_ios10.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Support</string>
      </attribute>
      <widget class="QWidget" name="horizontalLayoutWidget_7">
       <property name="geometry">
@@ -5380,6 +6490,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5415,6 +6534,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -5456,6 +6584,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5467,6 +6604,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -5523,6 +6663,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5558,6 +6707,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -5599,6 +6757,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5610,6 +6777,9 @@ border-color: rgb(255, 255, 255);</string>
             </colorrole>
            </disabled>
           </palette>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -5655,7 +6825,7 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>view/img/magnification-lens.png</normaloff>view/img/magnification-lens.png</iconset>
+           <normaloff>view/img/search_ios10.png</normaloff>view/img/search_ios10.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -5703,25 +6873,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="support_btn_create">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Submit </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -5754,30 +6935,41 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="support_btn_edit">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Edit selected  </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Edit.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Edit.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Edit.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/pencil.png</normaloff>view/img/pencil.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="flat">
@@ -5799,7 +6991,7 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="support_btn_pdf">
+        <widget class="QPushButton" name="support_btn_save">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -5808,31 +7000,45 @@ border-color: rgb(255, 255, 255);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>30</width>
+           <height>30</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
-          <string>Export to .pdf   </string>
+          <string>Save changes</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Save.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Save.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Save.png);
+}</string>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/document.png</normaloff>view/img/document.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+S</string>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -5856,25 +7062,36 @@ border-color: rgb(255, 255, 255);</string>
         <widget class="QPushButton" name="support_btn_delete">
          <property name="minimumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>41</width>
-           <height>41</height>
+           <width>32</width>
+           <height>32</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Delete.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Delete.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Delete.png);
+}</string>
+         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>view/img/trash.png</normaloff>view/img/trash.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -5902,10 +7119,10 @@ border-color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_8">
-       <item row="0" column="0">
-        <widget class="QLabel" name="support_lbl_id">
+       <item row="0" column="3">
+        <widget class="QLabel" name="support_lbl_protocol">
          <property name="text">
-          <string>ID:</string>
+          <string>Phone:</string>
          </property>
         </widget>
        </item>
@@ -5941,6 +7158,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -5979,6 +7205,15 @@ border-color: rgb(255, 255, 255);</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
+              </color>
+             </brush>
+            </colorrole>
             <colorrole role="AlternateBase">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
@@ -6014,6 +7249,15 @@ border-color: rgb(255, 255, 255);</string>
                <red>255</red>
                <green>255</green>
                <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Highlight">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>254</red>
+               <green>144</green>
+               <blue>7</blue>
               </color>
              </brush>
             </colorrole>
@@ -6038,10 +7282,10 @@ border-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="3">
-        <widget class="QLabel" name="support_lbl_phone">
+       <item row="0" column="0">
+        <widget class="QLabel" name="support_lbl_id">
          <property name="text">
-          <string>Phone:</string>
+          <string>ID:</string>
          </property>
         </widget>
        </item>
@@ -6062,128 +7306,19 @@ border-color: rgb(255, 255, 255);</string>
         </spacer>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="support_input_id">
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
+        <widget class="QSpinBox" name="support_input_id">
+         <property name="minimumSize">
+          <size>
+           <width>211</width>
+           <height>0</height>
+          </size>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="maximum">
+          <number>99999</number>
          </property>
         </widget>
        </item>
@@ -6234,6 +7369,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -6269,6 +7413,15 @@ border-color: rgb(255, 255, 255);</string>
             <red>255</red>
             <green>255</green>
             <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
            </color>
           </brush>
          </colorrole>
@@ -6310,6 +7463,15 @@ border-color: rgb(255, 255, 255);</string>
            </color>
           </brush>
          </colorrole>
+         <colorrole role="Highlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>254</red>
+            <green>144</green>
+            <blue>7</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="AlternateBase">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
@@ -6321,6 +7483,9 @@ border-color: rgb(255, 255, 255);</string>
          </colorrole>
         </disabled>
        </palette>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -6384,6 +7549,9 @@ border-color: rgb(255, 255, 255);</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string/>
@@ -6521,15 +7689,26 @@ alternate-background-color: rgb(111, 161, 143);</string>
             <height>26</height>
            </size>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string>Submit </string>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Checkmark.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Checkmark.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Checkmark.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>view/img/check.png</normaloff>view/img/check.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -6608,6 +7787,9 @@ alternate-background-color: rgb(111, 161, 143);</string>
         </property>
         <property name="cursor">
          <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -6730,6 +7912,9 @@ alternate-background-color: rgb(111, 161, 143);</string>
        <height>0</height>
       </size>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(1, 95, 61);
 color: rgb(222, 222, 222);
@@ -6791,6 +7976,9 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(254, 144, 7);</string>
@@ -6879,6 +8067,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
           </active>
           <inactive>
            <colorrole role="Button">
@@ -6908,6 +8105,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
           </inactive>
           <disabled>
            <colorrole role="Button">
@@ -6934,6 +8140,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -7053,6 +8268,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
          </color>
         </brush>
        </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>155</red>
+          <green>225</green>
+          <blue>200</blue>
+         </color>
+        </brush>
+       </colorrole>
       </active>
       <inactive>
        <colorrole role="Button">
@@ -7079,6 +8303,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
           <red>131</red>
           <green>190</green>
           <blue>169</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>155</red>
+          <green>225</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
@@ -7111,6 +8344,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
          </color>
         </brush>
        </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>155</red>
+          <green>225</green>
+          <blue>200</blue>
+         </color>
+        </brush>
+       </colorrole>
       </disabled>
      </palette>
     </property>
@@ -7118,7 +8360,9 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(131, 190, 169);</string>
+     <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;
+background-color: rgb(131, 190, 169);
+selection-background-color: rgb(155, 225, 200);</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -7139,7 +8383,10 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      <bool>false</bool>
     </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::ContiguousSelection</enum>
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectItems</enum>
     </property>
     <property name="indentation">
      <number>10</number>
@@ -7162,6 +8409,9 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
     <property name="expandsOnDoubleClick">
      <bool>true</bool>
     </property>
+    <property name="columnCount">
+     <number>1</number>
+    </property>
     <attribute name="headerVisible">
      <bool>false</bool>
     </attribute>
@@ -7175,7 +8425,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      <number>130</number>
     </attribute>
     <attribute name="headerShowSortIndicator" stdset="0">
-     <bool>true</bool>
+     <bool>false</bool>
     </attribute>
     <attribute name="headerStretchLastSection">
      <bool>false</bool>
@@ -7192,17 +8442,9 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </color>
      </property>
     </column>
-    <column>
-     <property name="text">
-      <string/>
-     </property>
-    </column>
     <item>
      <property name="text">
       <string>Manage Data</string>
-     </property>
-     <property name="text">
-      <string/>
      </property>
      <property name="flags">
       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
@@ -7222,10 +8464,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/user.png</normaloff>view/img/user.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/Gender Neutral User.png</normaloff>view/img/normal/Gender Neutral User.png</iconset>
       </property>
      </item>
      <item>
@@ -7243,10 +8482,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/user (1).png</normaloff>view/img/user (1).png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/User Shield.png</normaloff>view/img/normal/User Shield.png</iconset>
       </property>
      </item>
      <item>
@@ -7264,10 +8500,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/screen.png</normaloff>view/img/screen.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/TV.png</normaloff>view/img/normal/TV.png</iconset>
       </property>
      </item>
      <item>
@@ -7276,10 +8509,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/thunderbolt.png</normaloff>view/img/thunderbolt.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/Lightning Bolt.png</normaloff>view/img/normal/Lightning Bolt.png</iconset>
       </property>
      </item>
      <item>
@@ -7297,10 +8527,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/home.png</normaloff>view/img/home.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/Department.png</normaloff>view/img/normal/Department.png</iconset>
       </property>
      </item>
      <item>
@@ -7318,28 +8545,13 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/telephone-receiver.png</normaloff>view/img/telephone-receiver.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
+        <normaloff>view/img/normal/Customer Support.png</normaloff>view/img/normal/Customer Support.png</iconset>
       </property>
      </item>
     </item>
     <item>
      <property name="text">
       <string>Energy Waste</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="background">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>155</red>
-        <green>225</green>
-        <blue>200</blue>
-       </color>
-      </brush>
      </property>
      <property name="flags">
       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
@@ -7350,19 +8562,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/mathematical-operations.png</normaloff>view/img/mathematical-operations.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="background">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>155</red>
-         <green>225</green>
-         <blue>200</blue>
-        </color>
-       </brush>
+        <normaloff>view/img/normal/Calculator.png</normaloff>view/img/normal/Calculator.png</iconset>
       </property>
      </item>
      <item>
@@ -7371,72 +8571,13 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>view/img/line-chart.png</normaloff>view/img/line-chart.png</iconset>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="background">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>155</red>
-         <green>225</green>
-         <blue>200</blue>
-        </color>
-       </brush>
+        <normaloff>view/img/normal/Bar Chart.png</normaloff>view/img/normal/Bar Chart.png</iconset>
       </property>
       <property name="flags">
        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
       </property>
      </item>
     </item>
-   </widget>
-   <widget class="QLabel" name="sidebar_lbl_profile">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>480</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Your Profile  </string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(131, 190, 169);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>view/img/user_16px.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="sidebar_lbl_settings">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>480</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Settings</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(131, 190, 169);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>view/img/cogwheel.png</pixmap>
-    </property>
    </widget>
    <widget class="QWidget" name="register_widget" native="true">
     <property name="geometry">
@@ -7567,6 +8708,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7605,6 +8755,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7640,6 +8799,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -7705,6 +8873,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7743,6 +8920,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7778,6 +8964,15 @@ border-color: rgb(255, 255, 255);</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -7834,6 +9029,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7872,6 +9076,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -7907,6 +9120,15 @@ border-color: rgb(255, 255, 255);</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -7963,6 +9185,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;border-color: rgb(255, 255, 255);</
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8001,6 +9232,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;border-color: rgb(255, 255, 255);</
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8036,6 +9276,15 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;border-color: rgb(255, 255, 255);</
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -8098,6 +9347,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8136,6 +9394,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8171,6 +9438,15 @@ border-color: rgb(255, 255, 255);</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -8227,6 +9503,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8262,6 +9547,15 @@ border-color: rgb(255, 255, 255);</string>
               <red>255</red>
               <green>255</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
              </color>
             </brush>
            </colorrole>
@@ -8303,6 +9597,15 @@ border-color: rgb(255, 255, 255);</string>
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Highlight">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>254</red>
+              <green>144</green>
+              <blue>7</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="AlternateBase">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -8329,6 +9632,9 @@ border-color: rgb(255, 255, 255);</string>
       </item>
       <item row="4" column="4">
        <widget class="QPushButton" name="register_btn_confirm">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="styleSheet">
          <string notr="true">font: 25 10pt &quot;Segoe UI Semilight&quot;;background-color: rgb(1, 95, 61);
 color: rgb(222, 222, 222);</string>
@@ -8572,7 +9878,7 @@ background-color: rgb(111, 161, 143);</string>
        <x>480</x>
        <y>460</y>
        <width>71</width>
-       <height>16</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -8619,12 +9925,38 @@ background-color: rgb(111, 161, 143);</string>
       </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="about_btn_calculate">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Forward.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:!enabled {
+	border-image: url(view/img/hover/Forward.png);
+}</string>
+        </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -8636,12 +9968,38 @@ background-color: rgb(111, 161, 143);</string>
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Forward.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:!enabled {
+	border-image: url(view/img/hover/Forward.png);
+}</string>
+        </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -8650,12 +10008,38 @@ background-color: rgb(111, 161, 143);</string>
       </item>
       <item row="2" column="1">
        <widget class="QPushButton" name="about_btn_register">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Forward.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:!enabled {
+	border-image: url(view/img/hover/Forward.png);
+}</string>
+        </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -8667,12 +10051,38 @@ background-color: rgb(111, 161, 143);</string>
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Forward.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Forward.png);
+}
+QPushButton:!enabled {
+	border-image: url(view/img/hover/Forward.png);
+}</string>
+        </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>view/img/right-arrow.png</normaloff>view/img/right-arrow.png</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -8709,15 +10119,117 @@ background-color: rgb(111, 161, 143);</string>
     <zorder>about_version</zorder>
     <zorder>line_4</zorder>
    </widget>
-   <zorder>btn_home</zorder>
-   <zorder>tab_crud</zorder>
+   <widget class="QWidget" name="window_buttons" native="true">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>0</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_11">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btn_minimize">
+       <property name="minimumSize">
+        <size>
+         <width>40</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	background-color: rgb(111, 161, 143);
+}
+QPushButton:hover {
+	background-color: rgb(131, 190, 169);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>view/img/normal/Minus Math .png</normaloff>view/img/normal/Minus Math .png</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_close">
+       <property name="minimumSize">
+        <size>
+         <width>40</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	border: solid transparent 1px;
+	background-color: rgb(111, 161, 143);
+}
+QPushButton:hover {
+	background-color: rgb(254, 144, 7);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>view/img/normal/Close.png</normaloff>view/img/normal/Close.png</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>home_widget</zorder>
-   <zorder>register_widget</zorder>
    <zorder>login_widget</zorder>
-   <zorder>sidebar</zorder>
-   <zorder>sidebar_lbl_profile</zorder>
-   <zorder>sidebar_lbl_settings</zorder>
    <zorder>about_widget</zorder>
+   <zorder>register_widget</zorder>
+   <zorder>tab_crud</zorder>
+   <zorder>btn_home</zorder>
+   <zorder>sidebar</zorder>
+   <zorder>window_buttons</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -8728,7 +10240,31 @@ background-color: rgb(111, 161, 143);</string>
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semilight</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(111, 161, 143);</string>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
    <widget class="QMenu" name="menu_file">
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
@@ -8739,8 +10275,8 @@ background-color: rgb(111, 161, 143);</string>
    <widget class="QMenu" name="menu_help">
     <property name="geometry">
      <rect>
-      <x>222</x>
-      <y>145</y>
+      <x>211</x>
+      <y>130</y>
       <width>155</width>
       <height>94</height>
      </rect>
@@ -8997,63 +10533,30 @@ background-color: rgb(111, 161, 143);</string>
   <tabstop>client_input_age</tabstop>
   <tabstop>client_input_address</tabstop>
   <tabstop>client_input_cpf</tabstop>
-  <tabstop>client_btn_create</tabstop>
-  <tabstop>client_btn_edit</tabstop>
-  <tabstop>client_btn_pdf</tabstop>
-  <tabstop>client_btn_delete</tabstop>
-  <tabstop>client_cb_search</tabstop>
-  <tabstop>client_input_search</tabstop>
-  <tabstop>client_btn_search</tabstop>
   <tabstop>manager_input_cpf</tabstop>
   <tabstop>manager_input_agency</tabstop>
-  <tabstop>manager_btn_create</tabstop>
-  <tabstop>manager_btn_edit</tabstop>
-  <tabstop>manager_btn_pdf</tabstop>
-  <tabstop>manager_btn_delete</tabstop>
-  <tabstop>manager_cb_search</tabstop>
-  <tabstop>manager_input_search</tabstop>
-  <tabstop>manager_btn_search</tabstop>
   <tabstop>equipment_input_name</tabstop>
   <tabstop>equipment_input_power</tabstop>
-  <tabstop>equipment_btn_create</tabstop>
-  <tabstop>equipment_btn_edit</tabstop>
-  <tabstop>equipment_btn_save</tabstop>
-  <tabstop>equipment_btn_delete</tabstop>
-  <tabstop>equipment_cb_search</tabstop>
-  <tabstop>equipment_input_search</tabstop>
-  <tabstop>equipment_btn_search</tabstop>
   <tabstop>consumption_input_day</tabstop>
-  <tabstop>consumption_input_energy_price</tabstop>
-  <tabstop>consumption_btn_create</tabstop>
-  <tabstop>consumption_btn_edit</tabstop>
-  <tabstop>consumption_btn_pdf</tabstop>
-  <tabstop>consumption_btn_delete</tabstop>
-  <tabstop>consumption_cb_search</tabstop>
-  <tabstop>consumption_input_search</tabstop>
-  <tabstop>consumption_btn_search</tabstop>
+  <tabstop>consumption_input_kwh_price</tabstop>
   <tabstop>agency_input_address</tabstop>
   <tabstop>agency_input_city</tabstop>
-  <tabstop>agency_btn_create</tabstop>
-  <tabstop>agency_btn_edit</tabstop>
-  <tabstop>agency_btn_save</tabstop>
+  <tabstop>support_input_id</tabstop>
+  <tabstop>support_input_phone</tabstop>
+  <tabstop>manager_cb_search</tabstop>
+  <tabstop>manager_input_search</tabstop>
+  <tabstop>consumption_cb_search</tabstop>
+  <tabstop>consumption_input_search</tabstop>
+  <tabstop>client_cb_search</tabstop>
+  <tabstop>client_input_search</tabstop>
   <tabstop>agency_btn_delete</tabstop>
   <tabstop>agency_cb_search</tabstop>
   <tabstop>agency_input_search</tabstop>
-  <tabstop>agency_btn_search</tabstop>
-  <tabstop>support_input_id</tabstop>
-  <tabstop>support_input_phone</tabstop>
-  <tabstop>support_btn_create</tabstop>
-  <tabstop>support_btn_edit</tabstop>
-  <tabstop>support_btn_pdf</tabstop>
-  <tabstop>support_btn_delete</tabstop>
+  <tabstop>equipment_input_search</tabstop>
   <tabstop>support_cb_search</tabstop>
   <tabstop>support_input_search</tabstop>
   <tabstop>support_btn_search</tabstop>
   <tabstop>equipment_cb_search_2</tabstop>
-  <tabstop>client_btn_create_2</tabstop>
-  <tabstop>home_btn_generate_report</tabstop>
-  <tabstop>login_btn_login</tabstop>
-  <tabstop>btn_home</tabstop>
   <tabstop>home_table</tabstop>
   <tabstop>support_table</tabstop>
   <tabstop>client_table</tabstop>
@@ -9061,8 +10564,7 @@ background-color: rgb(111, 161, 143);</string>
   <tabstop>equipment_table</tabstop>
   <tabstop>manager_table</tabstop>
   <tabstop>agency_table</tabstop>
-  <tabstop>register_btn_confirm</tabstop>
-  <tabstop>login_btn_register</tabstop>
+  <tabstop>equipment_cb_search</tabstop>
  </tabstops>
  <includes>
   <include location="local">Icon images source: http://www.flaticon.com/authors/situ-herrera</include>
