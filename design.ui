@@ -368,7 +368,7 @@ alternate-background-color: rgb(111, 161, 143);</string>
      </property>
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/user_ios10.png</normaloff>view/img/user_ios10.png</iconset>
+       <normaloff>view/img/normal/Gender Neutral User.png</normaloff>view/img/normal/Gender Neutral User.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
@@ -1946,7 +1946,7 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_manager">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/manager_ios10.png</normaloff>view/img/manager_ios10.png</iconset>
+       <normaloff>view/img/normal/User Shield.png</normaloff>view/img/normal/User Shield.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
@@ -2909,7 +2909,7 @@ border-color: rgb(255, 255, 255);</string>
      </property>
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/tv_ios10.png</normaloff>view/img/tv_ios10.png</iconset>
+       <normaloff>view/img/normal/TV.png</normaloff>view/img/normal/TV.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
@@ -4131,7 +4131,7 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_consumption">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/energy_ios10.png</normaloff>view/img/energy_ios10.png</iconset>
+       <normaloff>view/img/normal/Lightning Bolt.png</normaloff>view/img/normal/Lightning Bolt.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
@@ -5324,7 +5324,7 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_agency">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/agency_ios10.png</normaloff>view/img/agency_ios10.png</iconset>
+       <normaloff>view/img/normal/Department.png</normaloff>view/img/normal/Department.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
@@ -6427,7 +6427,7 @@ border-color: rgb(255, 255, 255);</string>
     <widget class="QWidget" name="tab_support">
      <attribute name="icon">
       <iconset>
-       <normaloff>view/img/support_ios10.png</normaloff>view/img/support_ios10.png</iconset>
+       <normaloff>view/img/normal/Customer Support.png</normaloff>view/img/normal/Customer Support.png</iconset>
      </attribute>
      <attribute name="title">
       <string/>
