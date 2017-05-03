@@ -2044,6 +2044,7 @@ class Ui_MainWindow(object):
         self.agency_btn_delete = QtGui.QPushButton(self.verticalLayoutWidget_5)
         self.agency_btn_delete.setMinimumSize(QtCore.QSize(32, 32))
         self.agency_btn_delete.setMaximumSize(QtCore.QSize(32, 32))
+        self.agency_btn_delete.setFocusPolicy(QtCore.Qt.NoFocus)
         self.agency_btn_delete.setStyleSheet(_fromUtf8("QPushButton {\n"
 "    border: solid transparent 1px;\n"
 "    border-image: url(view/img/normal/Delete.png);\n"
@@ -2335,6 +2336,7 @@ class Ui_MainWindow(object):
         self.support_btn_search = QtGui.QPushButton(self.horizontalLayoutWidget_7)
         self.support_btn_search.setMinimumSize(QtCore.QSize(26, 26))
         self.support_btn_search.setMaximumSize(QtCore.QSize(26, 26))
+        self.support_btn_search.setFocusPolicy(QtCore.Qt.NoFocus)
         self.support_btn_search.setText(_fromUtf8(""))
         self.support_btn_search.setIcon(icon1)
         self.support_btn_search.setIconSize(QtCore.QSize(20, 20))

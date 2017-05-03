@@ -5962,6 +5962,9 @@ QPushButton:pressed {
            <height>32</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Delete selected   </string>
          </property>
@@ -6819,6 +6822,9 @@ border-color: rgb(255, 255, 255);</string>
            <width>26</width>
            <height>26</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string/>

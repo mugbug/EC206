@@ -1,12 +1,14 @@
 # coding: utf-8
-
 from crud import *
+
+
+class ClientAttributeError(Exception):
+    def __init__(self, message):
+        super(ClientAttributeError, self).__init__(message)
 
 
 class Client(object):
     # Singleton implementation
-    # add password
-    # add isAdm
     class __Client:
         def __init__(self, name, address, cpf, age, password):
             self.name = name
@@ -14,15 +16,10 @@ class Client(object):
             self.cpf = cpf
             self.age = age
             self.password = password
-
-        def __init__(self, name, address, cpf, age):
-            self.name = name
-            self.address = address
-            self.cpf = cpf
-            self.age = age
     instance = None
 
     def __init__(self, name, address, cpf, age, password):
+
         if not Client.instance:
             Client.instance = Client.__Client(name, address, cpf, age, password)
         else:
@@ -32,14 +29,8 @@ class Client(object):
             Client.instance.age = age
             Client.instance.password = password
 
-    def __init__(self, name, address, cpf, age):
-        if not Client.instance:
-            Client.instance = Client.__Client(name, address, cpf, age)
-        else:
-            Client.instance.name = name
-            Client.instance.address = address
-            Client.instance.cpf = cpf
-            Client.instance.age = age
+    def __getattr__(self, item):
+        raise ClientAttributeError("Access denied to 'Client' attribute '{0}'".format(item))
 
 
 class Manager(Client):
