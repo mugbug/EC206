@@ -11,7 +11,7 @@ class ButtonFeatures(object):
         db = app.db
         cur = db.cursor()
         try:
-            cur.execute("SELECT cpf, password FROM user")
+            cur.execute("SELECT cpf, password FROM User")
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not fetch data from database.')
         else:
@@ -105,6 +105,7 @@ class ButtonFeatures(object):
         app.support_input_id.setValue(0)
         app.support_input_phone.clear()
         app.consumption_input_kwh_price.clear()
+        app.home_input_equipment.clear()
 
     # _________________HOME_______________________
     @staticmethod
@@ -130,7 +131,7 @@ class ButtonFeatures(object):
         # name = str(app.client_input_name.text().toUtf8()).encode('')
         age = app.client_input_age.value()
         address = unicode(app.client_input_address.text()).encode('latin-1')
-        cpf = str(app.client_input_cpf.text())
+        cpf = str(app.client_input_cpf.currentText())
         # if (name and address and cpf and age) != '':
         result = ClientIO.add(name, address, cpf, age, app)
         if result == 0:
@@ -144,6 +145,7 @@ class ButtonFeatures(object):
         elif result == 1:
             # update
             row_position = app.client_table.currentRow()
+            print row_position
             app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
             app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
             app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
@@ -152,7 +154,7 @@ class ButtonFeatures(object):
         app.client_input_name.clear()
         app.client_input_age.clear()
         app.client_input_address.clear()
-        app.client_input_cpf.clear()
+        app.client_input_cpf.setCurrentIndex(0)
         app.client_input_name.setFocus()
 
     @staticmethod
@@ -166,7 +168,8 @@ class ButtonFeatures(object):
             app.client_input_name.setText(name)
             app.client_input_age.setValue(age)
             app.client_input_address.setText(address)
-            app.client_input_cpf.setText(cpf)
+            cpf_index = app.client_input_cpf.findText(cpf)
+            app.client_input_cpf.setCurrentIndex(cpf_index)
         else:
             QMessageBox.critical(app, 'Error!', 'Please select the client to be edited!')
 
@@ -357,44 +360,42 @@ class ButtonFeatures(object):
     @staticmethod
     def consumption_create(app):
         date = app.consumption_input_day.text().split('/')
-        day = date[0]
-        month = date[1]
-        year = date[2]
+        # day = date[0]
+        month = date[0]
+        year = date[1]
         kwh_price = 'R$ '+str(app.consumption_input_kwh_price.value())
         row_position = app.consumption_table.rowCount()
         already_registered = False
         for row in range(0, row_position):
-            r_day = app.consumption_table.item(row, 0).text()
-            r_month = app.consumption_table.item(row, 1).text()
-            r_year = app.consumption_table.item(row, 2).text()
-            if (r_day == day) and (r_month == month) and (r_year == year):
+            r_month = app.consumption_table.item(row, 0).text()
+            r_year = app.consumption_table.item(row, 1).text()
+            if (r_month == month) and (r_year == year):
                 already_registered = True
                 answer = QMessageBox.question(app, 'Confirmation',
-                                              'Update "{0}" kWh price?'.format(day+'/'+month+'/'+year),
+                                              'Update "{0}" kWh price?'.format(month+'/'+year),
                                               QMessageBox.Ok | QMessageBox.Cancel)
                 if answer == QMessageBox.Ok:
-                    app.consumption_table.setItem(row, 3, QtGui.QTableWidgetItem(kwh_price))
+                    app.consumption_table.setItem(row, 2, QtGui.QTableWidgetItem(kwh_price))
                     app.consumption_input_kwh_price.setValue(0)
-                    app.consumption_input_date.setFocus()
+                    app.consumption_input_day.setFocus()
         if not already_registered:
             app.consumption_table.insertRow(row_position)
-            app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
-            app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(month))
-            app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem(year))
-            app.consumption_table.setItem(row_position, 3, QtGui.QTableWidgetItem(kwh_price))
+            # app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
+            app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(month))
+            app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(year))
+            app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem(kwh_price))
             QMessageBox.information(app, 'Success!', 'Energy price successfully registered!')
             app.consumption_input_kwh_price.setValue(0)
-            app.consumption_input_date.setFocus()
+            app.consumption_input_day.setFocus()
 
     @staticmethod
     def consumption_edit(app):
         selected_item = app.consumption_table.currentRow()
         if selected_item != -1:
-            day = int(app.consumption_table.item(selected_item, 0).text())
-            month = int(app.consumption_table.item(selected_item, 1).text())
-            year = int(app.consumption_table.item(selected_item, 2).text())
-            kwh_price = float(app.consumption_table.item(selected_item, 3).text().split(' ')[1])
-            app.consumption_input_day.setDate(QtCore.QDate(year, month, day))
+            month = int(app.consumption_table.item(selected_item, 0).text())
+            year = int(app.consumption_table.item(selected_item, 1).text())
+            kwh_price = float(app.consumption_table.item(selected_item, 2).text().split(' ')[1])
+            app.consumption_input_day.setDate(QtCore.QDate(year, month, 1))
             app.consumption_input_kwh_price.setValue(kwh_price)
         else:
             QMessageBox.critical(app, 'Error!', 'Please select the agency to be edited!')
@@ -403,10 +404,9 @@ class ButtonFeatures(object):
     def consumption_delete(app):
         selected_item = app.consumption_table.currentRow()
         if selected_item != -1:
-            day = str(app.consumption_table.item(selected_item, 0).text())
-            month = str(app.consumption_table.item(selected_item, 1).text())
-            year = str(app.consumption_table.item(selected_item, 2).text())
-            date = day+'/'+month+'/'+year
+            month = str(app.consumption_table.item(selected_item, 0).text())
+            year = str(app.consumption_table.item(selected_item, 1).text())
+            date = month+'/'+year
             answer = QMessageBox.question(app, 'Confirmation', 'Delete {0} kWh price?'.format(date),
                                           QMessageBox.Ok | QMessageBox.Cancel)
             if answer == QMessageBox.Ok:
@@ -419,11 +419,10 @@ class ButtonFeatures(object):
         cm = []
         table_len = app.consumption_table.rowCount()
         for row in range(0, table_len):
-            day = str(app.consumption_table.item(row, 0).text())
-            month = str(app.consumption_table.item(row, 1).text())
-            year = str(app.consumption_table.item(row, 2).text())
-            kwh_price = float(app.consumption_table.item(row, 3).text().split(' ')[1])
-            cm.append(Consumption(None, year+'-'+month+'-'+day, kwh_price, None, None))
+            month = str(app.consumption_table.item(row, 0).text())
+            year = str(app.consumption_table.item(row, 1).text())
+            kwh_price = float(app.consumption_table.item(row, 2).text().split(' ')[1])
+            cm.append(Consumption(None, year+'-'+month+'-01', kwh_price, None, None))
         ConsumptionIO.save(cm, app)
 
     @staticmethod
@@ -488,6 +487,75 @@ class ButtonFeatures(object):
 
         SupportIO.save(s, app)
 
+    @staticmethod
+    def insert_equipment_on_table(app):
+        equipment = str(app.home_input_equipment.currentText())
+        row_position = app.home_table.rowCount()
+        already_on_table = False
+        for row in range(0, row_position):
+            r_equipment = app.home_table.item(row, 0).text()
+            if equipment == r_equipment:
+                already_on_table = True
+                QMessageBox.critical(app, 'Error!', 'Equipment already on calculator!')
+        if not already_on_table:
+            app.home_table.insertRow(row_position)
+            # add equipment name
+            app.home_table.setItem(row_position, 0, QtGui.QTableWidgetItem(equipment))
+            # add date edit
+            date_edit = QtGui.QDateEdit()
+            date_edit.setGeometry(QtCore.QRect(280, 40, 101, 22))
+            date_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                    "alternate-background-color: rgb(1, 95, 61);\n"
+                                    "color: rgb(0, 0, 0);")
+            date_edit.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(2017, 1, 1), QtCore.QTime(0, 0, 0)))
+            date_edit.setMinimumDate(QtCore.QDate(2017, 1, 1))
+            date_edit.setCalendarPopup(True)
+            date_edit.setDisplayFormat('MM/yyyy')
+            date_edit.setDate(QtCore.QDate.currentDate())
+            app.home_table.setCellWidget(row_position, 3, date_edit)
+            # add quant. spin box
+            quant = QtGui.QSpinBox()
+            quant.setStyleSheet("QSpinBox {background-color: rgb(255, 255, 255);\n"
+                                "border-color: rgb(255, 255, 255);}")
+            app.home_table.setCellWidget(row_position, 1, quant)
+            # add daily usage spin box
+            daily_usage = QtGui.QSpinBox()
+            daily_usage.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                      "border-color: rgb(255, 255, 255);")
+            app.home_table.setCellWidget(row_position, 2, daily_usage)
+            # disable consumption cell
+            item = QtGui.QTableWidgetItem()
+            item.setFlags(QtCore.Qt.ItemIsEnabled)
+            app.home_table.setItem(row_position, 4, item)
+
+    @staticmethod
+    def remove_row(app):
+        selected_item = app.home_table.currentRow()
+        print selected_item
+        if selected_item != -1:
+            app.home_table.removeRow(selected_item)
+
+    @staticmethod
+    def update_calculator(app):
+        rows = app.home_table.rowCount()
+        for row in range(0, rows):
+            equipment_name = app.home_table.item(row, 0).text()
+            power = EquipmentIO.get_equipment_power(equipment_name, app)
+            date = app.home_table.cellWidget(row, 3).text().split('/')
+            day = '01'
+            month = date[0]
+            year = date[1]
+            date = year+'-'+month+'-'+day
+            kwh_price = ConsumptionIO.get_kwh_price(date, app)
+            quant = app.home_table.cellWidget(row, 1).value()
+            daily_usage = app.home_table.cellWidget(row, 2).value()
+            if (power >= 0) and (kwh_price>=0):
+                consumption = Consumption(power, day, kwh_price, daily_usage, quant)
+                consumption.calculate_consumption()
+                item = QtGui.QTableWidgetItem('R$ '+str(consumption.total_cost))
+                item.setFlags(QtCore.Qt.ItemIsEnabled)
+                app.home_table.setItem(row, 4, item)
+
 
 class ButtonListener(object):
     @staticmethod
@@ -511,8 +579,13 @@ class ButtonListener(object):
         app.register_btn_confirm.clicked.connect(lambda: ButtonFeatures.register(app))
 
         # _________________HOME__________________________
-        app.home_btn_generate_report.clicked.connect(lambda: ButtonFeatures.export_pdf(app))
         app.btn_home.clicked.connect(lambda: SwitchWidget.to_about(app))
+        app.home_btn_equipment.clicked.connect(lambda: ButtonFeatures.insert_equipment_on_table(app))
+        app.home_btn_generate_report.clicked.connect(lambda: ButtonFeatures.export_pdf(app))
+
+        #table
+        app.remove_Action.triggered.connect(lambda: ButtonFeatures.remove_row(app))
+        app.home_table_update.clicked.connect(lambda: ButtonFeatures.update_calculator(app))
 
         # _________________CLIENT MANAGING_______________
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))

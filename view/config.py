@@ -33,7 +33,11 @@ class UiConfig(object):
         header.setResizeMode(2, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(3, QtGui.QHeaderView.ResizeToContents)
         header.setResizeMode(4, QtGui.QHeaderView.ResizeToContents)
-        header.setResizeMode(5, QtGui.QHeaderView.ResizeToContents)
+        header.setResizeMode(5, QtGui.QHeaderView.Stretch)
+
+        app.remove_Action = QtGui.QAction("Remove", app.home_table)
+        app.home_table.addAction(app.remove_Action)
+
         # client table
         header = app.client_table.horizontalHeader()
         header.setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
@@ -70,3 +74,4 @@ class UiConfig(object):
         app.menubar.setCornerWidget(app.window_buttons)
         app.btn_close.clicked.connect(lambda: app.close())
         app.btn_minimize.clicked.connect(lambda: app.showMinimized())
+

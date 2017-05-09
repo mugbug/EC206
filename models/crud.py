@@ -1,7 +1,8 @@
 # coding: UTF-8
 import MySQLdb
 from PyQt4.QtGui import QMessageBox
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
+
 from models import *
 
 c = []
@@ -23,16 +24,16 @@ class ClientIO(object):
 
         # client = Client(name, address, cpf, age)
         try:
-            cur.execute("INSERT INTO client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', {3})"
+            cur.execute("INSERT INTO Client (name, address, cpf, age) VALUES ('{0}', '{1}', '{2}', {3})"
                         .format(name, address, cpf, age))
             db.commit()
         except MySQLdb.Error:
             db.rollback()
             try:
-                cur.execute("SELECT cpf FROM client WHERE cpf = ('{0}')".format(cpf))
+                cur.execute("SELECT cpf FROM Client WHERE cpf = ('{0}')".format(cpf))
                 cpf_db = cur.fetchone()
                 if cpf_db is not None:
-                    answer = QMessageBox.question(app, 'Confirmation', 'Update client data?',
+                    answer = QMessageBox.question(app, 'Confirmation', 'Update Client data?',
                                                   QMessageBox.Ok | QMessageBox.Cancel)
                     if answer == QMessageBox.Ok:
                         ClientIO.update(name, address, cpf, age, app)
@@ -82,16 +83,16 @@ class ClientIO(object):
         db = app.db
         cur = db.cursor()
         try:
-            cur.execute("SELECT * FROM client WHERE cpf = ('{0}')".format(cpf))
+            cur.execute("SELECT * FROM Client WHERE cpf = ('{0}')".format(cpf))
             client = cur.fetchone()
             client_id = client[0]
             if name != '':
-                cur.execute("UPDATE client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
+                cur.execute("UPDATE Client SET name = ('{0}') WHERE idClient = ({1})".format(name, client_id))
             if address != '':
-                cur.execute("UPDATE client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
+                cur.execute("UPDATE Client SET address = ('{0}') WHERE idClient = ({1})".format(address, client_id))
             # cur.execute("UPDATE client SET cpf = ('{0}') WHERE idClient = ({1})".format(cpf, client_id))
             if age != 0:
-                cur.execute("UPDATE client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
+                cur.execute("UPDATE Client SET age = ({0}) WHERE idClient = ({1})".format(age, client_id))
             db.commit()
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not update Client!')
@@ -124,13 +125,14 @@ class ClientIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM client")
+            cur.execute("SELECT * FROM Client")
             clients = cur.fetchall()
 
             for client in clients:
                 row_position = app.client_table.rowCount()
                 app.client_table.insertRow(row_position)
                 app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(client[1]))
+                app.client_input_cpf.addItem(client[4])
                 app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(client[3])))
                 app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(client[2]))
                 app.client_table.setItem(row_position, 3, QtGui.QTableWidgetItem(client[4]))
@@ -150,17 +152,17 @@ class ManagerIO(object):
 
         # manager = Manager(cpf, agency)
         try:
-            cur.execute("SELECT idAgency FROM agency WHERE city = ('{0}')".format(agency))
+            cur.execute("SELECT idAgency FROM Agency WHERE city = ('{0}')".format(agency))
             agency_id = cur.fetchone()
             if agency_id is not None:
-                cur.execute("INSERT INTO manager (Agency_idAgency, cpf) VALUES ({0}, '{1}')"
+                cur.execute("INSERT INTO Manager (Agency_idAgency, cpf) VALUES ({0}, '{1}')"
                             .format(agency_id[0], cpf))
                 db.commit()
         except MySQLdb.Error as err:
             print err
             db.rollback()
             try:
-                cur.execute("SELECT idManager FROM manager WHERE cpf = ('{0}')".format(cpf))
+                cur.execute("SELECT idManager FROM Manager WHERE cpf = ('{0}')".format(cpf))
                 manager_id = cur.fetchone()
                 if manager_id is not None:
                     answer = QMessageBox.question(app, 'Confirmation', 'Update manager data?',
@@ -188,15 +190,15 @@ class ManagerIO(object):
         db = app.db
         cur = db.cursor()
         try:
-            cur.execute("SELECT idAgency FROM agency WHERE city = ('{0}')".format(agency))
+            cur.execute("SELECT idAgency FROM Agency WHERE city = ('{0}')".format(agency))
             agency_id = cur.fetchone()[0]
-            cur.execute("SELECT * FROM manager WHERE cpf = ('{0}')".format(cpf))
+            cur.execute("SELECT * FROM Manager WHERE cpf = ('{0}')".format(cpf))
             manager = cur.fetchone()
             manager_id = manager[0]
             if cpf != '':
-                cur.execute("UPDATE manager SET cpf = ('{0}') WHERE idManager = ({1})".format(cpf, manager_id))
+                cur.execute("UPDATE Manager SET cpf = ('{0}') WHERE idManager = ({1})".format(cpf, manager_id))
             if agency != '':
-                cur.execute("UPDATE manager SET agency = ({0}) WHERE idManager = ({1})".format(agency_id, manager_id))
+                cur.execute("UPDATE Manager SET agency = ({0}) WHERE idManager = ({1})".format(agency_id, manager_id))
             db.commit()
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not update Manager!')
@@ -212,7 +214,7 @@ class ManagerIO(object):
         db = app.db
         cur = db.cursor()
         try:
-            cur.execute("DELETE FROM manager WHERE cpf = '{0}'".format(cpf))
+            cur.execute("DELETE FROM Manager WHERE cpf = '{0}'".format(cpf))
             db.commit()
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not delete Manager!')
@@ -228,12 +230,12 @@ class ManagerIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT cpf FROM user")
+            cur.execute("SELECT cpf FROM User")
             users = cur.fetchall()
             for user in users:
                 app.manager_input_cpf.addItem(user[0])
 
-            cur.execute("SELECT city FROM agency")
+            cur.execute("SELECT city FROM Agency")
             agencies = cur.fetchall()
             for agency in agencies:
                 app.manager_input_agency.addItem(agency[0])
@@ -251,7 +253,7 @@ class ManagerIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM manager")
+            cur.execute("SELECT * FROM Manager")
             managers = cur.fetchall()
             for manager in managers:
                 row_position = app.manager_table.rowCount()
@@ -276,7 +278,7 @@ class EquipmentIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM equipment WHERE User_cpf = ('{0}')".format(app.current_user))
+            cur.execute("SELECT * FROM Equipment WHERE User_cpf = ('{0}')".format(app.current_user))
             equipments = cur.fetchall()
 
             for equipment in equipments:
@@ -285,6 +287,7 @@ class EquipmentIO(object):
                 app.equipment_table.insertRow(row_position)
                 app.equipment_table.setItem(row_position, 0, QtGui.QTableWidgetItem(equipment[1]))
                 app.equipment_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(equipment[2])))
+                app.home_input_equipment.addItem(equipment[1])
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Unable to fetch Equipment data from database')
         finally:
@@ -299,38 +302,59 @@ class EquipmentIO(object):
 
         success = False
 
+        # start update calculate screen
+        app.home_input_equipment.clear()
+
         if len(equipments) == 0:
             try:
-                cur.execute("DELETE FROM equipment WHERE User_cpf = ('{0}')".format(app.current_user))
+                cur.execute("DELETE FROM Equipment WHERE User_cpf = ('{0}')".format(app.current_user))
                 db.commit()
-            except MySQLdb.Error:
+            except MySQLdb.Error as err:
                 db.rollback()
+                print err
                 QMessageBox.critical(app, 'Error!', 'Could not erase all Equipments.')
             else:
                 success = True
 
         for equipment in equipments:
             try:
-                cur.execute("SELECT * FROM equipment WHERE (name, User_cpf) = ('{0}', '{1}')"
+                cur.execute("SELECT * FROM Equipment WHERE (name, User_cpf) = ('{0}', '{1}')"
                             .format(equipment.name, app.current_user))
                 result = cur.fetchone()
                 if result is not None:
-                    cur.execute("UPDATE equipment SET name = ('{0}') WHERE idEquipment = ({1})"
+                    cur.execute("UPDATE Equipment SET name = ('{0}') WHERE idEquipment = ({1})"
                                 .format(equipment.name, result[0]))
-                    cur.execute("UPDATE equipment SET power = ({0}) WHERE idEquipment = ({1})"
+                    cur.execute("UPDATE Equipment SET power = ({0}) WHERE idEquipment = ({1})"
                                 .format(equipment.power, result[0]))
                 else:
-                    cur.execute("INSERT INTO equipment (name, power, User_cpf) VALUES ('{0}', {1}, '{2}')"
+                    cur.execute("INSERT INTO Equipment (name, power, User_cpf) VALUES ('{0}', {1}, '{2}')"
                                 .format(equipment.name, equipment.power, app.current_user))
                 db.commit()
             except MySQLdb.Error as err:
                 db.rollback()
-                QMessageBox.critical(app, 'Error!', 'Could not save changes on Equipments.\n\n{0}'.format(err))
+                print err
+                QMessageBox.critical(app, 'Error!', 'Could not save changes on Equipments.')
             else:
                 success = True
+                # add to calculate screen
+                app.home_input_equipment.addItem(equipment.name)
 
         if success:
             QMessageBox.information(app, 'Success!', 'Changes on Equipments successfully saved!')
+
+    @staticmethod
+    def get_equipment_power(name, app):
+        db = app.db
+        cur = db.cursor()
+
+        try:
+            cur.execute("SELECT power FROM Equipment WHERE name = '{0}'".format(name))
+            power = cur.fetchone()[0]
+        except MySQLdb.Error as err:
+            print err
+            return -1
+        else:
+            return power
 
 
 class AgencyIO(object):
@@ -343,16 +367,14 @@ class AgencyIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM agency")
+            cur.execute("SELECT * FROM Agency ")
             agencies = cur.fetchall()
-
             for agency in agencies:
                 a.append(Agency(agency[1], agency[2]))
                 row_position = app.agency_table.rowCount()
                 app.agency_table.insertRow(row_position)
                 app.agency_table.setItem(row_position, 0, QtGui.QTableWidgetItem(agency[2]))
                 app.agency_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency[1]))
-                app.agency_table.setItem(row_position, 2, QtGui.QTableWidgetItem('-'))
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Unable to fetch Agency data from database')
         finally:
@@ -370,7 +392,7 @@ class AgencyIO(object):
 
         if len(agencies) == 0:
             try:
-                cur.execute("DELETE FROM agency")
+                cur.execute("DELETE FROM Agency")
                 db.commit()
             except MySQLdb.Error:
                 db.rollback()
@@ -380,16 +402,16 @@ class AgencyIO(object):
 
         for agency in agencies:
             try:
-                cur.execute("SELECT * FROM agency WHERE (address, city) = ('{0}', '{1}')"
+                cur.execute("SELECT * FROM Agency WHERE (address, city) = ('{0}', '{1}')"
                             .format(agency.address, agency.city))
                 agency_id = cur.fetchone()
                 if agency_id is not None:
-                    cur.execute("UPDATE agency SET address = ('{0}') WHERE idAgency = ({1})"
+                    cur.execute("UPDATE Agency SET address = ('{0}') WHERE idAgency = ({1})"
                                 .format(agency.address, agency_id[0]))
-                    cur.execute("UPDATE agency SET city = ('{0}') WHERE idAgency = ({1})"
+                    cur.execute("UPDATE Agency SET city = ('{0}') WHERE idAgency = ({1})"
                                 .format(agency.city, agency_id[0]))
                 else:
-                    cur.execute("INSERT INTO agency (address, city) VALUES ('{0}', '{1}')"
+                    cur.execute("INSERT INTO Agency (address, city) VALUES ('{0}', '{1}')"
                                 .format(agency.address, agency.city))
                 app.manager_input_agency.addItem(agency.city)
                 db.commit()
@@ -414,21 +436,21 @@ class ConsumptionIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM consumption WHERE User_cpf = ('{0}')".format(app.current_user))
+            cur.execute("SELECT * FROM Consumption WHERE User_cpf = ('{0}')".format(app.current_user))
             consumptions = cur.fetchall()
 
             for consumption in consumptions:
                 date = str(consumption[1]).split('-')
                 year = date[0]
                 month = date[1]
-                day = date[2]
+                # day = date[2]
                 cm.append(Consumption(None, str(consumption[1]), consumption[2], None, None))
                 row_position = app.consumption_table.rowCount()
                 app.consumption_table.insertRow(row_position)
-                app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
-                app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(month))
-                app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem(year))
-                app.consumption_table.setItem(row_position, 3, QtGui.QTableWidgetItem('R$ '+str(consumption[2])))
+                # app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(day))
+                app.consumption_table.setItem(row_position, 0, QtGui.QTableWidgetItem(month))
+                app.consumption_table.setItem(row_position, 1, QtGui.QTableWidgetItem(year))
+                app.consumption_table.setItem(row_position, 2, QtGui.QTableWidgetItem('R$ '+str(consumption[2])))
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Unable to fetch Consumption data from database')
         finally:
@@ -445,7 +467,7 @@ class ConsumptionIO(object):
 
         if len(consumptions) == 0:
             try:
-                cur.execute("DELETE FROM consumption WHERE User_cpf = ('{0}')".format(app.current_user))
+                cur.execute("DELETE FROM Consumption WHERE User_cpf = ('{0}')".format(app.current_user))
                 db.commit()
             except MySQLdb.Error:
                 db.rollback()
@@ -455,20 +477,17 @@ class ConsumptionIO(object):
 
         for consumption in consumptions:
             try:
-                print type(consumption.day)
-                print type(consumption.kwh_price)
-                cur.execute("SELECT * FROM consumption WHERE (day, CAST(kwh_price AS DECIMAL), User_cpf) = "
+                cur.execute("SELECT * FROM Consumption WHERE (day, CAST(kwh_price AS DECIMAL), User_cpf) = "
                             "('{0}', CAST({1} AS DECIMAL), '{2}')"
                             .format(consumption.day, consumption.kwh_price, app.current_user))
                 consumption_id = cur.fetchone()
-                print consumption_id
                 if consumption_id is not None:
-                    cur.execute("UPDATE consumption SET day = ('{0}') WHERE idConsumption = ({1})"
+                    cur.execute("UPDATE Consumption SET day = ('{0}') WHERE idConsumption = ({1})"
                                 .format(consumption.day, consumption_id[0]))
-                    cur.execute("UPDATE consumption SET kwh_price = ({0}) WHERE idConsumption = ({1})"
+                    cur.execute("UPDATE Consumption SET kwh_price = ({0}) WHERE idConsumption = ({1})"
                                 .format(consumption.kwh_price, consumption_id[0]))
                 else:
-                    cur.execute("INSERT INTO consumption (day, kwh_price, User_cpf) VALUES ('{0}', {1}, '{2}')"
+                    cur.execute("INSERT INTO Consumption (day, kwh_price, User_cpf) VALUES ('{0}', {1}, '{2}')"
                                 .format(consumption.day, consumption.kwh_price, app.current_user))
                 db.commit()
             except MySQLdb.Error as err:
@@ -481,6 +500,28 @@ class ConsumptionIO(object):
         if success:
             QMessageBox.information(app, 'Success!', 'Changes on Consumption successfully saved!')
 
+    @staticmethod
+    def get_kwh_price(day, app):
+
+        db = app.db
+        cur = db.cursor()
+
+        try:
+            cur.execute("SELECT kwh_price FROM Consumption WHERE day = '{0}'".format(day))
+            kwh_price = cur.fetchone()
+            if kwh_price is not None:
+                kwh_price = kwh_price[0]
+            else:
+                date = day.split('-')
+                year = date[0]
+                month = QtCore.QDate.longMonthName(int(date[1]))
+                QMessageBox.critical(app, 'Error!', 'There is no kWh price registered for {0}, {1}'.format(month, year))
+        except MySQLdb.Error as err:
+            print err
+            return -1
+        else:
+            return kwh_price
+
 
 class SupportIO(object):
 
@@ -492,7 +533,7 @@ class SupportIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT * FROM support")
+            cur.execute("SELECT * FROM Support")
             supports = cur.fetchall()
 
             for support in supports:
@@ -520,7 +561,7 @@ class SupportIO(object):
         success = False
         if len(supports) == 0:
             try:
-                cur.execute("DELETE FROM support")
+                cur.execute("DELETE FROM Support")
                 db.commit()
             except MySQLdb.Error:
                 db.rollback()
@@ -531,14 +572,14 @@ class SupportIO(object):
         for support in supports:
             try:
                 # check if it's registered
-                cur.execute("SELECT * FROM support WHERE phone = ('{0}')"
+                cur.execute("SELECT * FROM Support WHERE phone = ('{0}')"
                             .format(support.phone))
                 support_id = cur.fetchone()
                 if support_id is not None:
-                    cur.execute("UPDATE support SET phone = ('{0}') WHERE idSupport = ({1})"
+                    cur.execute("UPDATE Support SET phone = ('{0}') WHERE idSupport = ({1})"
                                 .format(support.phone, support.id_number))
                 else:
-                    cur.execute("INSERT INTO support (idSupport, phone) VALUES ({0}, '{1}')"
+                    cur.execute("INSERT INTO Support (idSupport, phone) VALUES ({0}, '{1}')"
                                 .format(support.id_number, support.phone))
                 db.commit()
             except MySQLdb.Error as err:

@@ -354,7 +354,7 @@ alternate-background-color: rgb(111, 161, 143);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -562,6 +562,9 @@ alternate-background-color: rgb(111, 161, 143);</string>
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -1110,161 +1113,22 @@ border-color: rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item row="1" column="4">
-        <widget class="QLineEdit" name="client_input_cpf">
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Highlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>254</red>
-               <green>144</green>
-               <blue>7</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Highlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>254</red>
-               <green>144</green>
-               <blue>7</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="Button">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Window">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="Highlight">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>254</red>
-               <green>144</green>
-               <blue>7</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="AlternateBase">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>111</red>
-               <green>161</green>
-               <blue>143</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
+        <widget class="QComboBox" name="client_input_cpf">
+         <property name="minimumSize">
+          <size>
+           <width>193</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>193</width>
+           <height>22</height>
+          </size>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="inputMask">
-          <string>999.999.999-99; </string>
-         </property>
-         <property name="cursorMoveStyle">
-          <enum>Qt::LogicalMoveStyle</enum>
          </property>
         </widget>
        </item>
@@ -1438,13 +1302,13 @@ QPushButton:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton {
 	border: solid transparent 1px;
-	border-image: url(view/img/normal/crown.png);
+	border-image: url(view/img/normal/Crown.png);
 }
 QPushButton:hover {
-	border-image: url(view/img/hover/crown.png);
+	border-image: url(view/img/hover/Crown.png);
 }
 QPushButton:pressed {
-	border-image: url(view/img/normal/crown.png);
+	border-image: url(view/img/normal/Crown.png);
 }</string>
          </property>
          <property name="text">
@@ -2196,13 +2060,13 @@ QPushButton:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton {
 	border: solid transparent 1px;
-	border-image: url(view/img/normal/crown.png);
+	border-image: url(view/img/normal/Crown.png);
 }
 QPushButton:hover {
-	border-image: url(view/img/hover/crown.png);
+	border-image: url(view/img/hover/Crown.png);
 }
 QPushButton:pressed {
-	border-image: url(view/img/normal/crown.png);
+	border-image: url(view/img/normal/Crown.png);
 }</string>
          </property>
          <property name="text">
@@ -2469,6 +2333,9 @@ QPushButton:pressed {
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -3695,6 +3562,9 @@ QPushButton:pressed {
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
@@ -4863,7 +4733,7 @@ QPushButton:pressed {
        <item row="0" column="0">
         <widget class="QLabel" name="consumption_lbl_day">
          <property name="text">
-          <string>Day:</string>
+          <string>Month:</string>
          </property>
         </widget>
        </item>
@@ -4897,6 +4767,9 @@ QPushButton:pressed {
            <height>22</height>
           </size>
          </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 alternate-background-color: rgb(1, 95, 61);
@@ -4918,6 +4791,9 @@ color: rgb(0, 0, 0);</string>
            <month>1</month>
            <day>1</day>
           </date>
+         </property>
+         <property name="displayFormat">
+          <string>MM/yyyy</string>
          </property>
          <property name="calendarPopup">
           <bool>true</bool>
@@ -5290,6 +5166,9 @@ border-color: rgb(255, 255, 255);</string>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
@@ -5299,11 +5178,6 @@ border-color: rgb(255, 255, 255);</string>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
       </attribute>
-      <column>
-       <property name="text">
-        <string>Day</string>
-       </property>
-      </column>
       <column>
        <property name="text">
         <string>Month</string>
@@ -6401,6 +6275,9 @@ border-color: rgb(255, 255, 255);</string>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
@@ -6418,11 +6295,6 @@ border-color: rgb(255, 255, 255);</string>
       <column>
        <property name="text">
         <string>Address</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Manager</string>
        </property>
       </column>
      </widget>
@@ -7517,6 +7389,9 @@ border-color: rgb(255, 255, 255);</string>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
@@ -7600,14 +7475,35 @@ alternate-background-color: rgb(111, 161, 143);</string>
        <height>311</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::ActionsContextMenu</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideMiddle</enum>
      </property>
      <property name="showGrid">
       <bool>true</bool>
      </property>
      <property name="gridStyle">
       <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
      </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
@@ -7644,12 +7540,12 @@ alternate-background-color: rgb(111, 161, 143);</string>
      </column>
      <column>
       <property name="text">
-       <string>Month's Day</string>
+       <string>Month</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Consumption [kWh/month]</string>
+       <string>Consumption</string>
       </property>
      </column>
     </widget>
@@ -7682,7 +7578,7 @@ alternate-background-color: rgb(111, 161, 143);</string>
          </spacer>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="client_btn_create_2">
+         <widget class="QPushButton" name="home_btn_equipment">
           <property name="minimumSize">
            <size>
             <width>26</width>
@@ -7722,16 +7618,13 @@ QPushButton:pressed {
             <height>20</height>
            </size>
           </property>
-          <property name="shortcut">
-           <string>Return</string>
-          </property>
           <property name="flat">
            <bool>true</bool>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QComboBox" name="equipment_cb_search_2">
+         <widget class="QComboBox" name="home_input_equipment">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -7862,6 +7755,55 @@ QPushButton:pressed {
       </item>
      </layout>
     </widget>
+    <widget class="QPushButton" name="home_table_update">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>280</y>
+       <width>41</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50000</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>updt</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="login_widget" native="true">
     <property name="geometry">
@@ -7951,7 +7893,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
       <rect>
        <x>290</x>
        <y>400</y>
-       <width>236</width>
+       <width>237</width>
        <height>41</height>
       </rect>
      </property>
@@ -10118,8 +10060,8 @@ QPushButton:!enabled {
       <string>Version: alpha</string>
      </property>
     </widget>
-    <zorder>formLayoutWidget</zorder>
     <zorder>about_title</zorder>
+    <zorder>formLayoutWidget</zorder>
     <zorder>about_cemig</zorder>
     <zorder>about_powered</zorder>
     <zorder>about_version</zorder>
@@ -10228,11 +10170,11 @@ QPushButton:hover {
      </item>
     </layout>
    </widget>
-   <zorder>home_widget</zorder>
    <zorder>login_widget</zorder>
-   <zorder>about_widget</zorder>
    <zorder>register_widget</zorder>
+   <zorder>about_widget</zorder>
    <zorder>tab_crud</zorder>
+   <zorder>home_widget</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar</zorder>
    <zorder>window_buttons</zorder>
@@ -10283,8 +10225,8 @@ QPushButton:hover {
      <rect>
       <x>211</x>
       <y>130</y>
-      <width>155</width>
-      <height>94</height>
+      <width>141</width>
+      <height>92</height>
      </rect>
     </property>
     <property name="title">
@@ -10538,7 +10480,6 @@ QPushButton:hover {
   <tabstop>client_input_name</tabstop>
   <tabstop>client_input_age</tabstop>
   <tabstop>client_input_address</tabstop>
-  <tabstop>client_input_cpf</tabstop>
   <tabstop>manager_input_cpf</tabstop>
   <tabstop>manager_input_agency</tabstop>
   <tabstop>equipment_input_name</tabstop>
@@ -10562,7 +10503,7 @@ QPushButton:hover {
   <tabstop>support_cb_search</tabstop>
   <tabstop>support_input_search</tabstop>
   <tabstop>support_btn_search</tabstop>
-  <tabstop>equipment_cb_search_2</tabstop>
+  <tabstop>home_input_equipment</tabstop>
   <tabstop>home_table</tabstop>
   <tabstop>support_table</tabstop>
   <tabstop>client_table</tabstop>
