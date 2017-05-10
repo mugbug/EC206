@@ -7804,6 +7804,10 @@ QPushButton:pressed {
       <bool>false</bool>
      </property>
     </widget>
+    <zorder>home_table</zorder>
+    <zorder>horizontalLayoutWidget_3</zorder>
+    <zorder>home_table_update</zorder>
+    <zorder>about_widget</zorder>
    </widget>
    <widget class="QWidget" name="login_widget" native="true">
     <property name="geometry">
@@ -8170,7 +8174,7 @@ font: 25 10pt &quot;Segoe UI Semilight&quot;;</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>141</width>
+      <width>151</width>
       <height>501</height>
      </rect>
     </property>
@@ -8520,9 +8524,6 @@ selection-background-color: rgb(155, 225, 200);</string>
       <property name="icon">
        <iconset>
         <normaloff>view/img/normal/Bar Chart.png</normaloff>view/img/normal/Bar Chart.png</iconset>
-      </property>
-      <property name="flags">
-       <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
       </property>
      </item>
     </item>
@@ -9755,13 +9756,22 @@ color: rgb(222, 222, 222);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+    <zorder>gridLayoutWidget_7</zorder>
+    <zorder>register_lbl_subtitle</zorder>
+    <zorder>register_lbl_required</zorder>
+    <zorder>horizontalLayoutWidget_8</zorder>
+    <zorder>line</zorder>
+    <zorder>register_lbl_title</zorder>
+    <zorder>line_3</zorder>
+    <zorder>about_widget</zorder>
+    <zorder>about_widget</zorder>
    </widget>
    <widget class="QWidget" name="about_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>150</x>
       <y>0</y>
-      <width>661</width>
+      <width>651</width>
       <height>491</height>
      </rect>
     </property>
@@ -10170,14 +10180,36 @@ QPushButton:hover {
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="histogram_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>0</y>
+      <width>651</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_7">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>591</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="histogram_layout"/>
+    </widget>
+   </widget>
    <zorder>login_widget</zorder>
    <zorder>register_widget</zorder>
    <zorder>about_widget</zorder>
    <zorder>tab_crud</zorder>
-   <zorder>home_widget</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar</zorder>
    <zorder>window_buttons</zorder>
+   <zorder>home_widget</zorder>
+   <zorder>histogram_widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

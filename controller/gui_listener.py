@@ -2,7 +2,7 @@ from PyQt4 import QtGui, QtCore
 import MySQLdb
 from models.crud import *
 from models.models import *
-# import graph
+from models.histogram import *
 
 
 class ButtonFeatures(object):
@@ -587,6 +587,10 @@ class ButtonListener(object):
         app.remove_Action.triggered.connect(lambda: ButtonFeatures.remove_row(app))
         app.home_table_update.clicked.connect(lambda: ButtonFeatures.update_calculator(app))
 
+        # ____________________HISTOGRM___________________--
+        # app.histogram_plot.clicked.connect(lambda: ButtonFeatures.plot(app))
+        app.histogram_bnt_plot.clicked.connect(lambda: PlotBarChart.plot(app))
+
         # _________________CLIENT MANAGING_______________
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))
         app.client_btn_edit.clicked.connect(lambda: ButtonFeatures.client_edit(app))
@@ -648,8 +652,7 @@ class ButtonListener(object):
         elif item_clicked == 'Calculate':
             SwitchWidget.to_home(app)
         elif item_clicked == 'Histogram':
-            print 'Histogram item clicked'
-            # graph.main()
+            SwitchWidget.to_histogram(app)
 
 
 class SwitchWidget(object):
@@ -670,6 +673,7 @@ class SwitchWidget(object):
         app.sidebar.setVisible(False)
         app.register_widget.setVisible(False)
         app.about_widget.setVisible(False)
+        app.histogram_widget.setVisible(False)
 
         # Show
         app.window_buttons.setEnabled(True)
@@ -680,6 +684,7 @@ class SwitchWidget(object):
         # Hide
         app.home_widget.setVisible(False)
         app.about_widget.setVisible(False)
+        app.histogram_widget.setVisible(False)
 
         # Show
         app.menu_file.setEnabled(True)
@@ -694,6 +699,7 @@ class SwitchWidget(object):
         app.login_widget.setVisible(False)
         app.tab_crud.setVisible(False)
         app.about_widget.setVisible(False)
+        app.histogram_widget.setVisible(False)
 
         # Show
         app.menu_file.setEnabled(True)
@@ -709,6 +715,7 @@ class SwitchWidget(object):
         app.tab_crud.setVisible(False)
         app.btn_home.setVisible(False)
         app.home_widget.setVisible(False)
+        app.histogram_widget.setVisible(False)
 
         # Show
         app.menu_file.setEnabled(True)
@@ -720,3 +727,18 @@ class SwitchWidget(object):
     def to_crud_3(app):
         app.tab_crud.setCurrentIndex(2)
         SwitchWidget.to_crud(app)
+
+    @staticmethod
+    def to_histogram(app):
+        # Hide
+        app.login_widget.setVisible(False)
+        app.tab_crud.setVisible(False)
+        app.btn_home.setVisible(False)
+        app.home_widget.setVisible(False)
+        app.about_widget.setVisible(False)
+
+        # Show
+        app.menu_file.setEnabled(True)
+        app.menu_help.setEnabled(True)
+        app.sidebar.setVisible(True)
+        app.histogram_widget.setVisible(True)

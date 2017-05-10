@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, QtCore
 
+from models.histogram import *
 
 class UiConfig(object):
 
@@ -8,6 +9,7 @@ class UiConfig(object):
         # Some last GUI configs
         UiConfig.configure_tables(app)
         UiConfig.configure_menubar(app)
+        PlotBarChart.init(app)
 
         from controller.gui_listener import ButtonListener, SwitchWidget
         SwitchWidget.to_login(app)
