@@ -82,10 +82,11 @@ class Consumption(object):
         self.total_consumption = float
         self.daily_consumption = 0
         self.monthly_consumption = 0
+        self.total_cost = 0
 
     def calculate_consumption(self):
         # total consumption
-        self.total_consumption = (float(self.quantity) * float(self.equipment_power) * float(self.daily_usage))/1000
+        self.total_consumption = (float(self.quantity)*float(self.equipment_power)*float(self.daily_usage))/1000
 
         self.total_cost = self.total_consumption*float(self.kwh_price)
         # per equipment consumption

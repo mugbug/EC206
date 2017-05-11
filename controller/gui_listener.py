@@ -519,7 +519,7 @@ class ButtonFeatures(object):
                                 "border-color: rgb(255, 255, 255);}")
             app.home_table.setCellWidget(row_position, 1, quant)
             # add daily usage spin box
-            daily_usage = QtGui.QSpinBox()
+            daily_usage = QtGui.QDoubleSpinBox()
             daily_usage.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                                       "border-color: rgb(255, 255, 255);")
             app.home_table.setCellWidget(row_position, 2, daily_usage)
@@ -539,7 +539,7 @@ class ButtonFeatures(object):
     def update_calculator(app):
         # init graph variables
         data = {}
-        total=0
+        total = 0
 
         rows = app.home_table.rowCount()
         for row in range(0, rows):
@@ -553,7 +553,7 @@ class ButtonFeatures(object):
             kwh_price = ConsumptionIO.get_kwh_price(date, app)
             quant = app.home_table.cellWidget(row, 1).value()
             daily_usage = app.home_table.cellWidget(row, 2).value()
-            if (power >= 0) and (kwh_price>=0):
+            if (power >= 0) and (kwh_price >= 0):
                 consumption = Consumption(power, day, kwh_price, daily_usage, quant)
                 consumption.calculate_consumption()
                 item = QtGui.QTableWidgetItem('R$ '+str(consumption.total_cost))

@@ -7806,6 +7806,9 @@ QPushButton:pressed {
        <height>32</height>
       </size>
      </property>
+     <property name="shortcut">
+      <string>Return</string>
+     </property>
      <property name="flat">
       <bool>false</bool>
      </property>
@@ -10194,15 +10197,15 @@ QPushButton:hover {
      <layout class="QVBoxLayout" name="histogram_layout"/>
     </widget>
    </widget>
+   <zorder>about_widget</zorder>
+   <zorder>histogram_widget</zorder>
    <zorder>login_widget</zorder>
    <zorder>register_widget</zorder>
-   <zorder>about_widget</zorder>
    <zorder>tab_crud</zorder>
+   <zorder>home_widget</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar</zorder>
    <zorder>window_buttons</zorder>
-   <zorder>home_widget</zorder>
-   <zorder>histogram_widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

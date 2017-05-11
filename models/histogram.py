@@ -10,10 +10,10 @@ class PlotBarChart:
     @staticmethod
     def init(app):
 
-        app.figure = Figure()
+        app.figure = Figure(facecolor='#6fa18f')
         app.canvas = FigureCanvas(app.figure)
         app.canvas.setParent(app)
-        app.figure.suptitle('Consumption by Equipment')
+        # app.figure.suptitle('Consumption by Equipment')
 
         # Since we have only one plot, we can use add_axes
         # instead of add_subplot, but then the subplot
@@ -21,9 +21,13 @@ class PlotBarChart:
         # work.
         app.axes = app.figure.add_subplot(111)
 
+        app.axes.set_title('Consumption by Equipment')
+        app.axes.set_xlabel('kWh')
+        app.axes.set_ylabel('Equipments')
+
         # Create the navigation toolbar, tied to the canvas
         app.mpl_toolbar = NavigationToolbar(app.canvas, app)
-
+        # app.mpl_toolbar.home().setIcon()
         app.histogram_layout.addWidget(app.mpl_toolbar)
         app.histogram_layout.addWidget(app.canvas)
 
@@ -40,6 +44,11 @@ class PlotBarChart:
         # clear the axes and redraw the plot anew
         app.axes.clear()
 
-        app.axes.barh(x, data, align='center', tick_label=equipments)
+        app.axes.barh(x, data, height=0.5, align='center', tick_label=equipments, color='#015f3d')
 
+        app.axes.set_title('Consumption by Equipment')
+        app.axes.set_xlabel('kWh')
+        app.axes.set_ylabel('Equipments')
+
+        app.figure.tight_layout()
         app.canvas.draw()
