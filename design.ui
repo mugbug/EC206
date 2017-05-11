@@ -7732,6 +7732,12 @@ QPushButton:pressed {
       </item>
       <item>
        <widget class="QLCDNumber" name="home_input_total">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -7746,7 +7752,7 @@ QPushButton:pressed {
       <item>
        <widget class="QLabel" name="home_lbl_total_waste_unit">
         <property name="text">
-         <string>kWh/month</string>
+         <string>kWh</string>
         </property>
         <property name="margin">
          <number>2</number>
@@ -7804,10 +7810,6 @@ QPushButton:pressed {
       <bool>false</bool>
      </property>
     </widget>
-    <zorder>home_table</zorder>
-    <zorder>horizontalLayoutWidget_3</zorder>
-    <zorder>home_table_update</zorder>
-    <zorder>about_widget</zorder>
    </widget>
    <widget class="QWidget" name="login_widget" native="true">
     <property name="geometry">
@@ -9756,15 +9758,6 @@ color: rgb(222, 222, 222);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <zorder>gridLayoutWidget_7</zorder>
-    <zorder>register_lbl_subtitle</zorder>
-    <zorder>register_lbl_required</zorder>
-    <zorder>horizontalLayoutWidget_8</zorder>
-    <zorder>line</zorder>
-    <zorder>register_lbl_title</zorder>
-    <zorder>line_3</zorder>
-    <zorder>about_widget</zorder>
-    <zorder>about_widget</zorder>
    </widget>
    <widget class="QWidget" name="about_widget" native="true">
     <property name="geometry">
@@ -10183,19 +10176,19 @@ QPushButton:hover {
    <widget class="QWidget" name="histogram_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>0</y>
-      <width>651</width>
+      <width>641</width>
       <height>501</height>
      </rect>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget_7">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>20</y>
-       <width>591</width>
-       <height>441</height>
+       <x>10</x>
+       <y>10</y>
+       <width>621</width>
+       <height>471</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="histogram_layout"/>

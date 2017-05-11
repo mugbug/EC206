@@ -537,6 +537,10 @@ class ButtonFeatures(object):
 
     @staticmethod
     def update_calculator(app):
+        # init graph variables
+        data = {}
+        total=0
+
         rows = app.home_table.rowCount()
         for row in range(0, rows):
             equipment_name = app.home_table.item(row, 0).text()
@@ -555,6 +559,16 @@ class ButtonFeatures(object):
                 item = QtGui.QTableWidgetItem('R$ '+str(consumption.total_cost))
                 item.setFlags(QtCore.Qt.ItemIsEnabled)
                 app.home_table.setItem(row, 4, item)
+
+                # add to dict
+                data[equipment_name] = consumption.total_cost
+                # sum cost
+                total += consumption.total_consumption
+
+        # update histogram
+        PlotBarChart.plot(app, data)
+        # update total cost
+        app.home_input_total.display(total)
 
 
 class ButtonListener(object):
@@ -589,7 +603,7 @@ class ButtonListener(object):
 
         # ____________________HISTOGRM___________________--
         # app.histogram_plot.clicked.connect(lambda: ButtonFeatures.plot(app))
-        app.histogram_bnt_plot.clicked.connect(lambda: PlotBarChart.plot(app))
+        # app.histogram_bnt_plot.clicked.connect(lambda: PlotBarChart.plot(app))
 
         # _________________CLIENT MANAGING_______________
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))
