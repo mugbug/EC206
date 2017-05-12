@@ -1,8 +1,9 @@
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
+from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT
 from matplotlib.figure import Figure
+
 
 
 class PlotBarChart:
@@ -27,8 +28,8 @@ class PlotBarChart:
 
         # Create the navigation toolbar, tied to the canvas
         app.mpl_toolbar = NavigationToolbar(app.canvas, app)
-        # app.mpl_toolbar.home().setIcon()
-        app.histogram_layout.addWidget(app.mpl_toolbar)
+
+        app.toolbar_layout.addWidget(app.mpl_toolbar)
         app.histogram_layout.addWidget(app.canvas)
 
     @staticmethod
@@ -52,3 +53,9 @@ class PlotBarChart:
 
         app.figure.tight_layout()
         app.canvas.draw()
+
+
+class NavigationToolbar(NavigationToolbar2QT):
+
+    toolitems = [t for t in NavigationToolbar2QT.toolitems if
+                 t[0] == 'Save']
