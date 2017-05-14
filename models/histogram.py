@@ -29,7 +29,7 @@ class PlotBarChart:
         # Create the navigation toolbar, tied to the canvas
         app.mpl_toolbar = NavigationToolbar(app.canvas, app)
 
-        app.toolbar_layout.addWidget(app.mpl_toolbar)
+        app.histogram_layout.addWidget(app.mpl_toolbar)
         app.histogram_layout.addWidget(app.canvas)
 
     @staticmethod
@@ -48,7 +48,7 @@ class PlotBarChart:
         app.axes.barh(x, data, height=0.5, align='center', tick_label=equipments, color='#015f3d')
 
         app.axes.set_title('Consumption by Equipment')
-        app.axes.set_xlabel('kWh')
+        app.axes.set_xlabel('R$')
         app.axes.set_ylabel('Equipments')
 
         app.figure.tight_layout()

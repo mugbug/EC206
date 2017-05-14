@@ -56,7 +56,7 @@ class ClientIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("INSERT INTO user (cpf, password) VALUES ('{0}', '{1}')".format(cpf, password))
+            cur.execute("INSERT INTO User (cpf, password) VALUES ('{0}', '{1}')".format(cpf, password))
             return 0
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'CPF already registered!')
@@ -69,7 +69,7 @@ class ClientIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("UPDATE user SET password = ('{0}') WHERE cpf = ('{1}')".format(password, cpf))
+            cur.execute("UPDATE User SET password = ('{0}') WHERE cpf = ('{1}')".format(password, cpf))
             db.commit()
         except MySQLdb.Error:
             QMessageBox.critical(app, 'Error!', 'Could not update Client password!')
