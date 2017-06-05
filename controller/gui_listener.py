@@ -642,6 +642,7 @@ class ButtonListener(object):
         # ________________ ABOUT ________________________
         app.about_btn_calculate.clicked.connect(lambda: SwitchWidget.to_home(app))
         app.about_btn_register.clicked.connect(lambda: SwitchWidget.to_crud_3(app))
+        app.about_btn_analyse.clicked.connect(lambda: SwitchWidget.to_histogram(app))
 
     @staticmethod
     def sidebar_item_clicked(item, column):
@@ -747,11 +748,11 @@ class SwitchWidget(object):
         # Hide
         app.login_widget.setVisible(False)
         app.tab_crud.setVisible(False)
-        app.btn_home.setVisible(False)
         app.home_widget.setVisible(False)
         app.about_widget.setVisible(False)
 
         # Show
+        app.btn_home.setVisible(True)
         app.menu_file.setEnabled(True)
         app.menu_help.setEnabled(True)
         app.sidebar.setVisible(True)

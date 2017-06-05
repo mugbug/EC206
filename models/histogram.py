@@ -23,7 +23,7 @@ class PlotBarChart:
         app.axes = app.figure.add_subplot(111)
 
         app.axes.set_title('Consumption by Equipment')
-        app.axes.set_xlabel('kWh')
+        app.axes.set_xlabel('R$')
         app.axes.set_ylabel('Equipments')
 
         # Create the navigation toolbar, tied to the canvas

@@ -7764,9 +7764,9 @@ QPushButton:pressed {
     <widget class="QPushButton" name="home_table_update">
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>610</x>
        <y>280</y>
-       <width>41</width>
+       <width>31</width>
        <height>30</height>
       </rect>
      </property>
@@ -7789,16 +7789,29 @@ QPushButton:pressed {
       </size>
      </property>
      <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">QPushButton {
+	background-color: transparent;
+	border: solid transparent 1px;
+	border-image: url(view/img/normal/Update.png);
+}
+QPushButton:hover {
+	border-image: url(view/img/hover/Update.png);
+}
+QPushButton:pressed {
+	border-image: url(view/img/normal/Update.png);
+}</string>
      </property>
      <property name="text">
-      <string>updt</string>
+      <string/>
      </property>
      <property name="iconSize">
       <size>
@@ -7809,8 +7822,11 @@ QPushButton:pressed {
      <property name="shortcut">
       <string>Return</string>
      </property>
-     <property name="flat">
+     <property name="default">
       <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -9859,7 +9875,7 @@ background-color: rgb(111, 161, 143);</string>
       <item row="1" column="0">
        <widget class="QLabel" name="about_lbl_analyse">
         <property name="text">
-         <string>Analyse your consumption through the time</string>
+         <string>Analyse your consumption per equipment</string>
         </property>
        </widget>
       </item>
@@ -9920,7 +9936,7 @@ QPushButton:!enabled {
       <item row="1" column="1">
        <widget class="QPushButton" name="about_btn_analyse">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="minimumSize">
          <size>
@@ -10200,12 +10216,12 @@ QPushButton:hover {
    <zorder>login_widget</zorder>
    <zorder>register_widget</zorder>
    <zorder>tab_crud</zorder>
-   <zorder>home_widget</zorder>
-   <zorder>about_widget</zorder>
    <zorder>histogram_widget</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar</zorder>
    <zorder>window_buttons</zorder>
+   <zorder>about_widget</zorder>
+   <zorder>home_widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

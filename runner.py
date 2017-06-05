@@ -28,9 +28,9 @@ class Application(QtGui.QMainWindow, ui.Ui_MainWindow):
         return self.db
 
     def mouseMoveEvent(self, event):
-        if self.leftClick == True:
-            x=event.globalX()
-            y=event.globalY()
+        if self.leftClick:
+            x = event.globalX()
+            y = event.globalY()
             x_w = self.offset.x()
             y_w = self.offset.y()
             self.move(x-x_w, y-y_w)
