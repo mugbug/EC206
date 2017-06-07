@@ -354,7 +354,7 @@ alternate-background-color: rgb(111, 161, 143);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -1408,6 +1408,9 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QComboBox" name="client_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -1580,6 +1583,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QLineEdit" name="client_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="palette">
           <palette>
            <active>
@@ -1752,6 +1758,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="client_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -2376,6 +2385,9 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QComboBox" name="manager_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -2543,6 +2555,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QLineEdit" name="manager_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="palette">
           <palette>
            <active>
@@ -2715,6 +2730,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="manager_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -3604,6 +3622,9 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QComboBox" name="equipment_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -3771,6 +3792,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QLineEdit" name="equipment_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="palette">
           <palette>
            <active>
@@ -3943,6 +3967,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="equipment_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -4035,6 +4062,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QComboBox" name="consumption_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>40</width>
@@ -4222,6 +4252,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QSpinBox" name="consumption_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>153</width>
@@ -4409,6 +4442,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="consumption_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -5225,6 +5261,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QComboBox" name="agency_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -5397,6 +5436,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QLineEdit" name="agency_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="palette">
           <palette>
            <active>
@@ -5569,6 +5611,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="agency_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -6329,6 +6374,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QComboBox" name="support_cb_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -6496,6 +6544,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QSpinBox" name="support_input_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>183</width>
@@ -6683,6 +6734,9 @@ border-color: rgb(255, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="support_btn_search">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>26</width>
@@ -7666,6 +7720,9 @@ QPushButton:pressed {
       </item>
       <item>
        <widget class="QPushButton" name="home_btn_generate_report">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -10213,15 +10270,15 @@ QPushButton:hover {
      <layout class="QVBoxLayout" name="histogram_layout"/>
     </widget>
    </widget>
+   <zorder>histogram_widget</zorder>
+   <zorder>home_widget</zorder>
+   <zorder>about_widget</zorder>
    <zorder>login_widget</zorder>
    <zorder>register_widget</zorder>
    <zorder>tab_crud</zorder>
-   <zorder>histogram_widget</zorder>
    <zorder>btn_home</zorder>
    <zorder>sidebar</zorder>
    <zorder>window_buttons</zorder>
-   <zorder>about_widget</zorder>
-   <zorder>home_widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

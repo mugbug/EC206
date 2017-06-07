@@ -145,7 +145,6 @@ class ButtonFeatures(object):
         elif result == 1:
             # update
             row_position = app.client_table.currentRow()
-            print row_position
             app.client_table.setItem(row_position, 0, QtGui.QTableWidgetItem(name))
             app.client_table.setItem(row_position, 1, QtGui.QTableWidgetItem(str(age)))
             app.client_table.setItem(row_position, 2, QtGui.QTableWidgetItem(address))
