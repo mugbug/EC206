@@ -148,7 +148,7 @@ class ClientIO(object):
 
 class ManagerIO(object):
     @staticmethod
-    def add(cpf, agency, app):
+    def add(cpf, agency, name, salary, app):
         """Creates new object of Client"""
 
         db = app.db
@@ -156,25 +156,25 @@ class ManagerIO(object):
 
         # manager = Manager(cpf, agency)
         try:
-            cur.execute("SELECT idAgency FROM Agency WHERE city = ('{0}')".format(agency))
-            agency_id = cur.fetchone()
-            if agency_id is not None:
-                cur.execute("INSERT INTO Manager (cpf) VALUES ('{0}')")
-                cur.execute("INSERT INTO Agency_has_Manager (Agency_idAgency, Manager_cpf) "
-                            "VALUES ({0}, '{1}')"
-                            .format(agency_id[0], cpf))
-                db.commit()
+            cur.execute("INSERT INTO Manager (nome, salario, User_cpf) VALUES ('{0}', {1}, '{2}')"
+                        .format(name, salary, cpf))
+            db.commit()
+            cur.execute("""INSERT INTO Manager_has_Agency (Manager_idManager, Agency_idAgency) VALUES 
+                        ((SELECT max(idManager) FROM Manager WHERE User_cpf = '{0}'),
+                        (SELECT max(idAgency) FROM Agency WHERE city = '{1}'))""".format(cpf, agency))
+                        
+            db.commit()
         except MySQLdb.Error as err:
             # print err
             db.rollback()
             try:
-                cur.execute("SELECT Manager.cpf FROM Manager WHERE cpf = ('{0}')".format(cpf))
+                cur.execute("SELECT idManager FROM Manager WHERE User_cpf = ('{0}')".format(cpf))
                 manager_id = cur.fetchone()
                 if manager_id is not None:
                     answer = QMessageBox.question(app, 'Confirmation', 'Update manager data?',
                                                   QMessageBox.Ok | QMessageBox.Cancel)
                     if answer == QMessageBox.Ok:
-                        ManagerIO.update(cpf, agency_id, app)
+                        ManagerIO.update(cpf, agency, name, salary, app)
                         return 1
                 else:
                     QMessageBox.critical(app, 'Error!', 'CPF not registered!')
@@ -190,41 +190,23 @@ class ManagerIO(object):
             cur.close()
 
     @staticmethod
-    def update(cpf, agency, app):
+    def update(cpf, agency, name, salary, app):
         """Lets user change some Manager object attributes"""
 
         db = app.db
         cur = db.cursor()
         try:
-            cpfs = []
-            agencies = []
-            # get current items from manager_table
-            rows = app.manager_table.rowCount()
-            for row in range(0,rows):
-                cpfs.append(str(app.manager_table.item(row, 0).text()))
-                city = str(app.manager_table.item(row, 1).text())
-                cur.execute("SELECT idAgency FROM Agency WHERE city = '{0}'".format(city))
-                agencies.append(cur.fetchone()[0])
-
-            # select all items on agency_has_manager
-            cur.execute("SELECT * FROM Agency_has_Manager")
-            agency_manager = cur.fetchall()
-            # compare both lists
-            items = app.manager_table.rowCount()
-            
-            for item in range(items):
-                agency_db = agency_manager[item][0]
-                cpf_db = agency_manager[item][1]
-                # if diff, update
-                # once both lists must be in same order, this 'if' is valid:
-                if cpf_db != cpfs[item]:
-                    script = "UPDATE Agency_has_Manager SET Manager_cpf = '{0}' WHERE Agency_idAgency = {1}".format(cpf, agency_db)
-                    cur.execute(script)
-                if agency_db != agencies[item]:
-                    script = "UPDATE Agency_has_Manager SET Agency_idAgency = {0} WHERE Manager_cpf = '{1}'".format(agency, cpf_db)
-                    cur.execute(script)
-                db.commit()
+            cur.execute("UPDATE Manager SET nome = '{0}' WHERE User_cpf = '{1}'"
+                        .format(name, cpf))
+            cur.execute("UPDATE Manager SET salario = {0} WHERE User_cpf = '{1}'"
+                        .format(salary, cpf))
+            cur.execute("""UPDATE Manager_has_Agency SET Agency_idAgency = 
+                        (SELECT max(idAgency) FROM Agency WHERE city = '{0}') 
+                        WHERE Manager_idManager = (SELECT max(idManager) FROM Manager WHERE User_cpf = '{1}')
+                        """.format(agency, cpf))
+            db.commit()
         except MySQLdb.Error as err:
+            db.rollback()
             print err
             QMessageBox.critical(app, 'Error!', 'Could not update Manager!')
         else:
@@ -239,10 +221,10 @@ class ManagerIO(object):
         db = app.db
         cur = db.cursor()
         try:
-            cur.execute("DELETE FROM Manager WHERE cpf = '{0}'".format(cpf))
+            cur.execute("DELETE FROM Manager WHERE User_cpf = '{0}'".format(cpf))
             db.commit()
         except MySQLdb.Error as err:
-            # print err
+            print err
             QMessageBox.critical(app, 'Error!', 'Could not delete Manager!')
         else:
             QMessageBox.information(app, 'Success!', 'Manager successfully removed!')
@@ -279,14 +261,19 @@ class ManagerIO(object):
         cur = db.cursor()
 
         try:
-            cur.execute("SELECT Manager_cpf, Agency.city FROM Agency_has_Manager "
-                        "INNER JOIN Agency ON Agency_idAgency = Agency.idAgency")
+            # cur.execute("SELECT m.User_cpf, m.nome, m.salario, a.city"
+            #             "FROM Manager as m, Agency as a")
+            cur.execute("SELECT User_cpf, nome, salario, city FROM Manager_has_Agency as ma "
+                        "INNER JOIN Manager ON idManager = ma.Manager_idManager "
+                        "INNER JOIN Agency ON idAgency = ma.Agency_idAgency")
             agencies_managers = cur.fetchall()
             for agency_manager in agencies_managers:
                 row_position = app.manager_table.rowCount()
                 app.manager_table.insertRow(row_position)
                 app.manager_table.setItem(row_position, 0, QtGui.QTableWidgetItem(agency_manager[0]))
                 app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency_manager[1]))
+                app.manager_table.setItem(row_position, 2, QtGui.QTableWidgetItem(str(agency_manager[2])))
+                app.manager_table.setItem(row_position, 3, QtGui.QTableWidgetItem(agency_manager[3]))
         except MySQLdb.Error as err:
             print 'Unable to fetch Manager data from database\n{0}'.format(err)
         finally:

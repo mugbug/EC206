@@ -74,13 +74,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Manager` (
   CONSTRAINT `fk_Manager_Agency1`
     FOREIGN KEY (`Agency_idAgency`)
     REFERENCES `mydb`.`Agency` (`idAgency`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Manager_User1`
     FOREIGN KEY (`cpf`)
     REFERENCES `mydb`.`User` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

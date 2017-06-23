@@ -98,6 +98,8 @@ class ButtonFeatures(object):
         app.client_input_cpf.clear()
         app.manager_input_cpf.clear()
         app.manager_input_agency.clear()
+        app.manager_input_name.clear()
+        app.manager_input_salary.setValue(0)
         app.equipment_input_name.clear()
         app.equipment_input_power.setValue(0)
         app.agency_input_address.clear()
@@ -182,25 +184,55 @@ class ButtonFeatures(object):
         else:
             QMessageBox.critical(app, 'Error!', 'Please select the client to be deleted!')
 
+    @staticmethod
+    def client_admin(app):
+        selected_item = app.client_table.currentRow()
+        if selected_item != -1:
+            cpf = app.client_table.item(selected_item, 3).text()
+            answer = QMessageBox.question(app, 'Confirmation',
+                                      'Give admin to {0}?'.format(cpf),
+                                       QMessageBox.Ok | QMessageBox.Cancel)
+            if answer == QMessageBox.Ok:
+                db = app.db
+                cur = db.cursor()
+
+                try:
+                    cur.execute("UPDATE User SET isAdmin = 1 WHERE cpf = '{0}'".format(cpf))
+                    db.commit()
+                except MySQLdb.Error as err:
+                    print err
+                    db.rollback()
+                finally:
+                    cur.close()
+
     # ________ MANAGER ____________
     @staticmethod
     def manager_create(app):
         cpf = app.manager_input_cpf.currentText()
         agency = app.manager_input_agency.currentText()
-        result = ManagerIO.add(cpf, agency, app)
+        name = app.manager_input_name.text()
+        salary = str(app.manager_input_salary.value())
+        result = ManagerIO.add(cpf, agency, name, salary, app)
         if result == 0:
             # add item to table
             row_position = app.manager_table.rowCount()
             app.manager_table.insertRow(row_position)
             app.manager_table.setItem(row_position, 0, QtGui.QTableWidgetItem(cpf))
-            app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency))
+            app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(name))
+            app.manager_table.setItem(row_position, 2, QtGui.QTableWidgetItem(salary))
+            app.manager_table.setItem(row_position, 3, QtGui.QTableWidgetItem(agency))
         elif result == 1:
+            # update
             row_position = app.manager_table.currentRow()
             app.manager_table.setItem(row_position, 0, QtGui.QTableWidgetItem(cpf))
-            app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(agency))
+            app.manager_table.setItem(row_position, 1, QtGui.QTableWidgetItem(name))
+            app.manager_table.setItem(row_position, 2, QtGui.QTableWidgetItem(salary))
+            app.manager_table.setItem(row_position, 3, QtGui.QTableWidgetItem(agency))
         # field cleaner
         app.manager_input_cpf.setCurrentIndex(0)
         app.manager_input_agency.setCurrentIndex(0)
+        app.manager_input_name.clear()
+        app.manager_input_salary.setValue(0)
         app.manager_input_cpf.setFocus()
 
     @staticmethod
@@ -208,11 +240,15 @@ class ButtonFeatures(object):
         selected_item = app.manager_table.currentRow()
         if selected_item != -1:
             cpf = app.manager_table.item(selected_item, 0).text()
-            agency = app.manager_table.item(selected_item, 1).text()
+            name = app.manager_table.item(selected_item, 1).text()
+            salary = int(app.manager_table.item(selected_item, 2).text())
+            agency = app.manager_table.item(selected_item, 3).text()
             cpf_index = app.manager_input_cpf.findText(cpf)
             app.manager_input_cpf.setCurrentIndex(cpf_index)
             agency_index = app.manager_input_agency.findText(agency)
             app.manager_input_agency.setCurrentIndex(agency_index)
+            app.manager_input_name.setText(name)
+            app.manager_input_salary.setValue(salary)
         else:
             QMessageBox.critical(app, 'Error!', 'Please select the manager to be edited!')
 
@@ -225,6 +261,27 @@ class ButtonFeatures(object):
             app.manager_table.removeRow(selected_item)
         else:
             QMessageBox.critical(app, 'Error!', 'Please select the manager to be deleted!')
+
+    @staticmethod
+    def manager_admin(app):
+        selected_item = app.manager_table.currentRow()
+        if selected_item != -1:
+            cpf = app.manager_table.item(selected_item, 0).text()
+            answer = QMessageBox.question(app, 'Confirmation',
+                                      'Give admin to {0}?'.format(cpf),
+                                       QMessageBox.Ok | QMessageBox.Cancel)
+            if answer == QMessageBox.Ok:
+                db = app.db
+                cur = db.cursor()
+
+                try:
+                    cur.execute("UPDATE User SET isAdmin = 1 WHERE cpf = '{0}'".format(cpf))
+                    db.commit()
+                except MySQLdb.Error as err:
+                    print err
+                    db.rollback()
+                finally:
+                    cur.close()
 
     @staticmethod
     def equipment_create(app):
@@ -568,7 +625,7 @@ class ButtonFeatures(object):
         PlotBarChart.plot(app, data)
         # update total cost
         app.home_input_total.display(total)
-
+    
 
 class ButtonListener(object):
     @staticmethod
@@ -608,11 +665,13 @@ class ButtonListener(object):
         app.client_btn_create.clicked.connect(lambda: ButtonFeatures.client_create(app))
         app.client_btn_edit.clicked.connect(lambda: ButtonFeatures.client_edit(app))
         app.client_btn_delete.clicked.connect(lambda: ButtonFeatures.client_delete(app))
+        app.client_btn_admin.clicked.connect(lambda: ButtonFeatures.client_admin(app))
 
         # _________________MANAGER_______________________
         app.manager_btn_create.clicked.connect(lambda: ButtonFeatures.manager_create(app))
         app.manager_btn_edit.clicked.connect(lambda: ButtonFeatures.manager_edit(app))
         app.manager_btn_delete.clicked.connect(lambda: ButtonFeatures.manager_delete(app))
+        app.manager_btn_admin.clicked.connect(lambda: ButtonFeatures.manager_admin(app))
 
         # _________________EQUIPMENT MANAGING____________
         app.equipment_btn_create.clicked.connect(lambda: ButtonFeatures.equipment_create(app))
