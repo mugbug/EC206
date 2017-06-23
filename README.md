@@ -4,7 +4,7 @@ ___
 Python 2.7 is required.
 
 Installing other requirements: <br>
-`pip install -r requirements` <br><br>
+`pip install -r requirements.txt` <br><br>
 
 Installing PyQt4 (Ubuntu):<br>
 `sudo apt install python-qt4`<br>
