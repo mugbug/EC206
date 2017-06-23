@@ -1,7 +1,9 @@
 # EC206
 Energy cost calculator
 ___
-Installing requirements: <br>
+Python 2.7 is required.
+
+Installing other requirements: <br>
 `pip install -r requirements` <br><br>
 
 Installing PyQt4 (Ubuntu):<br>
